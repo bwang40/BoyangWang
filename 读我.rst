@@ -120,11 +120,11 @@ Time                Degree             Major                          School
    - （2011） 北京理工大学校级大学生科技创新项目 优秀奖_
    - （2010） 北京市大学生物理实验竞赛 一等奖_
 
-.. _`Sigma Xi/IIT Student Award`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
-.. _`Student Paper Competition Winner`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
-.. _`三等奖`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
-.. _`优秀奖`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
-.. _`一等奖`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
+.. _`Sigma Xi/IIT Student Award`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/SIGMAXI2020.png
+.. _`Student Paper Competition Winner`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/IUS2019.png
+.. _`三等奖`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/SHIJIBEI2012.jpg
+.. _`优秀奖`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/KEJI2010.png
+.. _`一等奖`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/WULI2010.jpg
 
 Online Certifications
 ===========================
