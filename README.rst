@@ -1,5 +1,5 @@
 *************************************************************************************************************
-Boyang Wang - Resume (`中文版 <https://github.com/bwang40/BoyangWang/blob/main/%E8%AF%BB%E6%88%91.rst>`)
+Boyang Wang - Resume `中文版`_
 *************************************************************************************************************
 PhD Candidate in Illinois Institute of Technology.
 
@@ -135,6 +135,8 @@ Publications
 .. _`Beijing Institute of Technology`: http://www.bit.edu.cn/
 .. _`ECASP`: http://ecasp.ece.iit.edu/
 .. _`Argonne National Laboratory`: `Argonne National Laboratory`
+.. _`中文版`: `https://github.com/bwang40/BoyangWang/blob/main/%E8%AF%BB%E6%88%91.rst`
+
 
 .. Certification links
 
