@@ -1,7 +1,7 @@
 ********************************
 Boyang Wang - Resume 
 ********************************
-Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research ECASP_ Laboratory of Illinois Institute of Technology. My research topic is focused on Ultrasonic Signal Processing, Embedded System Development, Hardware & Software co-design and Artificial Intelligence. During my PhD studying, I have done projects such as Ultrasonic NDT System Design and Signal Processing, Ultrasonic Communication through solid and Artificial Intelligence for Ultrasonic Signal Processing. I have instructed or directly involved in many students’ projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA. 
+Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research ECASP_ Laboratory of `Illinois Institute of Technology`_. My research topic is focused on Ultrasonic Signal Processing, Embedded System, Hardware & Software co-design and Artificial Intelligence. During my PhD studying, I have done projects such as Ultrasonic NDT System Design and Signal Processing, Ultrasonic Communication through solid, and Artificial Intelligence for Ultrasonic Signal Processing. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA. 
 
 Personal Details
 ======================
@@ -72,13 +72,13 @@ Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
    * Circuit Analysis II (ECE213 with expeiments)
    * Engineering Electronics (ECE311 with expeiments)
 
-研究助理 美国阿贡国家实验室 (2017-2018)
-----------------------------------------------
+Research Student `Argonne National Laboratory`_ (2017-2018)
+--------------------------------------------------------------------
    * 独立负责设计并搭建基于可编程片上系统的软件定义无线电系统，用于实时超声波通讯
    * 研究声波在固体媒介中的传导方式，并利用导波优化超声波通讯的传输距离、速度、及稳定性
    * 利用正交频分多工对于多路径干扰的稳定性，解决超声波在传播过程中发生的频率选择性衰落及码间串扰
 
-项目经历
+Projects
 ==============================
 
 基于可编程片上系统的超声波无损探伤系统设计 （2015-2019）
@@ -105,7 +105,7 @@ Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
    * 详见阿贡国家实验室实习经历
 
 
-其他课题
+Other Projects
 ============================
 
 基于神经网络和传感器网络的人类姿态检测 （2019-2020）
@@ -124,7 +124,7 @@ Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
    * 通过仿真数据验证从单（双）通道孕妇腹膜心电图检测胎儿心率的可行性
    * 利用机器学习算法实现高精度胎儿心率检测
 
-获奖情况
+Awards
 ============================
    - （2020） `Sigma Xi/IIT Student Award`_ for Excellence in University Research
    - （2019） `Student Paper Competition Winner`_ in the 2019 IEEE International Ultrasonics Symposium
