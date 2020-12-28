@@ -114,11 +114,11 @@ Time                Degree             Major                          School
 
 获奖情况
 ============================
-   - （2020）`Sigma Xi/IIT Student Award`_ for Excellence in University Research
-   - （2019）`Student Paper Competition Winner`_ in the 2019 IEEE International Ultrasonics Symposium
-   - （2012）北京理工大学第九届世纪杯学生课外学术科技作品竞赛 三等奖_
-   - （2011）北京理工大学校级大学生科技创新项目 优秀奖_
-   - （2010）北京市大学生物理实验竞赛 一等奖_
+   - （2020） `Sigma Xi/IIT Student Award`_ for Excellence in University Research
+   - （2019） `Student Paper Competition Winner`_ in the 2019 IEEE International Ultrasonics Symposium
+   - （2012） 北京理工大学第九届世纪杯学生课外学术科技作品竞赛 三等奖_
+   - （2011） 北京理工大学校级大学生科技创新项目 优秀奖_
+   - （2010） 北京市大学生物理实验竞赛 一等奖_
 
 .. _`Sigma Xi/IIT Student Award`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
 .. _`Student Paper Competition Winner`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G
