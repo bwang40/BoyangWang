@@ -59,9 +59,9 @@ Experience
 
 Research Assistant `Illinois Institute of Technology`_ (2015-2020)
 ----------------------------------------------------------------------------
-   * 从事超声波系统设计及信号处理，可编程片上系统，人工智能，软件定义无线电，及物联网相关研究
-   * 辅导多名研究生课题以及论文项目
-   * 帮助教授协调以及维持 ECASP_ 实验室的日常运作
+   * My research topic is focused on Ultrasonic Signal Processing, Embedded System, Hardware & Software co-design, and Artificial Intelligence. 
+   * I have instructed or directly involved in many students' projects.
+   * Help maintain the daily operation of the ECASP_ laboratory.
 
 Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
 -----------------------------------------------------------------------------
@@ -77,27 +77,27 @@ Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
 
 Research Student `Argonne National Laboratory`_ (2017-2018)
 --------------------------------------------------------------------
-   * 独立负责设计并搭建基于可编程片上系统的软件定义无线电系统，用于实时超声波通讯
-   * 研究声波在固体媒介中的传导方式，并利用导波优化超声波通讯的传输距离、速度、及稳定性
-   * 利用正交频分多工对于多路径干扰的稳定性，解决超声波在传播过程中发生的频率选择性衰落及码间串扰
+   * Developed a testbed platform using the ZYNQ SoC (System-on-Chip) FPGA by Xilinx which offers reconfigurability and high-performance computational capability, high-speed signal converters, power amplifiers for excitation of transducers, low noise receiving amplifiers and high-frequency ultrasonic transducers for transmitting and receiving information. 
+   * Study the acoustic wave propagation in solid material, using guided wave for the optimal ultrasonic communication in apsect of robostness, speed, and transmission distance.
+   * Using OFDM for compating the multipath effect in the ultrasonic channels, reducing the effect of the severe frequency selective fading and intersymbol interference in the communications.
 
 Projects
 ==============================
 
-基于可编程片上系统的超声波无损探伤系统设计 （2015-2019）
---------------------------------------------------------
-   * 设计并实现基于可编程片上系统的超声波无损探伤系统，实现收发、信号处理、存储一体化，该系统具有低功耗，高性能，软硬件可编程，低功耗，及低成本等优点
-   * 利用片载FPGA，实现高速模数转换器的输出序列化及缓冲并使用直接存储器访问技术完成高频信号采集
-   * 实现基于片载FPGA的信号处理加速模块，完成对超声波信号的压缩及分析
-   * 对片载ARM处理器进行编程，总控以上所述功能
+Re-configurable Ultrasonic non-destructive testing (NDT) system based on all-programmable SoC （2015-2019）
+-----------------------------------------------------------------------------------------------------------------------
+   * Designed an ultrasonic nondestructive testing system based on ZYNQ ap-SoC. The system is re-configurable, real-time, low power consumption, portable and easy to use.
+   * The system can generate high voltage pulses for exciting the ultrasonic transducers, receive the low voltage ultrasonic backscattered echoes, process the acquired data, and transmit and store the processed data to a host computer.
+   * Hardware acceleration for the algorithms on FPGA are implemented on ZYNQ ap-SoC for real-time signal processing.
+   * Programming the ARM porcessor to control the system.
 
-基于神经网络的超声波无损探伤信号处理 （2016-2019）
---------------------------------------------------------
-   * 使用TensorFlow设计并实现基于神经网络的超声波无损探伤信号处理
+Ultrasonic Signal Processing based on Artificial Intelligence （2016-2019）
+----------------------------------------------------------------------------------
+   * Using TensorFlow for 
    * 利用神经网络实现高精度目标回波定位，及钢铁晶粒尺寸检测
 
-卷积自编码器用于优化基于小波包分解的超声波信号压缩 （2020）
-------------------------------------------------------------
+Ultrasonic Data Compression using Wavelet Packet Transformation Optimized by a Convolutional Autoencoder（2020）
+-----------------------------------------------------------------------------------------------------------------------
    * 利用自编码器及卷积自编码器完成高保真度、高压缩比的超声波信号压缩
    * 设计算法自动适配最优小波类型及分解路径用于基于小波包分解的超声波信号压缩
    * 基于最优小波包分解的压缩算法，将算法移植到TensorFlow并利用反向传播找到最优压缩品质
@@ -111,8 +111,8 @@ Projects
 Other Projects
 ============================
 
-基于神经网络和传感器网络的人类姿态检测 （2019-2020）
---------------------------------------------------------
+Apply Neural network on IoT based Fall Detection System （2019-2020）
+-----------------------------------------------------------------------------
    * 协助完成基于嵌入式系统的可穿戴传感器网络系统设计以及实现
    * 完成原始数据的收集、预处理、及标注，用于训练神经网络
    * 利用机器学习算法实现高精度实时人类姿态检测
@@ -122,8 +122,8 @@ Other Projects
    * 设计并实现数控单通道显微镜相机扫描系统
    * 辅助设计图像拼接算法及基于立体视觉的3D重建算法
 
-基于神经网络和单（双）通道腹膜心电图的胎儿心率检测 （2018）
---------------------------------------------------------------
+FECG and MECG Characterization using Machine Learning Method （2018）
+--------------------------------------------------------------------------
    * 通过仿真数据验证从单（双）通道孕妇腹膜心电图检测胎儿心率的可行性
    * 利用机器学习算法实现高精度胎儿心率检测
 
