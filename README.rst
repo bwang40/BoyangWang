@@ -3,6 +3,9 @@ Boyang Wang - Resume
 ********************************
 Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research ECASP_ Laboratory of `Illinois Institute of Technology`_. My research topic is focused on Ultrasonic Signal Processing, Embedded System, Hardware & Software co-design and Artificial Intelligence. During my PhD studying, I have done projects such as Ultrasonic NDT System Design and Signal Processing, Ultrasonic Communication through solid, and Artificial Intelligence for Ultrasonic Signal Processing. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA. 
 
+.. contents:: Table of Content
+   :depth: 2
+
 Personal Details
 ======================
 
