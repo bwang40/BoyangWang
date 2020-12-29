@@ -5,11 +5,6 @@
 
 .. Prerequisite. conda install -c conda-forge sphinxcontrib-bibtex 
 
-.. figure:: Source/Images/chunfeng.png
-    :alt: photo of mine
-    :align: right
-    :scale: 60 %
-
 **************************************************
 |logome| Boyang Wang's Notebooks
 **************************************************
@@ -20,21 +15,7 @@
 .. |IITlogo| image:: Source/Images/logo/iitlogo.png
    :width: 1em
 
-
-
-My name is `Boyang Wang`_. I am currently a PhD. Candidate at |IITlogo| `Illinois Institute of Technology`_. I am a member in `ECASP Lab`_ of `ECE Department`_. My research interests are:
-
-    -   :guilabel:`Embedded and FPGA system design`
-    -   :guilabel:`Hardware and Software Co-design for Acceleration`
-    -   :guilabel:`Signal Processing`
-    -   :guilabel:`Ultrasonic NDT system and algorithms`
-    -   :guilabel:`Ultrasonic wave for Communication`
-    -   :guilabel:`Artificial Intelligence`
-
-As the domain name pointed out, this site is notebook of mine. It contains my notebooks and documentations so that I can easily access them when I need. Also, it keeps records of the projects I have done or participated from 2013 till now.  This site is mainly written and posted for the purpose of recording my activities and clearing my mind. Also, my resume_ is posted on this site as an advertisement for myself.
-
-There is another wordpress based website of mine hosted on the same server. It was generated two years ago and I have some proejects managed on this site. Welcome to my `WordPress Site`_
-
+Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research `ECASP Laboratory`_ of |IITlogo| `Illinois Institute of Technology`_. My research topic is focused on **Ultrasonic Signal Processing**, **Embedded System**, **Hardware & Software co-design**, and **Artificial Intelligence**. During my PhD studying, I have done projects such as **Ultrasonic NDT System Design and Signal Processing**, **Ultrasonic Communication through solid**, and **Artificial Intelligence for Ultrasonic Signal Processing**. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA.
 
 About Me 
 ====================
@@ -43,6 +24,7 @@ About Me
     :maxdepth: 1
 
     Source/Resume/MyResume.rst
+    Source/Resume/简历.rst
 
 My Projects 
 ====================
@@ -67,7 +49,7 @@ My Notebooks
 
 .. _`Boyang Wang`: https://notebookofmine.com
 .. _`Illinois Institute of Technology`: https://web.iit.edu/
-.. _`ECASP Lab`: http://ecasp.ece.iit.edu/
+.. _`ECASP Laboratory`: http://ecasp.ece.iit.edu/
 .. _`ECE Department`: https://engineering.iit.edu/ece
 .. _`WordPress Site`: https://notebookofmine.com/wordpress/
 .. _`resume`: Source/Resume/MyResume.html
