@@ -1,0 +1,85 @@
+************************************
+Control MSOX2024a with pyvisa
+************************************
+**Pyvisa** is a python package that allows us to control all kinds of measurement devices without bothered by different interfaces (such as USB, Ethernet, GPIB). I need it for acquiring data from the Ultrasonic NDT experimental platform. **MSOX2024A** is used in the testsetup. This is a keysight **InfiniiVision** oscilloscope with **200 MHz bandwidth** and up to **2 GSPS sample rate**. 
+
+.. contents:: Table of Contents
+   :depth: 2
+
+System environment installation
+=======================================
+`KeySight IO Library Suilte 2019`_ is the official supported software on Windows operating systems. It contains all the necessary libraries to get your device working on Windows system. 
+
+**Anaconda** is a very powerful and useful python environment on all platforms. It allows me to maintain a Python environment independent with my system python environment. It reduce the risk of messing up the system env especially when you are first to python. Pyvisa can be installed in Anaconda using the following code::
+
+    conda install -c conda-forge pyvisa 
+
+
+
+Plan
+=========
+Originally, I was planning to build the python library for MSOX2024A. However, I found that the work is too much to be done for myself within a few days. I decided to go with some specific functionalities that are crucial for my experiments. I created an class in python called MSOX2024A and created a few methods to accomplish the task I need to do. Here listed a few important methods for the Oscilloscope Control and Signal Acquisition.
+
+Oscilloscope Init, Connect and Disconnect
+-----------------------------------------------
+In Pyvisa, all the devices are managed using the ``resource manager`` object. The following function will return a list of available devices VISA addresses::
+
+    def GetResoureList(Resource_Manager):
+        resource = str(Resource_Manager.list_resources())
+        resource = resource.split("'")
+        result = []
+        for item in resource:
+            if len(item)>10:
+                result.append(item)
+        return result
+
+I created a ``msox2024a`` object for the oscilloscope device I have, the object is defined as follow::
+
+    class msox2024a():
+        
+        def __init__(self, Resource_Manager, SCOPE_VISA_ADDRESS):
+            self.rm = Resource_Manager
+            self.osc_handle = None
+            self.connectstatus = False
+            self.visa_address = SCOPE_VISA_ADDRESS
+
+Connect and Disconnect are two of the most fundamental methods of the object ``msox2024a``::
+
+    def Connect(self):
+        if self.connectstatus == False:
+            try:
+                KsInfiniiVisionX = rm.open_resource(self.visa_address)
+            except Exception:
+                print ("Unable to connect to oscilloscope at " + str(self.visa_address) + ". Aborting script.\n")
+                sys.exit()
+                return False
+            print("Sucessfully Connected to Device")
+            self.osc_handle = KsInfiniiVisionX
+            self.osc_handle.timeout = 10000
+            self.osc_handle.clear()
+            self.connectstatus = True
+        else:
+            print("Device already connected")
+        return self.osc_handle
+
+    def Disconnect(self):
+        if self.connectstatus == True:
+            self.osc_handle.clear()
+            self.osc_handle.close()
+            self.osc_handle = None
+            self.connectstatus = False
+            print("Device Sucessfully Disconnected")
+            return True
+        else:
+            print("Device not Connected")
+            return False
+
+
+References
+=================
+    1. `Keysight InfiniiVision 2000 X-Series Oscilloscopes Programmer's Guide`_
+    2. `Pyvisa Documentation`_
+
+.. _`KeySight IO Library Suilte 2019`: https://www.keysight.com/main/software.jspx?ckey=2175637&lc=eng&cc=US&nid=-33330.977662&id=2175637&pageMode=CV
+.. _`Keysight InfiniiVision 2000 X-Series Oscilloscopes Programmer's Guide`: https://www.keysight.com/upload/cmc_upload/All/2000_series_prog_guide.pdf
+.. _`Pyvisa Documentation`: https://pyvisa.readthedocs.io/en/master/

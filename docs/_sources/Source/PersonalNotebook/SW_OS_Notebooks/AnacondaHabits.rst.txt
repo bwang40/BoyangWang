@@ -1,0 +1,27 @@
+
+**************************************************
+|anacondalogo| **Anaconda** Notebook
+**************************************************
+
+.. |anacondalogo| image:: ../../Images/anacondalogo.jpg
+   :width: 2em
+
+Anaconda is a cross-platform python environment setup tool. It is very useful when managing the python environment in my computers. It has the following advantages:
+    * It is easy to install on all platform
+    * It comes with lots of useful Python packages so I don't have to go through the environment setup every time. Even if you think Anaconda is too heavy to install on certain embedded platform. You can always install miniconda. Minicoda is a lite version of Anaconda.
+    * Package managing is  very easy, it works with conda, pip without any problem
+    * A super nice user interface allows newbies to use without frustration
+    * It comes with vscode and have a good support on it. 
+
+Installation of Anaconda
+-------------------------------------
+    * Download with this link `Anaconda Download`_
+    * On Windows, execute the .exe file
+    * On Ubuntu, install using the command line 
+
+    :: 
+
+        bash Anaconda3-2019.03-Linux-x86_64.sh
+
+.. _`Anaconda Download`: https://www.anaconda.com/distribution/
+

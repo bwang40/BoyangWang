@@ -1,0 +1,7 @@
+*******************************************
+|wordpresslogo| **WordPress** Notebook
+*******************************************
+
+.. |wordpresslogo| image:: ../../Images/wordpresslogo.png
+   :width: 1em
+   

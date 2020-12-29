@@ -1,0 +1,6 @@
+*****************************************
+|matlablogo| **MATLAB** Notebook
+*****************************************
+
+.. |matlablogo| image:: ../../Images/matlablogo.jpg
+   :width: 2em

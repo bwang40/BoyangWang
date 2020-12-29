@@ -1,0 +1,11 @@
+.. sidebar:: MZ7035 Development Board
+
+   .. figure:: ../../Images/developmentboard/mz7035.jpg
+      :alt: photo of mine
+      :align: center
+      :scale: 30 %
+
+
+***************************
+MZ7035 Notebook
+***************************

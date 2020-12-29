@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ECE 565 Nodule Detection &mdash; Boyang Wang&#39;s Notebook</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon_logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ECE584 DCT Implementation Optimization on VLSI level" href="ECE584.html" />
+    <link rel="prev" title="Course Projects" href="CoursePrj.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/WebsiteLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Resume/MyResume.html">Boyang Wang - Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#personal-details">Personal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#education">Education</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#experience">Experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#interests">Interests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#skill-sets">Skill Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#hobbies">Hobbies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#online-certifications">Online Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#publications">Publications</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html">My Research Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#ultrasonic-related">Ultrasonic Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html">Ultrasonic Related Projects (My main focus Research in ECASP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-ndt-related-projects">Ultrasonic NDT Related Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-communication-related-projects">Ultrasonic Communication Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#embedded-system-and-fpga-related">Embedded system and FPGA related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/EmbeddedFPGA/EmbeddedFPGA.html">Embedded System and FPGA Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#artificial-intelligence-related">Artificial Intelligence related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html">Artificial Intelligence Related Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-interpretation-of-supervised-machine-learning">My interpretation of Supervised Machine Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#hardware-acceleration-of-machine-learning-algorithms">Hardware Acceleration of Machine Learning algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-baby-steps-of-machine-learning">My baby steps of Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="CoursePrj.html">Course Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="CoursePrj.html#my-course-project-at-iit">My Course Project at IIT</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ECE 565 Nodule Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods-and-results">Methods and Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#discussion-and-conclusion">Discussion and Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE584.html">ECE584 DCT Implementation Optimization on VLSI level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#functional-validation-and-verification">Functional Validation and verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#matlab-ise-co-simulation">MATLAB ISE co-simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE529.html">ECE529 Advanced VLSI Systems Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#architecture-exploration">Architecture Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#function-validation-and-verification">Function Validation and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#bonus">Bonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE429.html">ECE429 Intro to VLSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#implementation-and-simulation">implementation and Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE441.html">ECE441</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE587.html">ECE587 Hardware/Software Codesign</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#d-noc-architecture">2D NoC Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-evaluation">System Evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE481.html">ECE481</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE425.html">ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#calculations">Calculations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#schematics-and-simulations">Schematics and Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#performance-evaluation">Performance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE742.html">ECE742</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE744.html">ECE744</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CS450.html">CS450</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CoursePrj.html#my-course-project-from-online">My Course Project from Online</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html">Project I have done with others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#research-projects">Research Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#projects-under-my-instruction">Projects under my Instruction</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html">My Hobby Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#zynq-soc-related-projects">ZYNQ SoC Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#fpga-related-projects">FPGA Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#embedded-system-related-projects">Embedded System Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#image-signal-processing-related-projects">Image/Signal Processing Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#python-related-projects">Python Related Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html">CheckeeInfo data Crawl and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#disclaimer">Disclaimer:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#website-management">Website Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Wordpress.html">WordPress Website of Mine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html">Sphinx Notebook of Mine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html#some-issue-i-found-with-sphinx">Some Issue I found with Sphinx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#crafting">Crafting</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html">My Online Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#studying">Studying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/MachineLearning.html">Machine Learning Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Algorithms.html">Algorithms Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/LeetCode.html">Fun from LeetCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/ZYNQ.html">ZYNQ Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/FPGA.html">FPGA Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/EmbeddedSys.html">Embedded Systems Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/OperatingSys.html">Operating System Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Ultrasonic.html">Ultrasonic Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/openaigym.html">OpenAI gym Study</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#software-system-habits-notebooks">Software/System Habits Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html"> <strong>Windows 10</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#installation-of-windows-10-a-few-notes">Installation of Windows 10 (a few Notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#favored-softwares">Favored Softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#some-useful-tools-on-windows">Some Useful Tools on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#windows-features">Windows Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/UbuntuHabits.html"> <strong>Ubuntu 18.04</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html"> <strong>Xilinx Vivado</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#windows-vivado-toolset">Windows Vivado Toolset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#ubuntu-vivado-toolset">Ubuntu Vivado Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html"> <strong>VScode</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#useful-plugins-that-i-use">Useful Plugins That I use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#setup-environment-in-vscode-settings-json">Setup Environment in <span class="guilabel">.vscode/settings.json</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html"> <strong>Anaconda</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html#installation-of-anaconda">Installation of Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html"> <strong>Jupyter</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-have-to-master">Libraries have to master</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-that-are-useful">Libraries that are useful</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html"> <strong>Sphinx</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-windows">On Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#third-party-software">Third Party software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#theme-selection">Theme Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WordpressHabits.html"> <strong>WordPress</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html"> <strong>Git</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#useful-third-party-git-tools">Useful Third Party Git Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html"> <strong>LaTeX</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html#some-useful-tools-for-math-equation-generation">Some useful tools for MATH equation generation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/IphoneHabits.html"> <strong>Iphone</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/MATLABHabits.html"> <strong>MATLAB</strong> Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#development-boards">Development Boards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ZedBoard.html">ZedBoard Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/PYNQ-Z1.html">PYNQ-Z1 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/MZ7035.html">MZ7035 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ArduinoUNO.html">Arduino UNO Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/RaspberryPi.html">Raspberry Pi Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#some-ideas">Some Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#xilinx-digest">Xilinx Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html">My Digest of Xilinx Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-new-chip">Xilinx New Chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-github">Xilinx github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#mind-map">Mind Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/MindMap/Mindmap.html">Mind Map of Mine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#things-to-be-done">Things to be done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html">Things to be done</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#learning">Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#exploring">Exploring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AboutThisSite/AboutThisSite.html">About this site</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BoyangNotebook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="CoursePrj.html">Course Projects</a> &raquo;</li>
+        
+      <li>ECE 565 Nodule Detection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ECE584.html" class="btn btn-neutral float-right" title="ECE584 DCT Implementation Optimization on VLSI level" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CoursePrj.html" class="btn btn-neutral float-left" title="Course Projects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ece-565-nodule-detection">
+<h1><a class="toc-backref" href="#id16">ECE 565 Nodule Detection</a><a class="headerlink" href="#ece-565-nodule-detection" title="Permalink to this headline">¶</a></h1>
+<p>This is a course project I have done myself for course ECE565, <code class="docutils literal notranslate"><span class="pre">Computer</span> <span class="pre">Vision</span> <span class="pre">and</span> <span class="pre">Image</span> <span class="pre">Processing</span></code>. The requirement ask us to develope an method to detect nodule candidate in a medical image of lungs using the algorithms that we have learned from the class. I put together a bunch of image preprocessing methods and acquire a few features from each nodule candidate. Then I manually selected an area in feature space using human experience and marked every candidates in this area as suspicious nodules. If I have enough data sets, I should able to train a simple SVM to characterize the nodules from feature space I created. Futhermore, If I have more data, I would prefer to build a <code class="docutils literal notranslate"><span class="pre">YOLO</span></code> similar <code class="docutils literal notranslate"><span class="pre">convolutional</span> <span class="pre">neural</span> <span class="pre">network</span></code> to detect and locate the position of the nodule in a CT scan.</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ece-565-nodule-detection" id="id16">ECE 565 Nodule Detection</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id17">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#methods-and-results" id="id18">Methods and Results</a></p></li>
+<li><p><a class="reference internal" href="#discussion-and-conclusion" id="id19">Discussion and Conclusion</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id20">References</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id17">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This project presents a method based on computer vision to detect the nodules in a series of Computed Tomography (CT) images; it is a computer-aided detection system for lung nodules in chest CT images. The algorithm contains different image processing techniques including image segmentation, labelling, filtering, etc. The potential candidates of the nodules will be marked in the original image. The processed image can be showed to the doctor for further evaluation; or it can be used to build the 3D lung module for a better diagnose. The algorithm is implemented in MATLAB. In Figure 1 is the original CT images to be detected, the nodules are already marked by white boxes.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/ece565_1.png" src="../../_images/ece565_1.png" />
+<p class="caption"><span class="caption-text">Figure 1, Original Chest CT scans with nodule circled</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="methods-and-results">
+<h2><a class="toc-backref" href="#id18">Methods and Results</a><a class="headerlink" href="#methods-and-results" title="Permalink to this headline">¶</a></h2>
+<p>There are mainly four steps in order to accomplish the lesion detection system.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Firstly, the lung will be recognized as an object and be separated from the background in the image.</p></li>
+<li><p>Secondly, from the separated lung in each CT scan, several lesion candidates will be detected.</p></li>
+<li><p>Thirdly, the different lesion candidates will be labeled and features of these candidates will be calculated by the algorithm.</p></li>
+<li><p>Lastly, by using the features of different candidates, the most possible candidates are selected and marked in the original CT scans. In the following subsections, the details of the algorithm in these four steps will be presented.</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="step-1-segmentation-of-the-lungs">
+<h3>Step 1: Segmentation of the lungs<a class="headerlink" href="#step-1-segmentation-of-the-lungs" title="Permalink to this headline">¶</a></h3>
+<p>The segmentation of the lungs is performed by using the strategy of threshold and morphology filtering. By drawing the histogram of the original CT scans as it is shown in Figure2, we can know that each CT scan consists of two parts, object and background. Both of them generally obey the Gaussian distribution. By observing the original image, the object in the image is the dark part; the background is brighter than the object. The prime of separating these two sections is to find a threshold and remove the pixels that have a higher value than the threshold. I wrote two functions to calculate the threshold. The first method is by using the iterative segmentation, which is the one presented in the class. The second method is OTSU algorithm.</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/ece565_2.png" src="../../_images/ece565_2.png" />
+<p class="caption"><span class="caption-text">Figure 2, Histograms of the original CT scans</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>There is no big difference among thresholds that are calculated by using different methods. The result of the segmented image can be shown in Figure 3. By observing the segmented lung, it can be easily found that the lungs are incomplete, there are some holes on it and the edge is not smooth. So we need morphology filter to adjust the shape of the segmented image.</p>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/ece565_3.png" src="../../_images/ece565_3.png" />
+<p class="caption"><span class="caption-text">Figure 3, Raw object segmentation</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>The morphology filter is implemented by applying erosion, dilation, and hole filling algorithms to the original image. First, the raw object will be converted from a gray level image to a logical image with only two values to represent each pixel; the logical image is called the mask of the object. After so, an expansion operation will be applied to the mask image. After the expansion, erosion will be applied to the expanded image. After these two steps of operations, the edge can be smoother and most of the small holes in the object are filled. However, some big holes are still not completely filled; we will use image fill operation to fill the whole in the image. After the morphology filtering, we will obtain an object mask.
+Combining the original image and the object mask, the object can be easily selected as it is shown in Figure 4.</p>
+<div class="figure align-center" id="id4">
+<img alt="../../_images/ece565_4.png" src="../../_images/ece565_4.png" />
+<p class="caption"><span class="caption-text">Figure 4, Final object segmentation</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>The potential problem of using the threshold and morphology filtering to obtain the object of the image is that, it may misclassify the tissue in the corner as the object. What’s more, the erosion and expansion operation may change the shape of the object. It is more like an estimation of the shape of the object, not precisely. However, as we can see in Figure 4, the performance of this algorithm is very nice.</p>
+</div>
+<div class="section" id="step-2-detection-and-segmentation-of-lesion-candidates">
+<h3>Step 2: Detection and segmentation of lesion candidates<a class="headerlink" href="#step-2-detection-and-segmentation-of-lesion-candidates" title="Permalink to this headline">¶</a></h3>
+<p>The detection and segmentation of the lesion candidates can be done by using threshold based segmentation. The prime is how to find the best threshold in the object that we obtained from the step one. This threshold can be decided by using a constant summarized from the experiments. However, this method doesn’t have a good performance. In order to find a better way to find the threshold, I plot the histogram of the segmented object. Figure 5 shows the histogram of the object image.</p>
+<div class="figure align-center" id="id5">
+<img alt="../../_images/ece565_5.png" src="../../_images/ece565_5.png" />
+<p class="caption"><span class="caption-text">Figure 5, (a) Histogram of the object image, (b) Threshold selecting strategy</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>As we can see in Figure 5 (a), the object generally obeys the Gaussian distribution. For a Gaussian distribution, there are two parameters, mean and deviation. Take a closer look at the object histogram, Figure 5 (b) shows the way I am using to find the threshold. In Figure 5 (b), the mean value can be easily found by locating the maximum value in the histogram. The deviation of the Gaussian function is found by using the MATLAB function ‘std’. After trying the threshold with different values, I found that the best threshold is always at the position of the red dot in Figure 5 (b). By using the mean and deviation of the Gaussian distribution, we can calculate the best threshold by using the following equation.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{T}_{-} \text { best }=\mathrm{a}^{*} \mathrm{avg}+\mathrm{b} * \mathrm{dev}+\mathrm{c}\)</span>.</strong></p><p>In the equation, a, b and c are the experience coefficients for fixing the position of the best threshold. Table 1 shows the deviation, mean, and best threshold. The experience coefficients are: a=1.1, b=0.025, c=-4. After using the selected threshold to segment the object, we will obtain the raw nodule candidate in Figure 6.</p>
+<div class="figure align-center" id="id6">
+<img alt="../../_images/ece565_table1.png" src="../../_images/ece565_table1.png" />
+<p class="caption"><span class="caption-text">Table 1  Histogram mean, deviation, and best threshold</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id7">
+<img alt="../../_images/ece565_6.png" src="../../_images/ece565_6.png" />
+<p class="caption"><span class="caption-text">Figure 6, Raw nodule candidates after segmentation</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>As we can see in Figure 6, there are many small dots existing there as a noise. Indeed, we can take all these dots as nodule candidates. By using the classification technique, these dots can be easily eliminated because of the size. However, it will take extra time to eliminate in the step 4 than just eliminate the small pepper like dots by using median filter. After the median filter, the nodule candidate can be shown in the figure 7.</p>
+<div class="figure align-center" id="id8">
+<img alt="../../_images/ece565_7.png" src="../../_images/ece565_7.png" />
+<p class="caption"><span class="caption-text">Figure 7, Nodule candidates after median filter</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>The potential problem in my algorithm is that the histogram of the object image is not smooth; the average calculation function is finding the value by using the maximum value in the histogram. It recognizes it as a peak, and then the average value is located by the maximum value. When the signal is noisy, the peak value may not appear at the average location precisely. And the equation is an experience equation, which will need manually adjustment for the value of a, b, and c.</p>
+</div>
+<div class="section" id="step-3-connectivity-analysis-and-feature-extraction-from-the-segmented-lesion-candidates">
+<h3>Step 3: Connectivity analysis and feature extraction from the segmented lesion candidates<a class="headerlink" href="#step-3-connectivity-analysis-and-feature-extraction-from-the-segmented-lesion-candidates" title="Permalink to this headline">¶</a></h3>
+<p>In this step, the nodule candidates will be separated by using connected area labelling strategy; the features of these candidates will be calculated and saved to do the feature selection in step 4. Before doing the connected region labelling, the gray level image will be converted to logical image. Figure 8 shows the nodule candidates image after converted to logical image. With the build in function ‘bwlabel’ in MATLAB image processing tool box, the connected region of the image will be labelled with the same number. After the image labelling, different nodule candidates in the image will labelled in different numbers. For each image, we have a list of nodules. Each nodule will contain two feature information, they are circumference and area. These two features will be used to eliminate the fake candidates.</p>
+<div class="figure align-center" id="id9">
+<img alt="../../_images/ece565_8.png" src="../../_images/ece565_8.png" />
+<p class="caption"><span class="caption-text">Figure 8, Nodule Candidates in a logical image</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id10">
+<a class="reference internal image-reference" href="../../_images/ece565_9.png"><img alt="../../_images/ece565_9.png" src="../../_images/ece565_9.png" style="width: 390.5px; height: 296.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 9, Feature of nodule candidates in the same image</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p>In Figure 9, X-axis is the area of candidate; Y-axis is the circumference of the candidate. Candidates in different scan will be colored in different color. This image will be used in step 4 o do feature selection and classification. The issues associated with feature extraction are that the circumference calculation is done by using the Laplacian filter to find the edge of the candidates. However, the Laplacian filter may change the shape of the candidates; this will make the circumference not accurate.</p>
+</div>
+<div class="section" id="step-4-feature-selection-and-classification-of-the-lesion-candidates-by-using-a-rule-based-scheme">
+<h3>Step 4: Feature selection and classification of the lesion candidates by using a rule based scheme<a class="headerlink" href="#step-4-feature-selection-and-classification-of-the-lesion-candidates-by-using-a-rule-based-scheme" title="Permalink to this headline">¶</a></h3>
+<p>From Step 3, we obtained the image with all the nodules segmented and labeled. The information of different nodule candidates is extracted from the nodule. The rest of the work is to eliminate those candidates that are obviously not a nodule. First of all, those candidates with a very large size or very small size, they are not nodules. For the candidates with very small size, it is just a noise in the image. For the candidates with a very large size, it is the trachea or vessel in the lung. What’s more, the line structures in a lung CT image are the trachea or vessel. In order to eliminate the line structures in the image, the ratio of the circumference and area will be calculated. The area is calculated by counting the pixels in the target candidate. The circumference is calculated in the same way; the difference is that an additional Laplacian filter will be applied to the nodule candidate. Laplacian filter will show the edges of the target block. Count the pixels after the Laplacian filter will give us the circumference of the target candidate. The ratio of circumference and area can tell the approximate structure of the target candidate. For the candidates with a fat shape, the ratio will be small. For the candidates with a thin shape like a line, the ratio will be large. Figure 10 is a 2D feature space. The red dash line is the restriction of the ratio between circumference and area. The coefficient 0.9 is an experience parameter. When the ratio is smaller than 0.9, I will recognize the candidate as a line structure, and it will be eliminated in the final result. The blue lines are the minimum size of the candidate and the maximum size of the candidate. Only the candidates that located in the blue area will be recognized as a final nodule candidate. Figure 11 shows the nodule candidates after filter the small candidates away.</p>
+<div class="figure align-center" id="id11">
+<img alt="../../_images/ece565_10.png" src="../../_images/ece565_10.png" />
+<p class="caption"><span class="caption-text">Figure 10, 2D Feature space</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<p>Figure 12 shows the nodule candidates after filter the large candidates and line like candidates away. It is the final result of nodule candidates. In order to clearly show the selected nodules to the doctor, additional operation will be implemented to circle the nodule in the original image. First, the image expansion will be used again to make the nodule candidates larger. Then a Laplacian filter will be applied to the expanded nodule candidates to obtain the edges of the original image. The edges detected from the nodule candidate will be used as a mask to show the nodules in the original CT images as it is shown in Figure 13.</p>
+<p>The performance of accuracy can be calculated by using the ratio of the number of real nodule and the number of nodule candidates. The performance of speed can be calculated by the running time counted by MATLAB. The running time is a little bit tricky. When I run the code directly, it will cost less than 1 sec, however, when I run it and count the time, it will take 5.426 sec. Table 2 shows the accuracy performance of my algorithm.</p>
+<p>As for the issues in my algorithm, my method of eliminating the fake candidates is a linear method. I set a certain range of the features, and remove the entire candidate with features out of this area. Some more advanced techniques can be used to eliminate the fake candidates and it can give us better result. The advantages of rule based scheme are that it is simple to implement and understand. The problem is that the accuracy of the algorithm is not as good as some other methods.</p>
+<div class="figure align-center" id="id12">
+<img alt="../../_images/ece565_11.png" src="../../_images/ece565_11.png" />
+<p class="caption"><span class="caption-text">Figure 11, Nodule Candidate after Filter away the Small Elements</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id13">
+<img alt="../../_images/ece565_12.png" src="../../_images/ece565_12.png" />
+<p class="caption"><span class="caption-text">Figure 12, Nodule Candidate after Filter away the Line Structure and Huge Elements</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id14">
+<img alt="../../_images/ece565_13.png" src="../../_images/ece565_13.png" />
+<p class="caption"><span class="caption-text">Figure 13, Final Result of Nodule Candidates</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id15">
+<img alt="../../_images/ece565_table2.png" src="../../_images/ece565_table2.png" />
+<p class="caption"><span class="caption-text">Table 2 Accuracy Performance of the Nodule Detection Algorithm</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="discussion-and-conclusion">
+<h2><a class="toc-backref" href="#id19">Discussion and Conclusion</a><a class="headerlink" href="#discussion-and-conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In this project we are asked to develop an algorithm to detect the nodules in a CT image by using the basic computer vision knowledge. The method I am using in the project including threshold finding, image segmentation, image spatial domain filtering, morphology filtering, etc. It helps me to understand what we have learned in the class and shows us the capability of computer vision in the real situation. The algorithm uses some basic image processing technique and most of the coefficients are manually set by the experiment. This will make this algorithm specialized for the certain series of image. To improve this and make the program stronger, the coefficients can vary with the input image. The result of this project can be used to further develop the3D reconstruction of the lung nodules.</p>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id20">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" id="bibtex-bibliography-Source/CoursePrj/ECE565-0" start="1">
+<li><p>Rafael C. Gonzalez and Richard E. Woods. <em>Digital Image Processing (3rd Edition)</em>. Prentice-Hall, Inc., Upper Saddle River, NJ, USA, 2006. ISBN 013168728X.</p></li>
+<li><p>N. Otsu. A threshold selection method from gray-level histograms. <em>IEEE Transactions on Systems, Man, and Cybernetics</em>, 9(1):62–66, Jan 1979. <a class="reference external" href="https://doi.org/10.1109/TSMC.1979.4310076">doi:10.1109/TSMC.1979.4310076</a>.</p></li>
+<li><p>Jean Serra. <em>Image Analysis and Mathematical Morphology</em>. Academic Press, Inc., Orlando, FL, USA, 1983. ISBN 0126372403.</p></li>
+<li><p>Samuel G. Armato III, Maryellen L. Giger, and Heber MacMahon. Automated detection of lung nodules in ct scans: preliminary results. <em>Medical Physics</em>, 28(8):1552–1561, 2001. <a class="reference external" href="https://doi.org/10.1118/1.1387272">doi:10.1118/1.1387272</a>.</p></li>
+</ol>
+<div class="admonition-statement admonition">
+<p class="admonition-title">Statement</p>
+<p>This is a course project, all the raw data are provided by <code class="docutils literal notranslate"><span class="pre">Dr.</span> <span class="pre">Kenji</span> <span class="pre">Suzuki</span></code> through course <code class="docutils literal notranslate"><span class="pre">ECE565</span></code> at IIT. Please contact me if you find any problem.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, BoyangWang
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

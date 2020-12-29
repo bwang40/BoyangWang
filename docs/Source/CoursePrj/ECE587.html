@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ECE587 Hardware/Software Codesign &mdash; Boyang Wang&#39;s Notebook</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon_logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ECE481" href="ECE481.html" />
+    <link rel="prev" title="ECE441" href="ECE441.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/WebsiteLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Resume/MyResume.html">Boyang Wang - Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#personal-details">Personal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#education">Education</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#experience">Experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#interests">Interests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#skill-sets">Skill Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#hobbies">Hobbies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#online-certifications">Online Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#publications">Publications</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html">My Research Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#ultrasonic-related">Ultrasonic Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html">Ultrasonic Related Projects (My main focus Research in ECASP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-ndt-related-projects">Ultrasonic NDT Related Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-communication-related-projects">Ultrasonic Communication Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#embedded-system-and-fpga-related">Embedded system and FPGA related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/EmbeddedFPGA/EmbeddedFPGA.html">Embedded System and FPGA Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#artificial-intelligence-related">Artificial Intelligence related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html">Artificial Intelligence Related Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-interpretation-of-supervised-machine-learning">My interpretation of Supervised Machine Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#hardware-acceleration-of-machine-learning-algorithms">Hardware Acceleration of Machine Learning algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-baby-steps-of-machine-learning">My baby steps of Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="CoursePrj.html">Course Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="CoursePrj.html#my-course-project-at-iit">My Course Project at IIT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ECE565.html">ECE 565 Nodule Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#methods-and-results">Methods and Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#discussion-and-conclusion">Discussion and Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE584.html">ECE584 DCT Implementation Optimization on VLSI level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#functional-validation-and-verification">Functional Validation and verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#matlab-ise-co-simulation">MATLAB ISE co-simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE529.html">ECE529 Advanced VLSI Systems Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#architecture-exploration">Architecture Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#function-validation-and-verification">Function Validation and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#bonus">Bonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE429.html">ECE429 Intro to VLSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#implementation-and-simulation">implementation and Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE441.html">ECE441</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ECE587 Hardware/Software Codesign</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-noc-architecture">2D NoC Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-implementation">System Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-evaluation">System Evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE481.html">ECE481</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE425.html">ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#calculations">Calculations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#schematics-and-simulations">Schematics and Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#performance-evaluation">Performance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE742.html">ECE742</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE744.html">ECE744</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CS450.html">CS450</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CoursePrj.html#my-course-project-from-online">My Course Project from Online</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html">Project I have done with others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#research-projects">Research Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#projects-under-my-instruction">Projects under my Instruction</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html">My Hobby Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#zynq-soc-related-projects">ZYNQ SoC Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#fpga-related-projects">FPGA Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#embedded-system-related-projects">Embedded System Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#image-signal-processing-related-projects">Image/Signal Processing Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#python-related-projects">Python Related Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html">CheckeeInfo data Crawl and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#disclaimer">Disclaimer:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#website-management">Website Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Wordpress.html">WordPress Website of Mine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html">Sphinx Notebook of Mine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html#some-issue-i-found-with-sphinx">Some Issue I found with Sphinx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#crafting">Crafting</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html">My Online Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#studying">Studying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/MachineLearning.html">Machine Learning Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Algorithms.html">Algorithms Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/LeetCode.html">Fun from LeetCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/ZYNQ.html">ZYNQ Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/FPGA.html">FPGA Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/EmbeddedSys.html">Embedded Systems Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/OperatingSys.html">Operating System Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Ultrasonic.html">Ultrasonic Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/openaigym.html">OpenAI gym Study</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#software-system-habits-notebooks">Software/System Habits Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html"> <strong>Windows 10</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#installation-of-windows-10-a-few-notes">Installation of Windows 10 (a few Notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#favored-softwares">Favored Softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#some-useful-tools-on-windows">Some Useful Tools on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#windows-features">Windows Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/UbuntuHabits.html"> <strong>Ubuntu 18.04</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html"> <strong>Xilinx Vivado</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#windows-vivado-toolset">Windows Vivado Toolset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#ubuntu-vivado-toolset">Ubuntu Vivado Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html"> <strong>VScode</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#useful-plugins-that-i-use">Useful Plugins That I use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#setup-environment-in-vscode-settings-json">Setup Environment in <span class="guilabel">.vscode/settings.json</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html"> <strong>Anaconda</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html#installation-of-anaconda">Installation of Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html"> <strong>Jupyter</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-have-to-master">Libraries have to master</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-that-are-useful">Libraries that are useful</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html"> <strong>Sphinx</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-windows">On Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#third-party-software">Third Party software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#theme-selection">Theme Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WordpressHabits.html"> <strong>WordPress</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html"> <strong>Git</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#useful-third-party-git-tools">Useful Third Party Git Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html"> <strong>LaTeX</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html#some-useful-tools-for-math-equation-generation">Some useful tools for MATH equation generation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/IphoneHabits.html"> <strong>Iphone</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/MATLABHabits.html"> <strong>MATLAB</strong> Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#development-boards">Development Boards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ZedBoard.html">ZedBoard Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/PYNQ-Z1.html">PYNQ-Z1 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/MZ7035.html">MZ7035 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ArduinoUNO.html">Arduino UNO Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/RaspberryPi.html">Raspberry Pi Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#some-ideas">Some Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#xilinx-digest">Xilinx Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html">My Digest of Xilinx Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-new-chip">Xilinx New Chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-github">Xilinx github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#mind-map">Mind Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/MindMap/Mindmap.html">Mind Map of Mine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#things-to-be-done">Things to be done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html">Things to be done</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#learning">Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#exploring">Exploring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AboutThisSite/AboutThisSite.html">About this site</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BoyangNotebook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="CoursePrj.html">Course Projects</a> &raquo;</li>
+        
+      <li>ECE587 Hardware/Software Codesign</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ECE481.html" class="btn btn-neutral float-right" title="ECE481" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ECE441.html" class="btn btn-neutral float-left" title="ECE441" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ece587-hardware-software-codesign">
+<h1>ECE587 Hardware/Software Codesign<a class="headerlink" href="#ece587-hardware-software-codesign" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This is the second project of the course ECE 587, the main purpose of this project is to build and evaluate a system that computes 8 point discrete Fourier transform (DFT) using fast Fourier transform which is known to us by FFT. FFT can efficiently transform a signal from time domain to the frequency domain, which will benefit the calculation of the response of a system or in some other areas. The FFT computation is based on the NoC architecture that we start in project #1. Instead of building a 1-D NoC architecture, we will build a 2-D NoC architecture to improve the efficiency of the computation. However, this system will be much more complex than the one in project #1. After building the NoC architecture, I am going to evaluate the system by printing some important parameters.</p>
+<p>The whole project is based on the SystemC in a C++ environment. So the whole system is more like a simulation and this is very important to evaluate a system before going to implement it in the hardware. In the progress of coding in the Visual Studio, we will use GIT to manage the project and submit it at last.</p>
+</div>
+<div class="section" id="background-knowledge">
+<h2>Background Knowledge<a class="headerlink" href="#background-knowledge" title="Permalink to this headline">¶</a></h2>
+<p>The first thing that we have to describe is the fast Fourier transform (FFT). A fast Fourier transform (FFT) is an algorithm to compute the discrete Fourier transform (DFT) and its inverse. A Fourier transform converts time (or space) to frequency and vice versa. Although FFT is a simplification of the Fourier transform, it also needs a lot of computation. So for simplicity, we will only consider an 8-point DFT in our project.</p>
+<p>The inputs of the computation are 8 complex numbers x(0), x(1),…,x(7) and the outputs are the other 8 complex numbers X (0); X (1); : : : ; X (7). The mathematical relation is shown as follows,</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(X(k)=\sum_{n=0}^{7} x(n) \omega^{k n} \quad \mathrm{k}=0,1,2, \ldots, 7\)</span></strong></p><p>Where ω= ⅇ^(-j π/4) =cosπ/4 – j sinπ/4. Obviously, this equation includes a lot of computation in it. The FFT algorithm computes the same output in a much smarter way that requires much less computations. Though the FFT algorithm is inevitably complicated for general cases, for our problem setting, it can be written as the following 12 sets of equations, each representing a butterfly computation that input and output 2 complex numbers.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 46%" />
+<col style="width: 19%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>y(0) = x(0) + x(4);</p></td>
+<td><p>y (1) = x(0) - x(4);</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>y(2) = x(2) + x(6);</p></td>
+<td><p>y (3) = x(2) - x(6);</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>y(4) = x(1) + x(5);</p></td>
+<td><p>y (5) = x(1) - x(5);</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>y(6) = x(3) + x(7);</p></td>
+<td><p>y (7) = x(3) - x(7);</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>z(0) = y(0) + y(2);</p></td>
+<td><p>z (1) = y(0) - y(2);</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>z(2) = y(1) + y(3)w^2;</p></td>
+<td><p>z (3) = y(1) - y(3)w^2;</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>z(4) = y(4) + y(6);</p></td>
+<td><p>z (5) = y(4) - y(6);</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>z(6) = y(5) + y(7)w^2;</p></td>
+<td><p>z (7) = y(5) - y(7)w^2;</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>X (0) = z(0) + z (4);</p></td>
+<td><p>X (4) = z (0) - z (4);</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>X (1) = z(2) + z (6)w;</p></td>
+<td><p>X (5) = z (2) - z (6)w;</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>X (2) = z(1) + z (5)w^2;</p></td>
+<td><p>X (6) = z (1) - z (5)w^2;</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p>X (3) = z(3) + z (7)w^3;</p></td>
+<td><p>X (7) = z (3) - z (7)w^3;</p></td>
+<td><p>12</p></td>
+</tr>
+</tbody>
+</table>
+<p>So, our problem become how to map these equations into our 2-D NoC system.</p>
+</div>
+<div class="section" id="d-noc-architecture">
+<h2>2D NoC Architecture<a class="headerlink" href="#d-noc-architecture" title="Permalink to this headline">¶</a></h2>
+<p>Different from project #1, we will build a 2-D NoC architecture this time. So there are more things to consider of, like how to build the mesh, how to route the packets and so on. Let’s discuss it one by one.</p>
+<p>In project #1, I have already described the specific content of the routers and pes. So I will directly skip that part and come to the building of the 2-D NoC architecture part. The NoC system is built up by some basic blocks, each block consist a router and a PE. The routers take charge of routing the packets and the PEs process the data in the packets.</p>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece587_1.png"><img alt="../../_images/ece587_1.png" src="../../_images/ece587_1.png" style="width: 208.6px; height: 201.6px;" /></a>
+</div>
+<p>On the left side is a router. It has four directions, and each direction has to ports, one is input and one is output. The blue part is the router itself, and the red block is the data path. A data path can be regarded as a stack. One router push the packet into the stack and another one pop it. First in First out, acting like a FIFO. By connecting several routers like this, we can get a 2-D router mesh. As for the routers at the end of the mesh, we connect the output port to the input port of itself. This loop can improve the system robustness.</p>
+<p>In the following picture is the system architecture of our design. It contains 9 routers and each router connects to a PE of its own. The PEs are represented in the red color and the routers are represented by blue blocks. I marked every data path with its name and the serial number. I assign PE(0, 0) as PI and PE(2, 0) as PO. PI is for generate the input for the whole system and also takes charge of printing the input data to the screen. PO takes charge of receiving the processed data from the whole system and printing it on the screen. Other PEs take charge of processing the data and routing the output data to next router after performing the equations to their inputs.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_2.png" src="../../_images/ece587_2.png" />
+</div>
+<p>The following figure shows the way I map the pes to the routers. As you can find in the picture, the PEs are not mapped as the coordinate of itself. This is for the efficiency of the system. Take an example, PI will send the data directly to P1 at every cycle. There is no reason to separate PI and p1. For the same reason, I mapped the PEs as what it is shown in the picture. Although I didn’t make it to put every send and receive data pairs together, it is still a better way than mapping them in order.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_3.png" src="../../_images/ece587_3.png" />
+</div>
+</div>
+<div class="section" id="system-implementation">
+<h2>System Implementation<a class="headerlink" href="#system-implementation" title="Permalink to this headline">¶</a></h2>
+<p>After connecting the routers and pes as a network, we are going to implement the FFT computation based on this 3*3 NoC architecture. The system is shown in the following picture.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_4.png" src="../../_images/ece587_4.png" />
+</div>
+<p>There are basically three types of pes in the system. They are PI, PO and intermediate PE. For simplicity, I use just one kind of intermediate PE in the system. The tricky in this is I set every intermediate PE to the same function. Which means every PE contains all the equations. But every PE will only perform one kind of equations in the system. There are only 9 PEs in the 3*3 NoC system, so the red PEs don’t really exist. For example, after P1 process the data of X(0) and X(4), it will shift to the second place and process X(2) and X(6). In this way, we can map the whole system into 9 PEs.</p>
+<p>In my system, the PI will stop sending data to P1 after it sends 8 complex numbers. It wait until the PO receive all the data and print it on the screen. Although it will badly decrease the throughput of the system. But this is the best way to avoid data violation.</p>
+<p>After I finish the system, I test the system with one group of complex numbers. An the result is shown in the following picture. The data flows in the NoC system, I give every equation an addition function of print the output after they performing the computation. By testing them one by one, I get the result of every node in the system. The result is exactly the same as the result that I calculated by my own.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_5.png" src="../../_images/ece587_5.png" />
+</div>
+</div>
+<div class="section" id="system-evaluation">
+<h2>System Evaluation<a class="headerlink" href="#system-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>The most important performance metric is the maximum throughput. The maximum throughput is the sum of the data rates that are delivered to all terminals in a network. Since the packets is created by PI and consumed by P1 at first step. So the bottleneck of the system is when PI send data to P1. As it said in the project requirement, every PE can only generate 1 token and consume 1 token at 1 cycle. So generate one set of input at least will take 8 cycles. So the maximum throughput of the system is 1/8.</p>
+<p>As for the computation latency, after we input the 8 complex numbers into the system, the cycles it will take to generate the output is the computation latency. We are supposed to measure the minimum latency. The minimum latency can be measured when there is only one set of inputs being processed in the NoC architecture. So I am going to check the first set of test to measure the minimum latency. The result is shown in the appendix. At the first cycle, the PI start to send the data to P1 and after 8 cycles, all 8 data are sent to the system and PI print the data on the screen. After another 20 cycles, PO receives all the data and prints it on the screen. The minimum latency of the system is 28 cycles.</p>
+<p>Then I am supposed to calculate the average numbers of the clock cycles needed to obtain outputs from the corresponding inputs. I set the clock cycles to 10000 and run it again. I use a counter in the PO, every time it print the data on the screen, I add the counter with one. Then I divide 10000 with the counter. I put the picture of the result in the appendix. The average latency of the system is 28. The average latency of my system is exactly the same as my minimum latency, that is because in all the time, there is only one set of data running in the system since I set the PI stop sending data until PO receive all the data.</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>This project is much more complex than the first one. If the first one is to let me get familiar with the NoC network, then this project is to tell me the practical usage of the NoC network. By connecting the microprocessors together with routers, we can realize some amazing functions. The FFT that we implement this time is just the tip of the submerged iceberg. There are more interesting and challenging things in this area that need us to develop. In the way that I built the system, there is one important thing is how to size the system. I can use just one piece of microprocessors to process the whole FFT computation, but it will take much more time than our system. This is quite a trade-off, we can use time to trade the hardware size, and we can also use more hardware to trade the time. It is very important when we design a system.</p>
+</div>
+<div class="section" id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
+<p>The set of data into the system and the result</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_6.png" src="../../_images/ece587_6.png" />
+</div>
+<p>The average latency of the system</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_7.png" src="../../_images/ece587_7.png" />
+</div>
+<p>The result generated by P1</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_8.png" src="../../_images/ece587_8.png" />
+</div>
+<p>The result generated by P2 and P3</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_9.png" src="../../_images/ece587_9.png" />
+</div>
+<p>The result generated by P4, P5, P6, P7</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_10.png" src="../../_images/ece587_10.png" />
+</div>
+<p>The overall result of the system</p>
+<div class="figure align-center">
+<img alt="../../_images/ece587_11.png" src="../../_images/ece587_11.png" />
+</div>
+<div class="admonition-statement admonition">
+<p class="admonition-title">Statement</p>
+<p>This is a course project, it is provided by <code class="docutils literal notranslate"><span class="pre">Dr.</span> <span class="pre">Jia</span> <span class="pre">Wang</span></code> thought course <code class="docutils literal notranslate"><span class="pre">ECE587</span></code> at IIT. Please contact me if you find any problem.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, BoyangWang
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

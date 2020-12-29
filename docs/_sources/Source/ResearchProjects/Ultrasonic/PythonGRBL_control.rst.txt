@@ -1,0 +1,24 @@
+..  This file contains a small project I have done to control the GRBL system on Arduino.
+    All the libraries I found online are to control the CNC machine for engraving or laser cutter
+    I need to control the Ultrasonic NDT system to scan the object in real time.
+    So the control code cannot be buffered, I need to move the transducers with blocking mechanism. 
+    The code is written in Jupyter Notebook and interfaced with Ipywidgets.
+
+=====================================
+GRBL System Control Lib with Python
+=====================================
+
+Introduction
+-----------------
+
+Purpose
+-----------------
+
+System Setups
+-----------------
+
+Implementation
+-----------------
+
+Documentations
+-----------------

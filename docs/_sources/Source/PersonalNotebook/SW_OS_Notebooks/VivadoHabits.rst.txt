@@ -1,0 +1,26 @@
+
+
+
+*********************************************
+|Xilinx| **Xilinx Vivado** Notebook
+*********************************************
+
+.. |Xilinx| image:: ../../Images/xilinxlogo.png
+   :width: 1em
+   
+
+Xilinx is one of my favorite companies in the world. The engineers in Xilinx simply know how to do things right. FPGA is so useful when you want to build a prototype of your system. Also, ZYNQ architecture from Xilinx starts a revolution for all system designers. Hardware and software co-design is never so close to everybody. HLS tools are amazing for accelerate the design iterations. Vivado makes it much easier to put ip-cores together as a system. XSDK is eclipse based, Xilinx makes it so easy to use on all major platforms (windows and linux). 
+
+Windows Vivado Toolset
+============================================
+
+
+Ubuntu Vivado Toolset
+============================================
+
+.. Attention:: Not all functionalities are all available on every platform
+
+    Be careful that not all functionalities of Vivado Toolsets are available on every platform. Check :guilabel:`UG973` documentation_ for more information.
+
+
+.. _`documentation`: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug973-vivado-release-notes-install-license.pdf

@@ -1,0 +1,26 @@
+*******************************************
+|jupyterlogo| **Jupyter** Notebook
+*******************************************
+
+.. |jupyterlogo| image:: ../../Images/jupyterlogo.png
+   :width: 1em
+
+
+Jupyter Notebook is an open source software that make it much easier to program with Python. Python is a script language, however it is not as easy to use as MATLAB, where you can kept a slice of all the data in the workspace and show your plot during programming. Ipython was started from around 2001 and borrow the idea from Mathematica notebook. Jupyter starts from 2014 and find its own way to move the whole project to next phase. Thanks to Jupyter Notebook, we can program Python with no frustration at all. Together with Ipywidgets, Ipydisplay, Matplotlib libraries, this ecosystem will eventually take over the market and revolute the programming habit of people.
+
+Personally, I prefer to install Jupyter Notebook with Anaconda. It solves most of the dependency problems, and contains most of the regular used Python libraries in it. It also improves the package managing somehow. However, there is no perfect package managing tool. **Do not use conda update --all**, Why? try it yourself and  you will find it out. A easy way out will be reinstall Anaconda (Solution works for me) since Anaconda is a separate python environment separated from your operating system python environment.
+
+Libraries have to master
+================================
+Ipywidgets
+Ipydisplay
+
+.. Followed are the libraries in python, it is important anyway
+
+Matplotlib
+Numpy
+
+Libraries that are useful
+==================================
+Trimesh
+

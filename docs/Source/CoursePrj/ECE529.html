@@ -1,0 +1,879 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ECE529 Advanced VLSI Systems Design &mdash; Boyang Wang&#39;s Notebook</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon_logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ECE429 Intro to VLSI" href="ECE429.html" />
+    <link rel="prev" title="ECE584 DCT Implementation Optimization on VLSI level" href="ECE584.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/WebsiteLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Resume/MyResume.html">Boyang Wang - Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#personal-details">Personal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#education">Education</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#experience">Experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#interests">Interests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#skill-sets">Skill Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#hobbies">Hobbies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#online-certifications">Online Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#publications">Publications</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html">My Research Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#ultrasonic-related">Ultrasonic Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html">Ultrasonic Related Projects (My main focus Research in ECASP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-ndt-related-projects">Ultrasonic NDT Related Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-communication-related-projects">Ultrasonic Communication Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#embedded-system-and-fpga-related">Embedded system and FPGA related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/EmbeddedFPGA/EmbeddedFPGA.html">Embedded System and FPGA Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#artificial-intelligence-related">Artificial Intelligence related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html">Artificial Intelligence Related Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-interpretation-of-supervised-machine-learning">My interpretation of Supervised Machine Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#hardware-acceleration-of-machine-learning-algorithms">Hardware Acceleration of Machine Learning algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-baby-steps-of-machine-learning">My baby steps of Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="CoursePrj.html">Course Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="CoursePrj.html#my-course-project-at-iit">My Course Project at IIT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ECE565.html">ECE 565 Nodule Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#methods-and-results">Methods and Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#discussion-and-conclusion">Discussion and Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE584.html">ECE584 DCT Implementation Optimization on VLSI level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#functional-validation-and-verification">Functional Validation and verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#matlab-ise-co-simulation">MATLAB ISE co-simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ECE529 Advanced VLSI Systems Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#architecture-exploration">Architecture Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-validation-and-verification">Function Validation and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bonus">Bonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE429.html">ECE429 Intro to VLSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#implementation-and-simulation">implementation and Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE441.html">ECE441</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE587.html">ECE587 Hardware/Software Codesign</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#d-noc-architecture">2D NoC Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-evaluation">System Evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE481.html">ECE481</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE425.html">ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#calculations">Calculations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#schematics-and-simulations">Schematics and Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#performance-evaluation">Performance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE742.html">ECE742</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE744.html">ECE744</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CS450.html">CS450</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CoursePrj.html#my-course-project-from-online">My Course Project from Online</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html">Project I have done with others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#research-projects">Research Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#projects-under-my-instruction">Projects under my Instruction</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html">My Hobby Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#zynq-soc-related-projects">ZYNQ SoC Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#fpga-related-projects">FPGA Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#embedded-system-related-projects">Embedded System Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#image-signal-processing-related-projects">Image/Signal Processing Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#python-related-projects">Python Related Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html">CheckeeInfo data Crawl and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#disclaimer">Disclaimer:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#website-management">Website Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Wordpress.html">WordPress Website of Mine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html">Sphinx Notebook of Mine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html#some-issue-i-found-with-sphinx">Some Issue I found with Sphinx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#crafting">Crafting</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html">My Online Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#studying">Studying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/MachineLearning.html">Machine Learning Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Algorithms.html">Algorithms Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/LeetCode.html">Fun from LeetCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/ZYNQ.html">ZYNQ Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/FPGA.html">FPGA Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/EmbeddedSys.html">Embedded Systems Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/OperatingSys.html">Operating System Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Ultrasonic.html">Ultrasonic Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/openaigym.html">OpenAI gym Study</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#software-system-habits-notebooks">Software/System Habits Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html"> <strong>Windows 10</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#installation-of-windows-10-a-few-notes">Installation of Windows 10 (a few Notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#favored-softwares">Favored Softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#some-useful-tools-on-windows">Some Useful Tools on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#windows-features">Windows Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/UbuntuHabits.html"> <strong>Ubuntu 18.04</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html"> <strong>Xilinx Vivado</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#windows-vivado-toolset">Windows Vivado Toolset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#ubuntu-vivado-toolset">Ubuntu Vivado Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html"> <strong>VScode</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#useful-plugins-that-i-use">Useful Plugins That I use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#setup-environment-in-vscode-settings-json">Setup Environment in <span class="guilabel">.vscode/settings.json</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html"> <strong>Anaconda</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html#installation-of-anaconda">Installation of Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html"> <strong>Jupyter</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-have-to-master">Libraries have to master</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-that-are-useful">Libraries that are useful</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html"> <strong>Sphinx</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-windows">On Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#third-party-software">Third Party software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#theme-selection">Theme Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WordpressHabits.html"> <strong>WordPress</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html"> <strong>Git</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#useful-third-party-git-tools">Useful Third Party Git Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html"> <strong>LaTeX</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html#some-useful-tools-for-math-equation-generation">Some useful tools for MATH equation generation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/IphoneHabits.html"> <strong>Iphone</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/MATLABHabits.html"> <strong>MATLAB</strong> Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#development-boards">Development Boards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ZedBoard.html">ZedBoard Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/PYNQ-Z1.html">PYNQ-Z1 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/MZ7035.html">MZ7035 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ArduinoUNO.html">Arduino UNO Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/RaspberryPi.html">Raspberry Pi Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#some-ideas">Some Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#xilinx-digest">Xilinx Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html">My Digest of Xilinx Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-new-chip">Xilinx New Chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-github">Xilinx github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#mind-map">Mind Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/MindMap/Mindmap.html">Mind Map of Mine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#things-to-be-done">Things to be done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html">Things to be done</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#learning">Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#exploring">Exploring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AboutThisSite/AboutThisSite.html">About this site</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BoyangNotebook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="CoursePrj.html">Course Projects</a> &raquo;</li>
+        
+      <li>ECE529 Advanced VLSI Systems Design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ECE429.html" class="btn btn-neutral float-right" title="ECE429 Intro to VLSI" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ECE584.html" class="btn btn-neutral float-left" title="ECE584 DCT Implementation Optimization on VLSI level" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ece529-advanced-vlsi-systems-design">
+<h1><a class="toc-backref" href="#id12">ECE529 Advanced VLSI Systems Design</a><a class="headerlink" href="#ece529-advanced-vlsi-systems-design" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://engineering.iit.edu/courses/ece529">ECE529</a> is a course at <span class="guilabel">IIT</span> called Advanced VLSI Systems Design. This is an advanced course of ECE429</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ece529-advanced-vlsi-systems-design" id="id12">ECE529 Advanced VLSI Systems Design</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id13">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#background" id="id14">Background</a></p>
+<ul>
+<li><p><a class="reference internal" href="#multiplier" id="id15">multiplier</a></p></li>
+<li><p><a class="reference internal" href="#conventional-domino-technique" id="id16">Conventional Domino Technique</a></p></li>
+<li><p><a class="reference internal" href="#split-path-data-driven-dynamic-logic" id="id17">Split Path Data Driven Dynamic Logic</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#architecture-exploration" id="id18">Architecture Exploration</a></p></li>
+<li><p><a class="reference internal" href="#function-validation-and-verification" id="id19">Function Validation and Verification</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dual-rail-domino-adder-design" id="id20">Dual rail DOMINO adder design</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id21">Split Path Data Driven Dynamic Logic</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#bonus" id="id22">Bonus</a></p>
+<ul>
+<li><p><a class="reference internal" href="#power-gating-of-the-dual-rail-domino-design" id="id23">Power gating of the Dual rail DOMINO design</a></p></li>
+<li><p><a class="reference internal" href="#power-gating-of-the-split-path-data-driven-dynamic-logic-design" id="id24">Power gating of the Split Path Data Driven Dynamic Logic design</a></p></li>
+<li><p><a class="reference internal" href="#comparison-of-these-two-designs" id="id25">Comparison of these two designs</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#results" id="id26">Results</a></p></li>
+<li><p><a class="reference internal" href="#conclusion-and-future-work" id="id27">Conclusion and Future Work</a></p></li>
+<li><p><a class="reference internal" href="#reference" id="id28">Reference</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id13">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this project, we are going to design and implement the 5 bit multiplier using Conventional Domino Logic and Split Path Data Driven Dynamic Logic. After the implementation, the properties of these two CMOS techniques will be compared. The design of the circuit will be at transistor level to assure different techniques. We will use Cadence IC 6.1 tool for schematic entry. The circuit will be simulated and analyzed by using Synopsys Hspice.
+The challenges in this project are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>First, how to decide the W/L ratio of each transistor.</p></li>
+<li><p>Second, which type of inverter should be chosen in the domino logic.</p></li>
+<li><p>Third, how to performs the SPD3L schematic so that the logic can satisfy the D3L characteristic, the PUN will be pre-charged during pre-charge phase and PUN will not work while evaluation phase.</p></li>
+</ul>
+</div></blockquote>
+<p>To overcome these challenges, we follow the specific method. First, searching the related papers. Second, based on the knowledge from previous semesters. Third, test the implementation in the virtuoso and analyze the result. Fourth, make a good communication with the professor.</p>
+</div>
+<div class="section" id="background">
+<h2><a class="toc-backref" href="#id14">Background</a><a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="multiplier">
+<h3><a class="toc-backref" href="#id15">multiplier</a><a class="headerlink" href="#multiplier" title="Permalink to this headline">¶</a></h3>
+<p>To design the 5-bit array multiplier, we first should understand its architecture. As shown in Figure 1, each full-adder cell will accept one bit of new partial product , one bit of previously accumulated partial product, and carry-in bit.</p>
+<div class="figure align-center" id="id7">
+<img alt="../../_images/ece529_1.png" src="../../_images/ece529_1.png" />
+<p class="caption"><span class="caption-text">Figure 1. Array Multiplier Architecture</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the first 4 rows, there is no horizontal carry propagation accumulated partial product consists of intermediate sum and carry bits. Otherwise, last row is a ripple-carry adder which can be replaced by a fast 2-operand adder. In the way it shown in the block diagram in figure 1, we can implement the multiplier with some AND gates and full adders.</p>
+</div>
+<div class="section" id="conventional-domino-technique">
+<h3><a class="toc-backref" href="#id16">Conventional Domino Technique</a><a class="headerlink" href="#conventional-domino-technique" title="Permalink to this headline">¶</a></h3>
+<p>Conventional CMOS Dynamic Domino circuits operate using a sequence of pre-charge and evaluation phases orchestrated by the system clock signal which shown in Figure 2.</p>
+<div class="figure align-center" id="id8">
+<img alt="../../_images/ece529_2.png" src="../../_images/ece529_2.png" />
+<p class="caption"><span class="caption-text">Figure 2. Full Adder Dual Rail Domino logic implementation</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>There are two phase during this logic working: pre-charge phase and evaluation phase. During first phase, the output signal is forced to a pre-defined value. During the evaluation phase, the output signal will change depending on the input signal. When the clock signal is low, the n-type dynamic domino circuit executes the pre-charge. Otherwise, the p-type circuit executes the pre-charge phase when clock signal is high. We have known domino gates is better than static CMOS counterparts in speed from [1]. However, domino logic may take over the noise influence through input. This is because leakage currents are flowing in the PDN (PUN) and cause an undesired discharging (charging) in the dynamic node. We often add a keeper to overcome this problem. This keeper is returning the output signal as a control signal. And it is the negative impact on the speed performances and power consumption.</p>
+<p>However, there are some limitations in the domino logic. To overcome its logic limitation, we use dual-rail logic (D3L) to implement the inverting logic function which is recorded in [2]. It is called D3L. We can know that dynamic dual-rail domino need a clock signal to pre-set the output signals during the pre-charge phase. The D3L gate owns the characteristics as shown below[3]:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>During the pre-charge phase, the PDN (PUN) is OFF, the PUN (PDN) is turned ON and the output node is charged (discharged) to Vdd (Ground);</p></li>
+<li><p>During the evaluation phase, the output node is eventually discharged (charged) to 0 (1) by the PDN (PUN), which must be turned off.</p></li>
+</ul>
+</div></blockquote>
+<p>There are two advantages of using D3L technology. First, the power consumption will be decreased by the elimination of the clock distribution network. Second, the evaluation path delay will be decreased by the elimination of the clocked NMOS (PMOS) transistor. However, the pre-charge of D3L circuits takes place through propagation path along the PUNs (PDNs) of all the cascaded gates which is different as dynamic domino logic so that the number of series-connected devices in the discharging (pre-charging) PDN (PUN) and gate input capacitances are minimized.</p>
+</div>
+<div class="section" id="split-path-data-driven-dynamic-logic">
+<h3><a class="toc-backref" href="#id17">Split Path Data Driven Dynamic Logic</a><a class="headerlink" href="#split-path-data-driven-dynamic-logic" title="Permalink to this headline">¶</a></h3>
+<p>SPD3L is a new dynamic logic. The main advantage of SPD3L is it can minimize delay and energy penalties. The topic idea to split the PDN (PUN) is one for each product sub function. As the results, the delay and the energy consumptions are reduced with respect to the D3L counterpart. One more advantage is splitting of PUN (PDN) can increase the gate speed through the split of parasitic capacitance of the dynamic node. By this technology, each PUN only includes only one PMOS transistor so that the dynamic energy consumption reduced. On the other hand, if we use smaller keeper transistors, the dynamic energy consumption has a further reduction.</p>
+<p>SPD3L also implements efficient dual-rail circuits. This characteristic can improve the gate speed and consequent energy saving.</p>
+<p>In the third difference and improvement, SPD3L did not use clock signal. SPD3L uses a subset of input data signals for pre-charging the dynamic node, thus avoiding the clock distribution network.</p>
+<p>The schematic of SPD3L if shown in Figure 3</p>
+<div class="figure align-center" id="id9">
+<img alt="../../_images/ece529_3.png" src="../../_images/ece529_3.png" />
+<p class="caption"><span class="caption-text">Figure 3. Split-Path Data Driven Dynamic Logic implementation of the Full-Adder</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p>Beside, we should be careful in the SPD3L pre-charge phase. We have known that In0 signal make the PUN and PDN only one part work. It is easy to achieve if there is just one logic, one bit calculation. In this technique, the original pull down logic is split into two parts. And one more pull up transistor is added to the logic. The control signal of the pull up memory is one of the input of the pull down memory. In this way, there are two pull down and pull up logics to get one output or output bar. There is a possibility that one specific input will close the pull down logic. In this way, the output of the logic will be floating at the evaluation phase. So that the output will be decide by the previous status. This is definitely undesirable. So we add one more signal called pre-charge signal in our project. This pre-charge signal is AND with each control signal of the pull up logic. This signal after the and gate will be sent back to where it should go. This will make sure that after one bit computing, the output node will be pre-charged back to 1 again. During the pre-charge phase, the output will be 0 due to the NAND gate.</p>
+</div>
+</div>
+<div class="section" id="architecture-exploration">
+<h2><a class="toc-backref" href="#id18">Architecture Exploration</a><a class="headerlink" href="#architecture-exploration" title="Permalink to this headline">¶</a></h2>
+<p>The dilemma of this project is the trade-off between speed and power consumption. An accurate transistor sizing is necessary to balance the contrasting performances: delay, energy and area. If we size the transistors large, the pre-charge and discharge will be faster due to the low register of the transistors. However, it will increase the power consumption of the whole system. This is also due to the low register transistors. If we size the transistors small, the logic will be slower, but the power performance of the system will be better though. The best thing is to find a best number of wn which will gives us both the best power consumption performance and the lowest delay.</p>
+<p>The size of the pull up transistors are set to wn. The size of the pull down transistors is decided by the numbers of the transistors in series. Take the COUT logic as an example, the discharge path has 3 transistors, to ensure the same skew of the positive edge and negative edge, we size it to 3wn. Same thing for the pull down transistors in the SUM logic, the pull down transistors are sized to 4wn. In the SPD3L, the pull down transistors is sized as 2wn in COUT logic. In SUM logic, NMOS are sized as 3wn.</p>
+<p>In our design, wn is set to 90nm. This may not be the best choice in our design of multiplier. But with all the wn set as 90 nm, I can still make a comparison in all these implementations.</p>
+<p>In the implementation of the domino logic, we adopt high skew inverter to favor the positive edges in the output. This is due to the Domino logic will not have a negative edge during the evaluation phase.</p>
+</div>
+<div class="section" id="function-validation-and-verification">
+<h2><a class="toc-backref" href="#id19">Function Validation and Verification</a><a class="headerlink" href="#function-validation-and-verification" title="Permalink to this headline">¶</a></h2>
+<p>In this section, I am going to shows the full adder design procedure and simulation result of each technique.</p>
+<div class="section" id="dual-rail-domino-adder-design">
+<h3><a class="toc-backref" href="#id20">Dual rail DOMINO adder design</a><a class="headerlink" href="#dual-rail-domino-adder-design" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dual-rail-domino-and-gate-design">
+<h4>Dual rail DOMINO AND gate design<a class="headerlink" href="#dual-rail-domino-and-gate-design" title="Permalink to this headline">¶</a></h4>
+<p>As I have mentioned in the multiplier implementation method, the multipliers are implemented by using adders and AND gates. So the first procedure is to design an AND gate. Due to the logic is applied using DOMINO technique. The DOMINO technique has a pitfall that the output is not able to vary from 1 to 0 during the evaluation phase. So the DOMINO gate has to be driven by another DOMINO gate. So I design a Dual rail DOMINO AND gate here to optimize the design.</p>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_4.png"><img alt="../../_images/ece529_4.png" src="../../_images/ece529_4.png" style="width: 344.0px; height: 231.5px;" /></a>
+</div>
+<p>The schematic of Dual rail DOMINO AND gate can be shown in the left figure. As it shown in the schematic, there are two outputs there, one is a AND b, another one is a NAND b. This gives us both output and output bar. It can also ensure the logic diversity here. One more advantage of this circuit than using one NAND gate and one inverter is the delay of output and output bar of this circuit is the same. The design with NAND gate and INVERTER will gives us different delay at output and output bar. Different delay at the input gate will cause glitches at the output.</p>
+</div>
+<div class="section" id="high-skew-inverter-design">
+<h4>High skew inverter design<a class="headerlink" href="#high-skew-inverter-design" title="Permalink to this headline">¶</a></h4>
+<p>In the DOMINO circuit, there is one important thing is that the inverter before the output is a high skew inverter. High skew inverter favors the positive edge of the output. It can be implemented by sizing the pull up transistor larger. The following figure shows the simulation waveform of the high skew inverter. The PMOS is sized as 4wn. The NMOS is sized as wn.</p>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_5.png"><img alt="../../_images/ece529_5.png" src="../../_images/ece529_5.png" style="width: 346.0px; height: 139.0px;" /></a>
+</div>
+<p>The delay of the positive edge is 4.6603p and the delay of the negative edge is 10.603p. It has a significant improvement of the up edge delay and there is a penalty at the down edge. This is exactly what we want in the DOMINO logic because there will be no down edge at the evaluation phase.</p>
+</div>
+<div class="section" id="sum-logic-design">
+<h4>SUM logic Design<a class="headerlink" href="#sum-logic-design" title="Permalink to this headline">¶</a></h4>
+<p>We have designed the full adder for several times in the previous study life. The logic of SUM is</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(S=A \oplus B \oplus C_{i n}\)</span></strong></p><p>After simplification, this logic can be implemented by using the following schematic.</p>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_6.png"><img alt="../../_images/ece529_6.png" src="../../_images/ece529_6.png" style="width: 211.5px; height: 149.0px;" /></a>
+</div>
+<p>As we can see in the schematic, it is a Dual rail DOMINO design implementation. Both input and input bar are needed as inputs. Both footer and header transistors are used to eliminate additional static power consumption. It means that during the pre-charge phase, the pull down logic will be terminated due to the footer. The inverter used in the schematic is designed as a high skew inverter to favor the rising edge of the output.</p>
+</div>
+<div class="section" id="cout-logic-design">
+<h4>Cout Logic Design<a class="headerlink" href="#cout-logic-design" title="Permalink to this headline">¶</a></h4>
+<p>The logic equation of the COUT is shown as follow.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(Cout =(A \cdot B)+C_{i n^{*}}(A \oplus \mathrm{B})\)</span></strong></p><div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_7.png"><img alt="../../_images/ece529_7.png" src="../../_images/ece529_7.png" style="width: 266.5px; height: 144.0px;" /></a>
+</div>
+<p>The figure on the left shows the schematic of the COUT design after implementation. It is also designed in Dual rail DOMINO technique. The COUT and the SUM are the basic components of the Full adder.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="full-adder-design">
+<h4>Full Adder Design<a class="headerlink" href="#full-adder-design" title="Permalink to this headline">¶</a></h4>
+<p>Since we already have the COUT and SUM components, the full adder can be easily implemented by connecting these two parts together as it shown in the following figure.</p>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_8.png"><img alt="../../_images/ece529_8.png" src="../../_images/ece529_8.png" style="width: 300.5px; height: 135.0px;" /></a>
+</div>
+<p>As we can see in the figure, the adder has 7 inputs and 4 outputs. One of the input is CLK signal to rhythm the DOMINO circuit. The others are input and input bar. The output is also divided into output and output bar. In this way the output of one adder can drive next dual rail domino logic.</p>
+<p>The design of the adder is simulated by using Hspice and the waveform of the adder can be shown in the following figure.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_9.png" src="../../_images/ece529_9.png" />
+</div>
+<p>The upper one is the SUM wave form, the delay of the evaluation phase is 39.585 ps and the delay of the pre-charge phase is 79.25 ps. This can be easily explained, the PMOS which is the pull up logic is sized as W. The register is very large for this size. The pull down transistors are sized as 4 W. In this way the delay of the pre-charge phase will be twice as the evaluation phase theoretically. This is exactly what it shows in the waveform. The COUT has its evaluation delay as 27.171 ps and pre-charge delay as 58.289 ps.</p>
+</div>
+<div class="section" id="input-generator">
+<h4>Input Generator<a class="headerlink" href="#input-generator" title="Permalink to this headline">¶</a></h4>
+<p>In the 5 bit multiplier, there are 25 AND gates and 20 Full adders are needed. If we draw all the components in one figure without layer division, the schematic will be a mess and extremely hard to debug. So I pack 25 AND gates together as an input generator. The schematic of the input generator is shown in the following figure.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_10.png" src="../../_images/ece529_10.png" />
+</div>
+<p>It has 11 inputs, they are x(0) to x(4), a(0) to a(4) and CLK signal. There are 50 outputs which are NAND output and AND output.</p>
+</div>
+<div class="section" id="tap">
+<h4>TAP<a class="headerlink" href="#tap" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_11.png"><img alt="../../_images/ece529_11.png" src="../../_images/ece529_11.png" style="width: 295.0px; height: 225.0px;" /></a>
+</div>
+<p>I also pack 4 adders in a line to form a TAP. The whole multiplier contains 5 TAP. The schematic of a TAP can be shown in the figure on the left side. These 4 adders are not connected with each other. The only usage of this component is to simplify the structure of the final multiplier.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>multiplier<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The multiplier contains 5 TAPs and 1 input generator. The structure of the multiplier can be shown in the following figure.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_12.png" src="../../_images/ece529_12.png" />
+</div>
+<p>The red wires in the figure are also useful wires. The reason that they are red is that there are no automatically path for them to pass through. So a direct red line is assigned by the Virtuoso. The largest component on the left side is input generator and the rest of the components are TAPs. The result of the multiplier can be shown in the following waveform. In this situation, the inputs here are 00111 and 10101. If the wave shown in the waveform is p*bar, then it means that p* is 0 and vice versa. The result in the figure is 0000111111. The result is completely correct.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_13.png" src="../../_images/ece529_13.png" />
+</div>
+<p>The performance including power and delay will be analyzed in the following sector.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id21">Split Path Data Driven Dynamic Logic</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>SUM logic design<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_14.png"><img alt="../../_images/ece529_14.png" src="../../_images/ece529_14.png" style="width: 296.0px; height: 209.5px;" /></a>
+</div>
+<p>The figure on the left side shows the schematic of SUM logic of adder using the SPD3L technique. The difference of this logic is that there are two pull up transistors at each side of the circuit. And the pull down logic is basically the same as DOMINO logic. The difference is that the pull down logic is split into two parts. Each part will have its own pull up transistor and keeper. The missing wire is replaced by a NAND gate. Normally, the wire in the circuit can do the AND operation, it called wire and. In the DOMINO there is a inverter before the output. That’s how this technique works.</p>
+</div>
+<div class="section" id="id4">
+<h4>COUT logic design<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-left">
+<a class="reference internal image-reference" href="../../_images/ece529_15.png"><img alt="../../_images/ece529_15.png" src="../../_images/ece529_15.png" style="width: 316.5px; height: 179.5px;" /></a>
+</div>
+<p>This is the COUT logic implemented by using the SPD3L technique. The design procedure is basically the same as SUM logic.</p>
+<p>We should know that only one PMOS is required to pre-charge each evaluation sub-network. As the result, the energy saving and gate speed up.</p>
+<p>The two static output COUT and COUT_BAR inverters of dual-rail domino are also replaced by two static NAND gate.</p>
+</div>
+<div class="section" id="full-adder-circuit-design">
+<h4>Full Adder Circuit Design<a class="headerlink" href="#full-adder-circuit-design" title="Permalink to this headline">¶</a></h4>
+<p>The wire connection of the rest of the circuit is basically the same with DOMINO logic. The only difference is that the CLK signal is replaced by a pre-charge signal called PCG. The following figure shows the simulation waveform of the SPD3L adder.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_16.png" src="../../_images/ece529_16.png" />
+</div>
+<p>The upper one is the waveform of SUM operation. The delay of evaluation is 38.42 and the delay of the pre-charge is 38.792. This is because two pull up transistors are used in the circuit. It significantly improves the speed of the pre-charge phase.</p>
+</div>
+<div class="section" id="multiplier-design">
+<h4>Multiplier Design<a class="headerlink" href="#multiplier-design" title="Permalink to this headline">¶</a></h4>
+<p>Again, the wire connection of the multiplier is the same. Here is the simulation waveform of the multiplier.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_17.png" src="../../_images/ece529_17.png" />
+</div>
+<p>This shows that the delay of the multiplier is 196 ps in evaluation phase. The delay of the pre-charge phase is very small which is 38.77 ps.</p>
+<p>To verify our design, we modify the .sp file for each test circuit so that we can see the input and output signals in the cscope. Then by measuring 50% of rising edge and falling edge, we can know the delay of each design. All output waveforms are listed in the appendix.</p>
+<p>In details, we have four phases to validate and verify:</p>
+<dl>
+<dt>Phase 1: Using virtuoso to build schematic</dt><dd><p>We use hierarchical design entry to create symbols for each gate.</p>
+</dd>
+<dt>Phase 2: Using analog design environment (ADE-L) to simulate</dt><dd><p>In the phase, we should first build the test circuit. Then, we choose HSPICE for simulation tool and set the simulation parameters. Here, in our group, we set the total period for one cycle is 500ps with 1ps as each step.</p>
+</dd>
+<dt>Phase 3: Using HSPICE to analysis power consumption</dt><dd><p>In the sp files, we need to edit the spice netlist and add following lines so that we can obtain the power results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">PRINT</span> <span class="n">TRAN</span> <span class="n">POWER</span>
+<span class="o">.</span><span class="n">MEASURE</span> <span class="n">TRAN</span> <span class="n">avgpwr</span> <span class="n">AVG</span> <span class="n">POWER</span> <span class="n">FROM</span> <span class="mi">0</span> <span class="n">TO</span> <span class="mf">250E-12</span>
+<span class="o">.</span><span class="n">MEASURE</span> <span class="n">TRAN</span> <span class="n">maxpwr</span> <span class="n">MAX</span> <span class="n">POWER</span> <span class="n">FROM</span> <span class="mi">0</span> <span class="n">TO</span> <span class="mf">250E-12</span>
+</pre></div>
+</div>
+</dd>
+<dt>Phase 4: Using CSCOPE to analysis delay situation</dt><dd><p>By adding + POST command in the sp files, we can read the input, output, clock, precharge curve in the cscope which can measure delay time directly.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="bonus">
+<h2><a class="toc-backref" href="#id22">Bonus</a><a class="headerlink" href="#bonus" title="Permalink to this headline">¶</a></h2>
+<p>For the Bonus part, I applied power gating to both design to decrease the power consumption. One more control signal called sleep signal is used here to put the system into sleep mode. In the sleep mode, the pull up network is shut down. Only static power which is leakage exists during sleep mode. High Vt transistors are used here to further reduce the leakage power consumption. During the sleep mode, if the pull down network is also shut down due to the specific inputs. The output will be floating. This is undesired. So, one single sleep NMOS transistor is used to force the output node 0. This can increase the system robustness. Next I will talk about the implementation method of the power gating of these two designs.</p>
+<div class="section" id="power-gating-of-the-dual-rail-domino-design">
+<h3><a class="toc-backref" href="#id23">Power gating of the Dual rail DOMINO design</a><a class="headerlink" href="#power-gating-of-the-dual-rail-domino-design" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Full ADDER circuit design<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The following figure shows the schematic design of the DOMINO adder after power gating</p>
+<div class="figure align-center">
+<img alt="../../_images/ece529_18.png" src="../../_images/ece529_18.png" />
+</div>
+<p>On the left side is the SUM logic after power gating and on the right side is the COUT logic. The high Vt transistors are marked with dark line. The inverter of the design has its NMOS to be the high Vt. At the input side, the clock is doing the OR operation with the sleep signal. If the sleep is 1, then the clock is forced to 1. In this way, the pull up transistor will be closed. There is a sleep NMOS transistor to discharge the output node before the inverter. During the sleep phase, the transistors still have leakage. The leakage can be reduced by using the high Vt transistors. The OR gate at the first step is also has it transistors transferred to high Vt. The other design of the power gating system is basically same with the previous design.</p>
+<p>The power and delay performance of the system after power gating will be analyzed in the following sector.</p>
+</div>
+</div>
+<div class="section" id="power-gating-of-the-split-path-data-driven-dynamic-logic-design">
+<h3><a class="toc-backref" href="#id24">Power gating of the Split Path Data Driven Dynamic Logic design</a><a class="headerlink" href="#power-gating-of-the-split-path-data-driven-dynamic-logic-design" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Full ADDER circuit design<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>The following figure shows the schematic design of the SPD3L COUT logic after power gating</p>
+<div class="figure align-center" id="id10">
+<img alt="../../_images/ece529_19.png" src="../../_images/ece529_19.png" />
+<p class="caption"><span class="caption-text">Figure 4. Power Gating implement in SPD3L COUT</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p>The high Vt transistors are marked with black line. Two sleep NMOS transistors are used in each output. For each input of the pull up network, we have to do the OR operation with the sleep transistor. The and gate in the design is already been described in the previous SPD3L circuit design. As we can see in the figure, 4 more or gate and 4 more sleep NMOS transistors are used in the design. This is not worth it if the power consumption cannot decrease significantly.</p>
+<div class="figure align-center" id="id11">
+<img alt="../../_images/ece529_20.png" src="../../_images/ece529_20.png" />
+<p class="caption"><span class="caption-text">Figure 5. Power Gating implement in SPD3L SUM</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<p>This figure shows the schematic of the SUM logic using SPD3L technique after power gating. The same problem exists here. Many additional transistors are used. We will see the final performance of this design in next sector.</p>
+</div>
+</div>
+<div class="section" id="comparison-of-these-two-designs">
+<h3><a class="toc-backref" href="#id25">Comparison of these two designs</a><a class="headerlink" href="#comparison-of-these-two-designs" title="Permalink to this headline">¶</a></h3>
+<p>Under the same operation, we can get the power and delay data of power gate implemented in the domino and SPD3L.</p>
+<p>Table 1. Comparison of Two Designs</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 43%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Dual Rail Domino Logic</p></td>
+<td><p>SPD3L</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic Power (AVG)</p></td>
+<td><p>1.58e-3</p></td>
+<td><p>1.96e-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Static Power (AVG)</p></td>
+<td><p>1.64e-5</p></td>
+<td><p>1.15e-5</p></td>
+</tr>
+<tr class="row-even"><td><p>Delay (Eval)/ps</p></td>
+<td><p>133.79</p></td>
+<td><p>241.84</p></td>
+</tr>
+<tr class="row-odd"><td><p>Delay (Pre-charge)/ps</p></td>
+<td><p>186.61</p></td>
+<td><p>209.98</p></td>
+</tr>
+</tbody>
+</table>
+<p>In this chart shows the comparison of the two designs after the power gating. In this sector I will only made the comparison between these two implementations. As for the comparison of the power gating system with the non-power gating system, it will be compared in the result section.</p>
+<p>The Dynamic power consumption of the Dual rail DOMINO logic system after power gating is actually smaller than the other one. It is because that many more OR gates and AND gates are applied in the SPD3L power gating system. These transistors will consume power during the working phase. So it will consume more power. The static power consumption is measured when the sleep signal is set to 1 and the precharge signal is terminated by sleep signal. The static power consumption of the SPD3L power gating system is indeed smaller. However, compare to the additional transistors it uses, it is not a big deal.</p>
+<p>Both the evaluation and precharge delay of the SPD3L power gating system are larger than the other one. This is also due to the additional OR and AND gate. This will cause the critical path longer. The increase of critical path will finally increase the delay of the design. This result shows that the SPD3L is not fit for the usage of the sleep signal.</p>
+<p>So I revised the power gating system by only transform some specific transistors to high Vt transistors. This is actually gives us better performance. The sleep signal is not used in the revised power gating SPD3L circuit. The related transistors are set as high Vt transistors. The following chart shows the new power consumption information.</p>
+<p>Table 2. Power and Delay of SPD3L implement power gating</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>SPD3L (Revised PWR Gating)</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic Power (AVG)</p></td>
+<td><p>7.997e-4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Static Power (AVG)</p></td>
+<td><p>1.5559e-5</p></td>
+</tr>
+<tr class="row-even"><td><p>Delay (Eval)/ps</p></td>
+<td><p>198.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Delay (Pre-charge)/ps</p></td>
+<td><p>39.838</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="results">
+<h2><a class="toc-backref" href="#id26">Results</a><a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Our objective is to compare performance of theses implementations with respect to area, delay and power.</p>
+<p>Through schematic, we can find this two logic use different number of transistor. The conventional Dual Rail Domino uses less transistors than the SPD3L do, because additional pull up transistors, AND gate for precharge signal and NAND gate for output is used.</p>
+<p>In Table 3 is the delay and power performance of all the designs including power gating implementation. The Dynamic power consumption is measured when the clock is set as pulse and the system is at the working status. The static power consumption of the system without power gating is to set the CLK or PCG signal to 1.1 V to close the pull up transistors. The delay is measured with the longest delay it has in all the output.</p>
+<p>Table 3. Power and Delay Analysis of Domino and SPD3L</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 23%" />
+<col style="width: 9%" />
+<col style="width: 31%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Dual Rail Domino Logic</p></td>
+<td><p>SPD3L</p></td>
+<td><p>Dual Rail Domino Logic PWR Gate</p></td>
+<td><p>SPD3L PWR Gate</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic Power (AVG)</p></td>
+<td><p>1.25e-3</p></td>
+<td><p>9.84e-4</p></td>
+<td><p>1.58e-3</p></td>
+<td><p>1.96e-3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Static Power (AVG)</p></td>
+<td><p>5.71e-5</p></td>
+<td><p>1.56e-5</p></td>
+<td><p>1.64e-5</p></td>
+<td><p>1.15e-5</p></td>
+</tr>
+<tr class="row-even"><td><p>Delay (Eval)/ps</p></td>
+<td><p>176.96</p></td>
+<td><p>196.95</p></td>
+<td><p>133.79</p></td>
+<td><p>241.84</p></td>
+</tr>
+<tr class="row-odd"><td><p>Delay (Pre-charge)/ps</p></td>
+<td><p>70.16</p></td>
+<td><p>38.77</p></td>
+<td><p>186.61</p></td>
+<td><p>209.98</p></td>
+</tr>
+</tbody>
+</table>
+<p>By compare the non-power gating designs, we can found that the SPD3L has the better performance at the power consumption. It has the lower Dynamic power and Static power. For the delay parameters, the DOMINO implementation has the better evaluation delay. The reason of this is because the SPD3L has a NAND gate before the output. The NAND gate has a larger delay than a single inverter do. But the difference is actually very small. The Delay of the pre-charge phase of the SPD3L technique is almost half of the other one. This is because that the SPD3L has one more pull up transistor. According to the delay difference, we actually can design a PWM wave as a PCG or CLK signal.</p>
+<p>Compared the power gating DOMINO system with the non-power gating DOMINO system, the dynamic power consumption is slightly increased. However, the static power consumption is significantly decreased. This is exactly what this technique can assure us. As for the delay of these two implementations, for some unknown reasons, the delay in the evaluation phase of the power gating system is smaller than the non-power gating one. This shouldn’t happen. Because I didn’t change anything in the pull down logic except for one sleep transistor. It is closed during the working phase. Anyway, this is what the result shows us. We should respect the experiment result. The delay of the precharge phase is increased significantly. This can be explained by the usage of the high Vt transistors.</p>
+<p>At last the SPD3L, non-power gating system has larger dynamic power consumption than the non-power gating system. It has a little bit smaller static power consumption than the non-power gating system. What’s more, both the delay in evaluation phase and precharge phase are larger than the non-power gating system. Compare to the delay and area and the dynamic power consumption with the slightly reduced static power consumption, we can draw a conclusion that this design doesn’t fit for the sleep signal. Actually, the PCG is already can be used to put the system into sleep mode. Just set the PCG to 1.1 V. The pull up transistors will be shut down and the system will be put into sleep mode.</p>
+</div>
+<div class="section" id="conclusion-and-future-work">
+<h2><a class="toc-backref" href="#id27">Conclusion and Future Work</a><a class="headerlink" href="#conclusion-and-future-work" title="Permalink to this headline">¶</a></h2>
+<p>Through the whole project, I found that the DOMINO will have fewer transistors during the implementation. The delay performance is actually better than the SPD3L technique. The SPD3L circuit has a better performance at the power consumption. The static and the dynamic power consumption are better than the DOMINO circuit. Moreover, I applied power gating to these two techniques. The DOMINO technique fit the power gating technique I used in the project better. The dynamic power consumption is increased, but we don’t care the dynamic power of the power gating system. The static power which is the leakage is improved significantly. The delay is increased too in the power gating system. The SPD3L after power gating will take a lot more hardware. So it will bring more delay and power consumption. Although the static power consumption is less than before, but compare to the hardware incensement and delay incensement, this is actually not a good design. So I cancel the usage of the sleep signal in the power gating SPD3L. It actually gives us better performance.</p>
+<p>In the future work, we can improve the design by looking for a best Wn size to make the best trade-off between delay term and power consumption. Also the last TAP in the multiplier can be replaced by a Carry look ahead adder instead of a Carry propagate adder.</p>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id28">Reference</a><a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Shepard, K.L. and V. Narayanan. Noise in deep submicron digital design. in Proceedings of the 1996 IEEE/ACM international conference on Computer-aided design. 1997. IEEE Computer Society.</p></li>
+<li><p>Ng, P., et al., Performance of CMOS differential circuits. Solid-State Circuits, IEEE Journal of, 1996. 31(6): pp. 841-846.</p></li>
+<li><p>Frustaci, F., et al., Low-power split-path data-driven dynamic logic. IET circuits, devices &amp; systems, 2009. 3(6): pp. 303-312.</p></li>
+</ol>
+<div class="admonition-statement admonition">
+<p class="admonition-title">Statement</p>
+<p>This is a course project, all the raw data are provided by <code class="docutils literal notranslate"><span class="pre">Dr.</span> <span class="pre">Erdal</span> <span class="pre">Oruklu</span></code> thought course <code class="docutils literal notranslate"><span class="pre">ECE529</span></code> at IIT. Please contact me if you find any problem.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, BoyangWang
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

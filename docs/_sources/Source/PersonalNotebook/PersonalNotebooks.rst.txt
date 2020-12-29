@@ -1,0 +1,80 @@
+..  PersonalNotebook.rst
+    This file contains my personal notebooks, for recording and documenting, or simply for fun
+    --
+
+****************************
+My Online Notebook
+****************************
+This page contains my online notebooks so that I can access it from anywhere. It is for recording and documenting what I have done, or simply for fun. Keep record of notebooks is extremely important for all the programmers. This also applies for everyone working in the modern society with internet available. Distractions are coming from all directions, I believe keeping notebooks will help me block most of the distractions. For those distractions that maybe useful to me, I can also buffer it in the notebook and view them in the future.
+
+Studying
+===========================
+.. toctree::
+   :maxdepth: 1
+
+   Studying/MachineLearning.rst
+   Studying/Algorithms.rst
+   Studying/LeetCode.rst
+   Studying/ZYNQ.rst
+   Studying/FPGA.rst
+   Studying/EmbeddedSys.rst
+   Studying/OperatingSys.rst
+   Studying/Ultrasonic.rst
+   Studying/openaigym.rst
+
+Software/System Habits Notebooks
+=======================================
+.. toctree::
+   :maxdepth: 1
+
+   SW_OS_Notebooks/WindowsHabits.rst
+   SW_OS_Notebooks/UbuntuHabits.rst
+   SW_OS_Notebooks/VivadoHabits.rst
+   SW_OS_Notebooks/VScodeHabits.rst
+   SW_OS_Notebooks/AnacondaHabits.rst
+   SW_OS_Notebooks/JupyterHabits.rst
+   SW_OS_Notebooks/SphinxHabits.rst
+   SW_OS_Notebooks/WordpressHabits.rst
+   SW_OS_Notebooks/GitHabits.rst
+   SW_OS_Notebooks/LaTeXHabits.rst
+   SW_OS_Notebooks/IphoneHabits.rst
+   SW_OS_Notebooks/MATLABHabits.rst
+
+
+Development Boards
+=========================
+.. toctree::
+   :maxdepth: 1
+
+   DevelopmentBoard/ZedBoard.rst
+   DevelopmentBoard/PYNQ-Z1.rst
+   DevelopmentBoard/MZ7035.rst
+   DevelopmentBoard/ArduinoUNO.rst
+   DevelopmentBoard/RaspberryPi.rst
+
+Some Ideas
+==================
+
+Xilinx Digest
+==================
+
+.. toctree::
+   :maxdepth: 1
+
+   XilinxDigest/XilinxDigest.rst
+
+Mind Map
+===================
+
+.. toctree::
+   :maxdepth: 1
+
+   MindMap/Mindmap.rst
+
+Things to be done
+===================
+
+.. toctree::
+   :maxdepth: 1
+
+   ToBeDone/ToBeDone.rst

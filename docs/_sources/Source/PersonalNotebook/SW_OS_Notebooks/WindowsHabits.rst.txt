@@ -1,0 +1,103 @@
+..  WindowsHabits.rst
+
+.. |WIN10| image:: ../../Images/win10.png
+   :width: 1em
+
+
+*********************************
+|WIN10| **Windows 10** Notebook
+*********************************
+This is a notebook of my window 10 usage habit. It helps me with windows 10 installation, management, software preferences and so on. One of the purposes of this notebook is a quick reminder for me to setup a Windows 10 computer after a clean installation.
+
+Since Windows released Windows 10, it easily became **my favorite operating system**. I had zero frustration fighting with the driver, antivirus softwares
+and a bunch of other miscellaneous compatibility issues on Windows 10 OS. **Microsoft Prevails!**
+
+
+Installation of Windows 10 (a few Notes)
+=====================================================
+    * **Bootable USB Drive Creation:** `Windows 10 Installation media creation tool`_, Rufus_
+    * **Use Rufus:** Don't use the media creation tool to create boot USB drive directly. Somehow, this tool won't be able to change the usb drive to GPT. So the system installed in this way will mostly be Legacy mode with MBR partition. In order to install the windows 10 in GPT partition method using UEFI. You will have to create the installation media using Rufus. First download latest windows 10 image with `Windows 10 Installation media creation tool`_.Then create bootable usb device with Rufus_. Select GPT and UEFI during the creation. Don't forget to change the BIOS to start from UEFI.
+    * **Be careful of the Sys Partition:** When installing, take a second look at the partition table. Once the installation program install my system on two different hard-drives.EFI and System Recovery on one drive; MBR reserved and system main partition on another hard-drive. This will cause problem. If this happen, simply reinstall the system. Or, unplug all the other hard-drive in the system.
+    * **About Dual Boot:** If dual-boot with ubuntu is required, try to install two system on different hard-drives. This will avoid lots of trouble when reinstall any one of them. The system will still be bootable with any hard-drive. If installing on the same hard-drive is necessary, then install the windows first,install the ubuntu manually with partitions created manually. After installation, the system will still boot from Windows. Ubuntu will not be seen when the system boots up. You will have to use easyBCD software to add entry of the ubuntu manually in windows. The benefit of this method is that you can always remove the ubuntu as you want. If you simply choose to install ubuntu on the side of windows as it suggested, it will be extremely painful to remove ubuntu only without damaging the boot of the windows. This is because GRUB will take control of the boot from windows.
+    * **GPT with UEFI:** Always install your system with GPT partitioned hard-drive using UEFI booting. It is advanced method.
+
+
+Favored Softwares
+=========================
+
+==============  ===============================================
+Text Editor         VScode_ (`VScode Note`_)
+Browser:            Chrome_, FireFox_
+Chat tools          Wechat_, QQ_
+Git tools           `git bash`_ `GitKraken`_
+Python env          Anaconda_,(`Anaconda Note`_)
+Microsoft           Office365_, Visio2019_
+AutoDesk            Fusion360_, AutoCAD_
+Gaming              Steam_, BattleNet_
+Cloud               GoogleDrive_
+FTP                 WinSCP_
+zip                 7zip_
+==============  ===============================================
+
+|
+
+.. Attention:: Delete OneDrive if you want to use GoogleDrive
+
+    Delete OneDrive after install the system. It came with Windows by default. I like it. However, during the daily usage, it kept fighting with my GoogleDrive_. When both of them are on, my GoogleDrive icons notification will be disabled. Since GoogleDrive is my main cloud drive. I have to delete OneDrive.
+
+.. Attention:: Windows 10 & Ubuntu dual-boot **Time Mismatch**
+
+    In both ``Windows 10`` and ``Ubuntu``, they maintain the system bios RTC in the operating system. In windows 10, you can go to the time setting to :guilabel:`Adjust date/time` and turn on/off :guilabel:`Set time automatically` and :guilabel:`Set time zone automatically`. Windows by default will maintain the RTC clock on BIOS as the local time. Ubuntu on the other hand, will change the system timezone and local time on every bootup. Ubuntu maintain the system RTC time as UTC time and add a shift to this time according to the time zone you are in. 
+
+    Due to different behaviours of these to operating systems, it will cause system time mismatch in Windows 10. A solution for solving this is to change the time setup in either Ubuntu or Windows. I prefer to change the time setup in Ubuntu since it is much easier and might cause less problem in the future. Simply type the following command in bash::
+
+        timedatectl set-local-rtc 1 --adjust-system-clock
+
+    For details, `this site`_ gives more detail about the time mismatch and its solutions.
+
+Some Useful Tools on Windows
+===============================
+    - SpaceSniffer_, with SpaceSniffer, you can easily view the space take on your disks. It is even better than the disk analysis tool default on the Ubuntu.
+    - MobaXterm_ is a enhanced terminal for Windows with X11 server, tabbed SSH client, network tool and etc. My favorite SSH terminal compared to bitVise_, TeraTerm_, Putty_.
+    - FormatFactory_ is a tool to change the format of the files. It is no longer a clean install, you have to be careful of the additional softwares in the installation packages. 
+
+Windows Features
+===============================
+    - **Windows Remote Desktop** is the best remote desktop I have ever used. TeamViewer used to be my software for remote desktop software solution. After Windows 10 Remote desktop is used, TeamView is deleted on my computer for greater good. 
+
+
+CheatSheet
+===============================
+This is to help me memorize some shortcuts, or system commands. 
+
+
+
+
+.. _`Windows 10 Installation media creation tool`: https://www.microsoft.com/en-us/software-download/windows10
+.. _Rufus: https://rufus.ie/
+.. _VScode: https://code.visualstudio.com/
+.. _Chrome: https://www.google.com/chrome/
+.. _Wechat: https://www.wechat.com/en/
+.. _FireFox: https://www.mozilla.org/en-US/firefox/
+.. _`git bash`: https://git-scm.com/downloads
+.. _`GitKraken`: https://www.gitkraken.com/
+.. _Anaconda: https://www.anaconda.com/
+.. _Office365: https://www.office.com/
+.. _Visio2019: https://www.office.com/
+.. _Fusion360: https://www.autodesk.com/products/fusion-360/students-teachers-educators
+.. _AutoCAD: https://www.autodesk.com/education/free-software/autocad
+.. _QQ: https://im.qq.com/pcqq/
+.. _steam: https://store.steampowered.com/
+.. _BattleNet: https://www.blizzard.com/en-us/
+.. _`Anaconda Note`: AnacondaHabits.html
+.. _`VScode Note`: VScodeHabits.html
+.. _GoogleDrive: https://www.google.com/drive/download/
+.. _SpaceSniffer: http://www.uderzo.it/main_products/space_sniffer/
+.. _MobaXterm: https://mobaxterm.mobatek.net/
+.. _bitVise: https://www.bitvise.com/
+.. _TeraTerm: https://ttssh2.osdn.jp/index.html.en
+.. _Putty: https://www.putty.org/
+.. _FormatFactory: http://pcfreetime.com/formatfactory/index.php?language=en
+.. _WinSCP: https://winscp.net/eng/index.php
+.. _7zip: https://www.7-zip.org/
+.. _`this site`: http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/

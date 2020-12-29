@@ -1,0 +1,18 @@
+************************************
+|latexlogo| **LaTeX** Notebook
+************************************
+
+.. |latexlogo| image:: ../../Images/latexlogo.png
+   :width: 2em
+   
+LaTeX is a super useful documenting generation software. It converts the conventional Microsoft Word editing experience into coding. So the learning curve of the LaTeX is so long so that lots of people want to avoid it. However, once you have passed the threshold of the LaTex basic grammar, you will immediately fall in love with LaTeX. It is something that is neat and beautiful. You can free yourself from endless format adjusting in your documentation editing. I started to use LaTeX when I was doing my M.S. thesis. It has saved lot of my precious time editing the format of my thesis. I think this should be considered as a must have skill for college students.
+
+Some useful tools for MATH equation generation
+====================================================
+
+Mathpix_ is a tool to convert images to LaTeX. It is available on most of the platforms. Easy to use. For Mathpix Snip, remember to reset the shortcut from **Ctrl+Alt+M** to **Ctrl+Alt+A**. It makes it easy to press. Also, **Ctrl+Alt+M** seems to have conflict with windows shortcut. At least it won't work on my computer. Also, mathpix works so well with the mobile devices.
+
+
+
+
+.. _Mathpix: https://mathpix.com/

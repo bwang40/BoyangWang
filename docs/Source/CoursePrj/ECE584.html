@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ECE584 DCT Implementation Optimization on VLSI level &mdash; Boyang Wang&#39;s Notebook</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon_logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ECE529 Advanced VLSI Systems Design" href="ECE529.html" />
+    <link rel="prev" title="ECE 565 Nodule Detection" href="ECE565.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/WebsiteLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Resume/MyResume.html">Boyang Wang - Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#personal-details">Personal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#education">Education</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#experience">Experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#interests">Interests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#skill-sets">Skill Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#hobbies">Hobbies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#online-certifications">Online Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#publications">Publications</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html">My Research Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#ultrasonic-related">Ultrasonic Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html">Ultrasonic Related Projects (My main focus Research in ECASP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-ndt-related-projects">Ultrasonic NDT Related Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-communication-related-projects">Ultrasonic Communication Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#embedded-system-and-fpga-related">Embedded system and FPGA related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/EmbeddedFPGA/EmbeddedFPGA.html">Embedded System and FPGA Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#artificial-intelligence-related">Artificial Intelligence related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html">Artificial Intelligence Related Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-interpretation-of-supervised-machine-learning">My interpretation of Supervised Machine Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#hardware-acceleration-of-machine-learning-algorithms">Hardware Acceleration of Machine Learning algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-baby-steps-of-machine-learning">My baby steps of Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="CoursePrj.html">Course Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="CoursePrj.html#my-course-project-at-iit">My Course Project at IIT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ECE565.html">ECE 565 Nodule Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#methods-and-results">Methods and Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#discussion-and-conclusion">Discussion and Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ECE584 DCT Implementation Optimization on VLSI level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functional-validation-and-verification">Functional Validation and verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matlab-ise-co-simulation">MATLAB ISE co-simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE529.html">ECE529 Advanced VLSI Systems Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#architecture-exploration">Architecture Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#function-validation-and-verification">Function Validation and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#bonus">Bonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE429.html">ECE429 Intro to VLSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#implementation-and-simulation">implementation and Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE441.html">ECE441</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE587.html">ECE587 Hardware/Software Codesign</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#d-noc-architecture">2D NoC Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-evaluation">System Evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE481.html">ECE481</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE425.html">ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#calculations">Calculations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#schematics-and-simulations">Schematics and Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#performance-evaluation">Performance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE742.html">ECE742</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE744.html">ECE744</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CS450.html">CS450</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CoursePrj.html#my-course-project-from-online">My Course Project from Online</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html">Project I have done with others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#research-projects">Research Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#projects-under-my-instruction">Projects under my Instruction</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html">My Hobby Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#zynq-soc-related-projects">ZYNQ SoC Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#fpga-related-projects">FPGA Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#embedded-system-related-projects">Embedded System Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#image-signal-processing-related-projects">Image/Signal Processing Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#python-related-projects">Python Related Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html">CheckeeInfo data Crawl and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#disclaimer">Disclaimer:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#website-management">Website Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Wordpress.html">WordPress Website of Mine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html">Sphinx Notebook of Mine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html#some-issue-i-found-with-sphinx">Some Issue I found with Sphinx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#crafting">Crafting</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html">My Online Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#studying">Studying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/MachineLearning.html">Machine Learning Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Algorithms.html">Algorithms Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/LeetCode.html">Fun from LeetCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/ZYNQ.html">ZYNQ Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/FPGA.html">FPGA Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/EmbeddedSys.html">Embedded Systems Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/OperatingSys.html">Operating System Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Ultrasonic.html">Ultrasonic Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/openaigym.html">OpenAI gym Study</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#software-system-habits-notebooks">Software/System Habits Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html"> <strong>Windows 10</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#installation-of-windows-10-a-few-notes">Installation of Windows 10 (a few Notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#favored-softwares">Favored Softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#some-useful-tools-on-windows">Some Useful Tools on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#windows-features">Windows Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/UbuntuHabits.html"> <strong>Ubuntu 18.04</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html"> <strong>Xilinx Vivado</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#windows-vivado-toolset">Windows Vivado Toolset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#ubuntu-vivado-toolset">Ubuntu Vivado Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html"> <strong>VScode</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#useful-plugins-that-i-use">Useful Plugins That I use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#setup-environment-in-vscode-settings-json">Setup Environment in <span class="guilabel">.vscode/settings.json</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html"> <strong>Anaconda</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html#installation-of-anaconda">Installation of Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html"> <strong>Jupyter</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-have-to-master">Libraries have to master</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-that-are-useful">Libraries that are useful</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html"> <strong>Sphinx</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-windows">On Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#third-party-software">Third Party software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#theme-selection">Theme Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WordpressHabits.html"> <strong>WordPress</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html"> <strong>Git</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#useful-third-party-git-tools">Useful Third Party Git Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html"> <strong>LaTeX</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html#some-useful-tools-for-math-equation-generation">Some useful tools for MATH equation generation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/IphoneHabits.html"> <strong>Iphone</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/MATLABHabits.html"> <strong>MATLAB</strong> Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#development-boards">Development Boards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ZedBoard.html">ZedBoard Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/PYNQ-Z1.html">PYNQ-Z1 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/MZ7035.html">MZ7035 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ArduinoUNO.html">Arduino UNO Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/RaspberryPi.html">Raspberry Pi Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#some-ideas">Some Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#xilinx-digest">Xilinx Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html">My Digest of Xilinx Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-new-chip">Xilinx New Chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-github">Xilinx github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#mind-map">Mind Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/MindMap/Mindmap.html">Mind Map of Mine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#things-to-be-done">Things to be done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html">Things to be done</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#learning">Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#exploring">Exploring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AboutThisSite/AboutThisSite.html">About this site</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BoyangNotebook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="CoursePrj.html">Course Projects</a> &raquo;</li>
+        
+      <li>ECE584 DCT Implementation Optimization on VLSI level</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ECE529.html" class="btn btn-neutral float-right" title="ECE529 Advanced VLSI Systems Design" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ECE565.html" class="btn btn-neutral float-left" title="ECE 565 Nodule Detection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ece584-dct-implementation-optimization-on-vlsi-level">
+<h1><a class="toc-backref" href="#id8">ECE584 DCT Implementation Optimization on VLSI level</a><a class="headerlink" href="#ece584-dct-implementation-optimization-on-vlsi-level" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://engineering.iit.edu/courses/ece584">ECE584</a> is a course at <span class="guilabel">IIT</span> called <code class="docutils literal notranslate"><span class="pre">VLSI</span> <span class="pre">Architecture</span> <span class="pre">for</span> <span class="pre">Signal</span> <span class="pre">Processing</span> <span class="pre">and</span> <span class="pre">Communication</span> <span class="pre">Systems</span></code>. It is one of the best course I have took at IIT. The course teaches how to design and optimize signal processing algorithms on Hardware. This is the final project of EC584 in the semester I took this course. In the project, we are asked to implement and optimize a Discrete Cosine Transform (DCT) in HDL language. Me and another classmate of mine are teaming up in this project.</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ece584-dct-implementation-optimization-on-vlsi-level" id="id8">ECE584 DCT Implementation Optimization on VLSI level</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id9">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#background" id="id10">Background</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id11">Implementation</a></p></li>
+<li><p><a class="reference internal" href="#functional-validation-and-verification" id="id12">Functional Validation and verification</a></p></li>
+<li><p><a class="reference internal" href="#matlab-ise-co-simulation" id="id13">MATLAB ISE co-simulation</a></p></li>
+<li><p><a class="reference internal" href="#result" id="id14">Result</a></p></li>
+<li><p><a class="reference internal" href="#conclusion-and-future-work" id="id15">Conclusion and Future Work</a></p></li>
+<li><p><a class="reference internal" href="#reference" id="id16">Reference</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id9">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In the project, two different methods will be applied to implement the 8-point DCT. One is direct implementation with algorithm reduction, another one is binDCT algorithm. The specific algorithm of these two implementations will be introduced later.</p>
+<p>For that the DCT is with constant parameters, no adaptive algorithm is used, we can simplify the multipliers to some shifters and adders. This saves us a lot of hardware and can reduce the delay. In the whole process, we will use signed numbers. Specific signed adder is developed to meet the requirement which will be introduced later. The input will be 8 bit number and output will also be 8 bit number. The input will be extended to 12 bit immediately in order to assure that there will be no overflow in the computation. At the last stage, the output will be cut and only 8 bit will be reserved.</p>
+<p>For the binDCT implementation method, after the implementation, the power, area and delay parameters will be measured from the ISE. These parameters can shows us the properties of these two implementations. At last, these two techniques will be compared to draw a final conclusion.</p>
+</div>
+<div class="section" id="background">
+<h2><a class="toc-backref" href="#id10">Background</a><a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>DCT is the abbreviation for Discrete Cosine Transform; it can transform the signal from time domain to cosine domain. It can represent a given signal in term of a sum of cosine functions oscillating at different frequencies. It is a powerful tool for signal analysis and can be applied to many important applications like data compression and so on. A DCT is a Fourier related transform similar to the Discrete Fourier Transform, but using only real numbers.</p>
+<p>IDCT is the invert process of DCT; it can recover the original signal from the transformed signal. DCT and IDCT can be represented by the following equations.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(X(k)=e(k) \sum_{n=0}^{N-1} x(n) \cos \left[\frac{(2 n+1) k \pi}{2 N}\right], k=0,1 \ldots, N-1\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(x(n)=\frac{2}{N} \sum_{k=0}^{N-1} e(k) X(k) \cos \left[\frac{(2 n+1) k \pi}{2 N}\right], n=0,1, \ldots, N-1\)</span></strong></p><p>X[k] is known as the N-point DCT of the sequence x[n]. In our case N is 8. Two methods including direct implementation with algorithm reduction and binDCT algorithm will be used to implement the DCT transform. We will not implement the IDCT process and use MATLAB IDCT function to recover the transformed signal.</p>
+<p>The original DCT process can be shown by using the DFG in FIG 1.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/ece584_1.png" src="../../_images/ece584_1.png" />
+<p class="caption"><span class="caption-text">Figure 1, DFG of DCT</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>As we can see, 24 adders and 12 multipliers will be used in the implementation. In the following two sectors, it shows two improvement implementations based on this DCT structure. These two implementations have better performance compared to this one. Our task is to compare the performance of these two implementations.</p>
+</div>
+<div class="section" id="implementation">
+<h2><a class="toc-backref" href="#id11">Implementation</a><a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dct-direct-implementation-with-algorithm-strength-reduction">
+<h3>DCT direct implementation with Algorithm Strength Reduction<a class="headerlink" href="#dct-direct-implementation-with-algorithm-strength-reduction" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/ece584_2.png" src="../../_images/ece584_2.png" />
+<p class="caption"><span class="caption-text">Figure 2 DCT Block diagram</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/ece584_3.png" src="../../_images/ece584_3.png" />
+<p class="caption"><span class="caption-text">Figure 3 DCT Block diagram with Pipeline</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="bindct-multiplier-less-dct-implementation">
+<h3>binDCT multiplier-less DCT implementation<a class="headerlink" href="#bindct-multiplier-less-dct-implementation" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id4">
+<img alt="../../_images/ece584_4.png" src="../../_images/ece584_4.png" />
+<p class="caption"><span class="caption-text">Figure 4, binDCT Blockdiagram with Pipeline</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Block1</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ece584_5.png"><img alt="block1" src="../../_images/ece584_5.png" style="width: 104.5px; height: 82.5px;" /></a>
+</div>
+</div>
+<p>Block 1 only uses addition operation. It uses the Signed Adder mentioned before. It can handle the addition or subtraction of two real numbers. For subtraction, there is the need to change the subtractor’s sign bit before using Signed Adder.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Block2-6</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ece584_6.png"><img alt="block2" src="../../_images/ece584_6.png" style="width: 107.5px; height: 77.5px;" /></a>
+</div>
+</div>
+<p>The design of Block2-Block6 follows the similar idea. The shift operation replaces multiplication because C5 parameters can be realized by the additions and subtractions of 2n. Take Block4 for example. P1= U1=3/8, which can be implemented as 2-1+2-2. Hence, in VHDL design, x*p1 can be realized as (x&gt;&gt;1)+(x&gt;&gt;2), which can be implemented as two shifts and one add operation. Hence, outa=(inb&gt;&gt;1+inb&gt;&gt;2)-ina, outb=inb-(outa&gt;&gt;1+outa&gt;&gt;2). In the code, shifts operations are realized as shift1.vhdl, shift2.vhdl, shift3.vhdl,shift4.vhdl, shift5.vhdl,… This can reduce the multiplication to shifts and subtraction operation. In addition, the signed addition can be implemented by using the Signed Adder block. Similarly, subtraction can be realized by negating the subtractor’s signed bit. All the blocks from block2 to block6 are the combination of shifters and adders. Compared with the original design, block2- block6 cost less, but they cannot generate accurate results, it is the estimation.</p>
+</div>
+</div>
+<div class="section" id="functional-validation-and-verification">
+<h2><a class="toc-backref" href="#id12">Functional Validation and verification</a><a class="headerlink" href="#functional-validation-and-verification" title="Permalink to this headline">¶</a></h2>
+<p>Hardware description language VHDL is chosen to program the DCT. We use ISE from XILINX to synthesis and implement the design. In the ISE, it has a simulation tool called ISIM. I will use this tool to simulate the design and view the final result. If we use the ISIM, the test-bench is not necessary. But this is fit for the design with fewer inputs. In our design, 8 inputs are required. If we don’t have a test bench, input the numbers manually will lead to a heavy work. So I wrote a test bench with TESTIO package in VHDL. The read and write function in the TESTIO allows us to read the input from the .txt file automatically. After the simulation a new .txt file with output will be built to the destiny location.</p>
+</div>
+<div class="section" id="matlab-ise-co-simulation">
+<h2><a class="toc-backref" href="#id13">MATLAB ISE co-simulation</a><a class="headerlink" href="#matlab-ise-co-simulation" title="Permalink to this headline">¶</a></h2>
+<p>At the simulation phase, we will use MATLAB ISE co-simulation. The input can be generated by MATLAB and wrote to a stimuli.txt file. After the processing in ISE, response.txt will be created. By using MATLAB, we can analysis the result better. The simulation process will be listed below.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Creating the stimuli.txt file by using the MATLAB. The numbers in the stimuli.txt will be separated into several sets of data. Each set of data consists of 8 numbers. I wrote an m-function called stimuli_gen.m in MATLAB. This code can be found in the APPENDIX</p></li>
+<li><p>Run the simulation in ISE and run the test bench in ISIM. The stimuli.txt will be read and converted to binary numbers and then be input to the DCT. After the output is generated, the test bench will again convert the binary outputs to decimal number and then write them to the response.txt at a specific location. The code of the test-bench can be found in APPENDIX.</p></li>
+<li><p>Using MATLAB to read the response.txt to obtain the raw output data. The original data is coded as signed numbers. So the raw data needs to be processed before plotting. The convert function in the TESTIO can only convert the unsigned number. For example, the original data is -10, it will be 10001010. The converted number will be 138. I wrote an m-function in MATLAB to restore the original data from the raw data. The method is very simple; when the number is below 128, just keep it. When the number is over 128, I will subtract it from 128. After the conversion, the data will be stored in the matrix and plotted.</p></li>
+<li><p>The last thing is to do the IDCT to the transformed signal with MATLAB IDCT m-function. This is to prove the correctness of the transform.</p></li>
+</ul>
+</div></blockquote>
+<p>The whole process can be shown by the following flow chart.</p>
+<div class="figure align-center" id="id5">
+<img alt="../../_images/ece584_7.png" src="../../_images/ece584_7.png" />
+<p class="caption"><span class="caption-text">Figure 5, MATLAB ISE co-design procedure</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="result">
+<h2><a class="toc-backref" href="#id14">Result</a><a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
+<p>The simulation result of the DCT can be shown in the APPENDIX 4 (a). As it shown in the figure, the result appears after two clock cycle. It is because of the pipeline of the whole system. This is called system latency. The speed improvement can’t be shown in this simulation because it is only a behavioral simulation, no delay is considered here. The input is (0, 5, 10, 15, 20, 25, 30, 35). In the MATLAB, this result can be plot as it shown in FIG6 .</p>
+<div class="figure align-center" id="id6">
+<img alt="../../_images/ece584_8.png" src="../../_images/ece584_8.png" />
+<p class="caption"><span class="caption-text">Figure 6, Simulation Result</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>As we can see in the result, there is a scale difference here. But the waveforms basically match with each other. There is some little difference in the results that is because of the round off in our hardware implementation. Since we didn’t implement the IDCT, I will use IDCT in MATLAB toolbox to transfer the cosine domain wave back to time domain to see the difference. The result can be shown in FIG7 .</p>
+<div class="figure align-center" id="id7">
+<img alt="../../_images/ece584_9.png" src="../../_images/ece584_9.png" />
+<p class="caption"><span class="caption-text">Figure 7, iDCT result in Matlab</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="conclusion-and-future-work">
+<h2><a class="toc-backref" href="#id15">Conclusion and Future Work</a><a class="headerlink" href="#conclusion-and-future-work" title="Permalink to this headline">¶</a></h2>
+<p>In this project, we implement the Discrete Wavelet Transform using two different methods. One is DCT with algorithm reduction, one is binDCT using lifting block. The area of the binDCT is much smaller than the area in DCT. The Delay of the DCT is smaller than the delay of binDCT.</p>
+<p>For the further work, we can design and implement the hardware of IDCT and using the IDCT to convert the cosine domain signal back to time domain. What is more, we can use the DCT implementation to realize the application of audio signal compression.</p>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id16">Reference</a><a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>[1] Jie Liang, Student Member, IEEE, and Trac D. Tran, Member, IEEE. Fast Multiplierless Approximations of the DCT With the Lifting Scheme1996</p>
+<div class="admonition-statement admonition">
+<p class="admonition-title">Statement</p>
+<p>This is a course project, all the raw data are provided by <code class="docutils literal notranslate"><span class="pre">Dr.</span> <span class="pre">Erdal</span> <span class="pre">Oruklu</span></code> thought course <code class="docutils literal notranslate"><span class="pre">ECE584</span></code> at IIT. Please contact me if you find any problem.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, BoyangWang
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+Ultrasonic Related Projects (My main focus Research in ECASP)
+==================================================================
+
+Ultrasonic NDT Related Projects
+-----------------------------------------------------
+From 2014, I started to work with :guilabel:`Ultrasonic Non-Destruction Testing systems and algorithms` in ECASP lab. Ultrasonic NDT is a non-invasive method to evaluate the target specimen. During the testing, a high voltage and high frequency ultrasonic frequency signal is generated at the pulser to excite the Piezoelectric transducer, a piece of hardware that can convert electrical energy into mechanical waves. The generated ultrasound wave will go through the test specimen and comes back as an echo which carries the test information. Due to the attenuation during the travel, ultrasonic echo has a low SNR. Proper signal processing on both digital and analog form are crucial to extract the desired information from the signal received. The received signal will go through T/R Switch, LNA pre-amplifier, low-pass filter, VCA post amplifier and eventually be sampled by a high frequency Analog to Digital converter (ADC). From here, additional signal processing methods such as time-frequency analysis, matched filter, machine learning algorithms can helps us to extract the target information inside the test specimen.
+
+.. toctree::
+   :maxdepth: 1
+
+   DWTcompression.rst
+   PythonGRBL_control.rst
+   PyvisaOSC_control.rst
+   UltrasonicNDTsys.rst
+   UltrasonicEchoNN.rst
+
+
+Ultrasonic Communication Related Projects
+-----------------------------------------------------
+Ultrasonic 
+
+.. toctree::
+   :maxdepth: 1
+
+   UltrasondCommSys.rst
+   UltrasoundComm.rst

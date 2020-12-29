@@ -1,0 +1,58 @@
+..  MyHobbyProjects.rst
+    This file contains my hobby projects
+    --
+
+My Hobby Projects
+====================================
+This page is my hobby projects. They are mostly for learning purposes or simply for fun. 
+
+
+ZYNQ SoC Related Projects
+-----------------------------------
+.. toctree::
+   :maxdepth: 1
+
+
+FPGA Related Projects
+-----------------------------------
+.. toctree::
+   :maxdepth: 1
+
+Embedded System Related Projects
+-----------------------------------
+.. toctree::
+   :maxdepth: 1
+
+
+Image/Signal Processing Related Projects
+---------------------------------------------
+.. toctree::
+   :maxdepth: 1
+
+
+
+Python Related Projects
+---------------------------------------------
+.. toctree::
+   :maxdepth: 1
+
+   PythonPrj/CheckeeCrawl.rst
+
+Website Management
+--------------------------------------------
+.. toctree::
+   :maxdepth: 1
+
+   WebsiteCreating/Wordpress.rst
+   WebsiteCreating/Sphinx.rst
+
+Crafting
+-----------------
+.. toctree::
+   :maxdepth: 1
+
+
+
+
+
+

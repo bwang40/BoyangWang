@@ -1,0 +1,697 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ECE425 Analysis and Design of Analog IC - Operational Amplifier Design &mdash; Boyang Wang&#39;s Notebook</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon_logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ECE742" href="ECE742.html" />
+    <link rel="prev" title="ECE481" href="ECE481.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/WebsiteLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Resume/MyResume.html">Boyang Wang - Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#personal-details">Personal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#education">Education</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#experience">Experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#interests">Interests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#skill-sets">Skill Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#hobbies">Hobbies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#online-certifications">Online Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#publications">Publications</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html">My Research Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#ultrasonic-related">Ultrasonic Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html">Ultrasonic Related Projects (My main focus Research in ECASP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-ndt-related-projects">Ultrasonic NDT Related Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-communication-related-projects">Ultrasonic Communication Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#embedded-system-and-fpga-related">Embedded system and FPGA related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/EmbeddedFPGA/EmbeddedFPGA.html">Embedded System and FPGA Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#artificial-intelligence-related">Artificial Intelligence related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html">Artificial Intelligence Related Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-interpretation-of-supervised-machine-learning">My interpretation of Supervised Machine Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#hardware-acceleration-of-machine-learning-algorithms">Hardware Acceleration of Machine Learning algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-baby-steps-of-machine-learning">My baby steps of Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="CoursePrj.html">Course Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="CoursePrj.html#my-course-project-at-iit">My Course Project at IIT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ECE565.html">ECE 565 Nodule Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#methods-and-results">Methods and Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#discussion-and-conclusion">Discussion and Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE584.html">ECE584 DCT Implementation Optimization on VLSI level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#functional-validation-and-verification">Functional Validation and verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#matlab-ise-co-simulation">MATLAB ISE co-simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE529.html">ECE529 Advanced VLSI Systems Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#architecture-exploration">Architecture Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#function-validation-and-verification">Function Validation and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#bonus">Bonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE429.html">ECE429 Intro to VLSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#implementation-and-simulation">implementation and Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE429.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE441.html">ECE441</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE587.html">ECE587 Hardware/Software Codesign</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#d-noc-architecture">2D NoC Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-evaluation">System Evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE481.html">ECE481</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculations">Calculations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schematics-and-simulations">Schematics and Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance-evaluation">Performance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE742.html">ECE742</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE744.html">ECE744</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CS450.html">CS450</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CoursePrj.html#my-course-project-from-online">My Course Project from Online</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html">Project I have done with others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#research-projects">Research Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#projects-under-my-instruction">Projects under my Instruction</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html">My Hobby Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#zynq-soc-related-projects">ZYNQ SoC Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#fpga-related-projects">FPGA Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#embedded-system-related-projects">Embedded System Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#image-signal-processing-related-projects">Image/Signal Processing Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#python-related-projects">Python Related Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html">CheckeeInfo data Crawl and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#disclaimer">Disclaimer:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#website-management">Website Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Wordpress.html">WordPress Website of Mine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html">Sphinx Notebook of Mine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html#some-issue-i-found-with-sphinx">Some Issue I found with Sphinx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#crafting">Crafting</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html">My Online Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#studying">Studying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/MachineLearning.html">Machine Learning Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Algorithms.html">Algorithms Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/LeetCode.html">Fun from LeetCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/ZYNQ.html">ZYNQ Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/FPGA.html">FPGA Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/EmbeddedSys.html">Embedded Systems Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/OperatingSys.html">Operating System Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Ultrasonic.html">Ultrasonic Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/openaigym.html">OpenAI gym Study</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#software-system-habits-notebooks">Software/System Habits Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html"> <strong>Windows 10</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#installation-of-windows-10-a-few-notes">Installation of Windows 10 (a few Notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#favored-softwares">Favored Softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#some-useful-tools-on-windows">Some Useful Tools on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#windows-features">Windows Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/UbuntuHabits.html"> <strong>Ubuntu 18.04</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html"> <strong>Xilinx Vivado</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#windows-vivado-toolset">Windows Vivado Toolset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#ubuntu-vivado-toolset">Ubuntu Vivado Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html"> <strong>VScode</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#useful-plugins-that-i-use">Useful Plugins That I use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#setup-environment-in-vscode-settings-json">Setup Environment in <span class="guilabel">.vscode/settings.json</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html"> <strong>Anaconda</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html#installation-of-anaconda">Installation of Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html"> <strong>Jupyter</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-have-to-master">Libraries have to master</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-that-are-useful">Libraries that are useful</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html"> <strong>Sphinx</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-windows">On Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#third-party-software">Third Party software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#theme-selection">Theme Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WordpressHabits.html"> <strong>WordPress</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html"> <strong>Git</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#useful-third-party-git-tools">Useful Third Party Git Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html"> <strong>LaTeX</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html#some-useful-tools-for-math-equation-generation">Some useful tools for MATH equation generation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/IphoneHabits.html"> <strong>Iphone</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/MATLABHabits.html"> <strong>MATLAB</strong> Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#development-boards">Development Boards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ZedBoard.html">ZedBoard Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/PYNQ-Z1.html">PYNQ-Z1 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/MZ7035.html">MZ7035 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ArduinoUNO.html">Arduino UNO Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/RaspberryPi.html">Raspberry Pi Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#some-ideas">Some Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#xilinx-digest">Xilinx Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html">My Digest of Xilinx Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-new-chip">Xilinx New Chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-github">Xilinx github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#mind-map">Mind Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/MindMap/Mindmap.html">Mind Map of Mine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#things-to-be-done">Things to be done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html">Things to be done</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#learning">Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#exploring">Exploring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AboutThisSite/AboutThisSite.html">About this site</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BoyangNotebook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="CoursePrj.html">Course Projects</a> &raquo;</li>
+        
+      <li>ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ECE742.html" class="btn btn-neutral float-right" title="ECE742" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ECE481.html" class="btn btn-neutral float-left" title="ECE481" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ece425-analysis-and-design-of-analog-ic-operational-amplifier-design">
+<h1>ECE425 Analysis and Design of Analog IC - Operational Amplifier Design<a class="headerlink" href="#ece425-analysis-and-design-of-analog-ic-operational-amplifier-design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this project, we are asked to design an Operational Amplifier with some specific requirements. Operational amplifier is a theoretical component that should have infinity input impedance and zero output impedance, at the same time it should have infinity open loop gain. One can do a lot of design such like filter, adder, multiplier etc. with Operational Amplifier. But in real world, the operational amplifier will never be theoretical since all the parameters cannot really go to zero or infinity.</p>
+<p>In this project, I designed a two stage CMOS Opamp (Operational Amplifier) with 65 ns Technology.  The schematic of the design can be shown in Figure 1.</p>
+<p>Compare to conventional Opamp, this kind of schematic have a robust bias circuit (including M8 and M10 – M14) which will offer a very stable ID5 compare to a single resister. In the middle stage is a standard NMOS differential amplifier. The top M3 and M4 is a typical current mirror, this current mirror will split ID5 and make sure M1 and M2 are in working mode.  The WL ratio of M3 and M4 will mainly affect the input common mode range.  M1 and M2 are the main amplifier transistor in this level. Different M1 M2 will give us different Gain Bandwidth. M5 is the pull down circuit, with the help of the bias circuit, it can offer a known ID5 to the differential amplifier. Stage 3 including M6 and M7 is an output buffer. M6 is working as a Common Source amplifier. Together with M1 and M2, it can give us around 60 DC gain. M9 and Cc is the compensation feedback component. Different M9 and Cc will give us different Phase margin and bandwidth. The design procedure of all these components will be included in detail in the following section.</p>
+<p>During I was designing the amplifier, I found many limitations of real world Opamp. And also, I found some efficient design methods by working with MATLAB and Microsoft EXCEL.</p>
+</div>
+<div class="section" id="calculations">
+<h2>Calculations<a class="headerlink" href="#calculations" title="Permalink to this headline">¶</a></h2>
+<p>In order to calculate the frequency and gain response, one need small-signal equivalent circuit. Figure 2 shows the small signal equivalent circuit of the CMOS Opamp in Figure 1.</p>
+<p>By listing the KCL and KVL of the small signal equivalent circuit, we can know the transfer function of the circuit.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\frac{V_{A}}{\frac{1}{S C_{1}}}+\frac{V_{A}}{R_{A}}+g_{m 1} V_{i d}+\frac{V_{A}-V_{o u t}}{\frac{1}{S C_{c}}}=0\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(V_{o u t}\left[s\left(C_{L}+C_{c}\right)+R_{B}\right]=V_{A}\left(s C_{c}-g_{m 2}\right)\)</span></strong></p><p>We can derive the transfer function from these two equations.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\frac{V_{\text {out}}}{V_{\text {in}}}=\frac{g_{m 1} R_{A} g_{m 2} R_{B}\left(1-\frac{S C_{C}}{g_{m 2}}\right)}{s^{2}\left\{R_{A} R_{B}\left(C_{1} C_{2}+C_{1} C_{c}+C_{2} C_{c}\right)+s\left[R_{A}\left(C_{c}+C_{2}\right)+R_{A}\left(C_{c}+C_{2}\right)+C_{c} g_{m 2} R_{A} R_{B}\right]+1\right.}\)</span></strong></p><p>Compare to the standard two stage Opamp transfer function. We can know the poles and zeros of the Opamp.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(Z=\frac{g_{m 2}}{C_{c}}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(P_{1}=\frac{1}{g_{m 2} R_{A} R_{B} C_{c}}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(P_{2}=\frac{g_{m 2}}{C_{c}}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(A_{d c}=g_{m 1} R_{A} g_{m 2} R_{B}\)</span></strong></p><p>After knowing these very important equations of an Opamp circuit, we can start to calculate the parameters of the components in our circuit. Following is the most useful equations while I do the calculation.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(I_{D}=\frac{\mu_{n, p} C_{\mathrm{ox}}}{2}\left(\frac{W}{L}\right) V_{\mathrm{eff}}^{2}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(g_{m}=\sqrt{2 \mu_{n, p} C_{\mathrm{ox}}\left(\frac{W}{L}\right) I_{D}}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(g_{m}=\frac{2 I_{D}}{V_{\mathrm{eff}}}\)</span></strong></p><p>Before I do further calculation, I list all the specifications from the final project manual as follow.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Transfer function shape:
+Open loop gain &gt; 500
+First order low-pass filter behavior for open loop transfer function.
+Feedback factor as determined by the circuit in Fig. 1.
+Loop transmission unity gain frequency &gt; 5MHz (Resulting open loop unity gain frequency &gt; 50MHz)
+Phase margin &gt; 60° (open loop)
+Gain margin &gt; 2 (open loop)</p></li>
+<li><p>Slew rate &gt; ± 20V/μs</p></li>
+<li><p>Input common mode range: 0.3V to 0.9V</p></li>
+<li><p>Input offset voltage &lt; 5mV</p></li>
+<li><p>Output swing range: 0.3V to 0.9V</p></li>
+</ul>
+</div></blockquote>
+<p>Starting from gain bandwidth, according to the definition we know that</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(G B W=A_{d c} P_{1}=\frac{g_{m 1}}{C_{c}}\)</span></strong></p><p>So, the Gain Bandwidth product is mainly correlated to M1 M2 and Cc these three components. Let’s decide what value we want for Cc first. We can easily know that the dominant load capacitance in the circuit is the load capacitance which is 10 pF as it is specified. In the requirement, Phase Margin (PM) of the amplifier have to be larger than 60 degree (deg). In order to achieve 60 deg PM, the following equation have to be satisfied.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(P M=84.29 \operatorname{deg}-\tan ^{-1}\left(\frac{G B W}{P_{2}}\right)\)</span></strong></p><p>After calculation, we know that we have to make Cc larger or equal than 0.22*CL. To get make sure that the PM will be satisfied for sure, I make Cc = 3 pF.</p>
+<p>According to SR=I_5/C_c, we know that I_5=SRC_c=20 V/us*3 pF=60 uA . So I need to design ID5 as 60 uA to make sure SR is larger than 60 deg.</p>
+<p>The following equation determine the required gm1 value to assure the GBW.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(g_{m 1}=G B W * C_{c} * 2 * p i=50 M * 3 p F * 2 * p i=942.4 u\)</span></strong></p><p>Knowing gm1 and ID5, I can finally calculate the Width by Length ratio (WL ratio). ID1 and ID2 is ID5/2 because of the current mirror.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left(\frac{W}{L}\right)_{1,2}=\frac{g_{m 1}}{u n C o x * 2 * I D 1} \approx 49.348\)</span></strong></p><p>unCox and upCox are the most common values in the CMOS design. By checking the 65ns technology manual, we can easily know that for the transistor we are using in the system</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(u n C o x=300 u A / V^{2}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(u p \operatorname{Cox}=110 u A / V^{2}\)</span></strong></p><p>Input Common mode range is specified as 0.3V to 0.9V. M3 and M4 will affect the ICMR(+). ICMR(+)=0.9V. ICMR(-)=0.3V. To put all the devices in saturation mode, the following formula need to be satisfied.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\operatorname{ICMR}(+) \leq\left[V D D-\left(\sqrt{\frac{2 I_{D}}{\beta}}+\left|V_{t 3}\right|\right)\right]_{\min }+V_{\operatorname{timin}}\)</span></strong></p><p>So that we know that WL ratio of M3 and M4 are</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left(\frac{W}{L}\right)_{3,4}=\frac{2 * I_{D 3}}{u p C o x\left[V D D-I C M R(+)-V_{t 3 m a x}+V_{t 1 m i n}\right]^{2}}=5.5676\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(V_{t 3 m a x}=0.294 V\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(V_{t 1 \min }=0.307 V\)</span></strong></p><p>Vt3max and Vt1min are obtained by DC simulation in the testbench as follow.</p>
+<p>To design M5, we need to derive it from ICMR(-).</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(V_{D S A T} \geq I C M R(-)-\sqrt{\frac{2 I_{D}}{\beta}}-V_{t 1 \max }\)</span></strong></p><p>Since my design have the input stage as NMOS transistors, so when ICMR(-) is less than 0.5, I will get a negative VDSAT which is impossible. So I decided to make the ICMR(-) as large as possible. I have to make the VDSAT large enough to make the amplifier work, and I want a decent ICMR(-). I decided to make ICMR(-) equal to 0.5 other than 0.3.</p>
+<p>Ps:     I know ICMR(-)=0.5 doesn’t meet the requirement, and I know the solution is to use the complementary input stage. However, I tried my best testing the circuit coming from some other papers, it just doesn’t work. I even have my PMOS version of two stage amplifier design and it also works fine. But the PMOS Opamp have a ICMR(+) less than 0.6. I do have the complementary schematic design in the Final folder, but I failed to test it. This ICMR(-) is the only part that doesn’t meet the requirement.</p>
+<p>Using ICMR(-)=0.5V, I know that the VDSAT =165.3 mV</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left(\frac{W}{L}\right)_{5,8}=\frac{2 * I_{D 5}}{u n \operatorname{Cox} V_{D S A T}^{2}}=6.22\)</span></strong></p><p>In order to have a PM larger than 60 deg, we need to make gm6 &gt;= 10 gm1. Use gm6=10gm1=9.4248m. We know that</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left(\frac{W}{L}\right)_{6}=\frac{g_{m 6}}{g_{m 4}}\left(\frac{W}{L}\right)_{4}=273.734\)</span></strong></p><p>ID6 and ID7 are the same, by this relation we can get</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(I 6=I 7=\frac{\left(\frac{W}{L}\right)_{6}}{\left(\frac{W}{L}\right)_{6}} * \frac{I 5}{2}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left(\frac{W}{L}\right)_{7}=\frac{I_{7}}{I_{5}}\left(\frac{W}{L}\right)_{5}=359.7069\)</span></strong></p><p>As for M10-M14 and Rb these are to give a proper Vbias to have a 60 uA ID5. These values are not that critical and also it is very easy to calculate it. Any value that make ID5 =60uA will be fine.</p>
+<p>Till now we have the parameters of all the components in the circuit calculated. These parameters can be shown in Table 1.</p>
+<p>All the calculation is done by using MATLAB. I wrote a script in Matlab to finish the calculation. The matlab code can be shown in the following context:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="ow">in</span> <span class="n">version</span> <span class="mf">1.1</span> <span class="n">i</span> <span class="n">change</span> <span class="n">the</span> <span class="n">uncox</span> <span class="ow">and</span> <span class="n">upcox</span>
+<span class="n">clear</span><span class="p">;</span>
+<span class="n">clc</span><span class="p">;</span>
+<span class="n">GBW</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">6</span><span class="p">;</span>    <span class="o">%</span><span class="n">gain</span> <span class="n">band</span> <span class="n">width</span> <span class="o">==</span> <span class="mi">50</span> <span class="n">MHz</span>
+<span class="n">SR</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">6</span><span class="p">;</span>     <span class="o">%</span><span class="n">slew</span> <span class="n">rate</span> <span class="o">==</span> <span class="mi">20</span><span class="n">V</span><span class="o">/</span><span class="n">us</span>
+<span class="n">DC_GAIN</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>      <span class="o">%</span><span class="nb">open</span> <span class="n">loop</span> <span class="n">gain</span> <span class="o">==</span> <span class="mi">500</span>
+<span class="n">PM</span><span class="o">=</span><span class="mi">60</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">pi</span><span class="p">;</span>
+<span class="n">GM</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>             <span class="o">%</span><span class="n">gain</span> <span class="n">margin</span>
+<span class="n">VDD</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span>          <span class="o">%</span><span class="n">VDD</span> <span class="o">==</span> <span class="mf">1.2</span><span class="n">V</span>
+<span class="n">VSS</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="o">%</span><span class="n">VSS</span> <span class="o">==</span><span class="mi">0</span> <span class="n">Grounded</span>
+<span class="n">ICMRp</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
+<span class="n">ICMRm</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">;</span>
+<span class="n">Cl</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">12</span><span class="p">;</span>
+
+<span class="o">%</span><span class="n">uncox</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">130</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">650</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">9</span><span class="p">))</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">703.3</span><span class="o">*</span><span class="mi">10</span><span class="o">^-</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">561.2</span><span class="o">*</span><span class="mi">10</span><span class="o">^-</span><span class="mi">3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="o">%</span><span class="n">upcox</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">130</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">650</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">9</span><span class="p">))</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="mf">729.5</span><span class="o">*</span><span class="mi">10</span><span class="o">^-</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">492.9</span><span class="o">*</span><span class="mi">10</span><span class="o">^-</span><span class="mi">3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">unCox</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">upCox</span> <span class="o">=</span> <span class="mi">110</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">6</span><span class="p">;</span>
+<span class="o">%</span><span class="n">unCox</span> <span class="o">=</span> <span class="mf">318.4</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">6</span><span class="p">;</span>
+<span class="o">%</span><span class="n">upCox</span> <span class="o">=</span> <span class="mf">149.2</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">Cox</span> <span class="o">=</span> <span class="mi">19</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">15</span> <span class="o">/</span> <span class="mi">10</span><span class="o">^-</span><span class="mi">12</span><span class="p">;</span>
+<span class="n">up</span> <span class="o">=</span> <span class="n">upCox</span> <span class="o">/</span> <span class="n">Cox</span><span class="p">;</span>
+<span class="n">un</span> <span class="o">=</span> <span class="n">unCox</span> <span class="o">/</span> <span class="n">Cox</span><span class="p">;</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>            <span class="o">%</span><span class="n">WL</span> <span class="n">ratio</span> <span class="n">to</span> <span class="n">be</span> <span class="n">calculated</span>
+
+<span class="n">Lmin</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+
+<span class="n">Cc</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">Cl</span><span class="p">;</span>  <span class="o">%</span><span class="mf">1.83</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fix</span>
+<span class="n">I5</span> <span class="o">=</span> <span class="n">SR</span> <span class="o">*</span> <span class="n">Cc</span><span class="p">;</span>     <span class="o">%</span><span class="mf">1.3</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fix</span>
+<span class="n">gm1</span> <span class="o">=</span> <span class="n">GBW</span> <span class="o">*</span> <span class="n">Cc</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">;</span> <span class="o">%</span><span class="mf">1.06</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fix</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">gm1</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">unCox</span> <span class="o">*</span> <span class="n">I5</span><span class="p">);</span> <span class="o">%</span><span class="n">wl</span> <span class="mi">1</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">WL</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">vt3max</span> <span class="o">=</span> <span class="mf">0.294</span><span class="p">;</span> <span class="n">vt1min</span> <span class="o">=</span> <span class="mf">0.307</span><span class="p">;</span>   <span class="o">%</span><span class="n">obtained</span> <span class="n">by</span> <span class="n">simulation</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">=</span> <span class="n">I5</span> <span class="o">/</span> <span class="p">(</span><span class="n">upCox</span><span class="o">*</span><span class="p">(</span><span class="n">VDD</span><span class="o">-</span><span class="n">ICMRp</span><span class="o">-</span><span class="n">vt3max</span><span class="o">+</span><span class="n">vt1min</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">=</span><span class="n">WL</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">vt1max</span> <span class="o">=</span> <span class="mf">0.371</span><span class="p">;</span>
+<span class="n">VDSAT5</span> <span class="o">=</span> <span class="n">ICMRm</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">I5</span><span class="o">/</span><span class="p">(</span><span class="n">WL</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span> <span class="n">unCox</span><span class="p">))</span> <span class="o">-</span> <span class="n">vt1max</span><span class="p">;</span> <span class="o">%</span><span class="mi">6</span> <span class="n">should</span> <span class="n">be</span> <span class="n">WL1</span>
+
+<span class="n">WL</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">I5</span><span class="o">/</span><span class="p">(</span><span class="n">unCox</span><span class="o">*</span><span class="n">VDSAT5</span><span class="o">*</span><span class="n">VDSAT5</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">=</span> <span class="n">WL</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">gm6</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">gm1</span><span class="p">;</span>
+<span class="n">gm4</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">upCox</span><span class="o">*</span> <span class="n">WL</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">I5</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="n">gm6</span><span class="o">/</span><span class="n">gm4</span> <span class="o">*</span><span class="n">WL</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">L6</span><span class="o">=</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">up</span><span class="o">*</span><span class="mf">0.3</span><span class="o">*</span><span class="n">Cc</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">GBW</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">Cc</span><span class="o">+</span><span class="n">Cl</span><span class="p">)</span> <span class="o">*</span> <span class="n">tan</span><span class="p">(</span><span class="n">PM</span><span class="p">)));</span>
+
+<span class="n">I6</span> <span class="o">=</span> <span class="n">WL</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="n">WL</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span> <span class="n">I5</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">I7</span><span class="o">=</span><span class="n">I6</span><span class="p">;</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="o">=</span> <span class="n">I7</span> <span class="o">/</span> <span class="n">I5</span> <span class="o">*</span> <span class="n">WL</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">Cc</span><span class="o">*</span><span class="n">SR</span><span class="o">/</span><span class="p">(</span><span class="n">upCox</span><span class="o">*</span><span class="mf">0.3</span><span class="o">*</span><span class="p">(</span><span class="n">VDD</span><span class="o">-</span><span class="mf">0.3</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="mf">0.3</span><span class="p">));</span>
+<span class="n">RB</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">unCox</span><span class="o">*</span><span class="n">WL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="n">Cc</span><span class="o">*</span><span class="n">SR</span><span class="p">));</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span><span class="n">WL</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="n">WL</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">/</span><span class="n">WL</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span><span class="n">WL</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span><span class="n">WL</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span><span class="n">WL</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">WL</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">WL</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+
+<span class="n">P</span><span class="o">=</span><span class="n">SR</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">Cc</span><span class="o">+</span><span class="n">Cl</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">VDD</span><span class="o">-</span><span class="n">VSS</span><span class="p">)</span>
+<span class="n">WL</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="schematics-and-simulations">
+<h2>Schematics and Simulations<a class="headerlink" href="#schematics-and-simulations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="schematic-setup">
+<h3>Schematic Setup<a class="headerlink" href="#schematic-setup" title="Permalink to this headline">¶</a></h3>
+<p>Figure 3 shows the schematic of the CMOS Opamp design. This schematic is while I was doing the system setup.</p>
+<p>After finishing the design, I pack the amplifier and form a symbol view of the Opamp. The design schematic and symbol can be shown in Figure 4.</p>
+</div>
+<div class="section" id="bode-plot-dc-gain-unity-gain-frequency-gain-margin">
+<h3>Bode Plot (DC gain &amp; Unity Gain Frequency &amp; Gain Margin)<a class="headerlink" href="#bode-plot-dc-gain-unity-gain-frequency-gain-margin" title="Permalink to this headline">¶</a></h3>
+<p>In figure 1, it also shows the DC operating points of all the components, these values will also be included in on single table in the performance evaluation section. ICMR is from 0.5 to 0.9, So by using AC analysis scanning from 10 Hz to 10 GHz, I can obtain the bode plot of the system by direct plot it in the result tab. I scheme the bode plot of open loop amplifier with load capacitance of 10 pF. The result can be shown in figure 5.</p>
+<p>From the Bode plot we can easily know the unity Gain frequency and openloop DC gain. All the information are summarized in Table 2.</p>
+<p>Gain margin can also be derived from the Bode plot. Gain margin is defined as the amount of gain increase or decrease required to make the loop gain unity at the frequency Wgm where the phase angle is –180° (modulo 360°). To make is simpler, it is the gain of the circuit while phase is equal to 180 deg. Gain margin is calculated using the following formula. It can be drawn from Bode plot in the following figure.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(Gain margin$=1-\operatorname{Gain} &#64; 180^{\circ}$ phase shift\)</span></strong></p><p>As it is shown in the figure, the Gain margin is -17.2970dB which is larger than 2, so it meet the requirement.</p>
+</div>
+<div class="section" id="phase-margin-test">
+<h3>Phase Margin Test<a class="headerlink" href="#phase-margin-test" title="Permalink to this headline">¶</a></h3>
+<p>Phase margin is defined as the phase shift at the frequency that gain equal to 1 which is 0 dB. To test the Phase margin, we need to analysis the Bode plot of the open loop circuit again. By putting the markers on the frequency axis and dB and phase axis, we can obtain the Phase margin of the circuit. Figure 5 shows the procedure of getting the Phase margin of the circuit.</p>
+<p>As shown in figure 5, the phase margin is around 60 deg.</p>
+</div>
+<div class="section" id="slew-rate-test">
+<h3>Slew Rate Test<a class="headerlink" href="#slew-rate-test" title="Permalink to this headline">¶</a></h3>
+<p>Slew Rate describe the voltage changing speed of the output. This directly affect the operating speed of the Opamp. The method of testing the Slew rate is to divide voltage changing rate by time. I decide to test the slew rate from %25 output to %75 output voltage. The testbench can be shown in Figure 7 and the slew rate for both rising edge and falling edge can be shown in Figure 8. The input voltage of the amplifier is a rectangular wave, this is to make the testing procedure easier.</p>
+<p>Deriving from the testing, slew rate is calculated in Table 3. To make it easier, I use Excel to do the calculation. The Excel chart is also included in the design submission.</p>
+<p>According to the table, the rising slew rate is 19.768 V/us and the falling slew rate is 21.234 V/us. So the slew rate basically meet the requirement.</p>
+</div>
+<div class="section" id="input-offset-voltage">
+<h3>Input offset Voltage<a class="headerlink" href="#input-offset-voltage" title="Permalink to this headline">¶</a></h3>
+<p>The input offset voltage of the amplifier is a parameter defining the differential DC voltage required between the inputs of an amplifier. It shows if the circuit is well balanced or not. The testbench can be shown in figure.</p>
+<p>In order to test the mismatch of the output voltage and input voltage, I scan the input voltage value from 0V to 1.2 V. The output and input voltage are shown in the following figure</p>
+<p>To make a better comparison, I use output voltage to minus input voltage and I get the result as it is shown in the following figure.</p>
+<p>This figure can perfectly show the input offset voltage of the circuit. From 0 V, the output should also be 0 V. When the VCM goes to around 0.4V, the transistors start to be in saturation mode and gradually build the balance. When VCM = 0.5, the amplifier is in the working mode and till 0.9V, the input offset voltage is still less than 1 mV which is very nice.</p>
+</div>
+<div class="section" id="input-common-mode-range">
+<h3>Input Common Mode Range<a class="headerlink" href="#input-common-mode-range" title="Permalink to this headline">¶</a></h3>
+<p>Input Common Mode Range (ICMR) is the voltage that can be applied to both input port to make the circuit in the correct working mode. With a proper input voltage, all the transistors should be in saturation mode. The following figure shows the test bench of ICMR.</p>
+<p>Vin can’t be connected to ground as it is shown in the lab manual, that is because we have only one single power supply in the circuit.
+In order to test the VCM range, I scan the input voltage from 0V to 1.8 V. I am getting the output voltage as it is shown in the following figure</p>
+<p>The input voltage VCM is a scan from 0 V to 1.8V. To view the result better, I did a subtraction to the input voltage and the output voltage by using calculator in the tool tab, the result can be shown in the following figure</p>
+<p>It can be clearly seen that the voltage become stable at 0.5V and keep flat until 0.9V. I didn’t use the complementary input technology, so form 0.3 to 0.5 is not the proper VCM.</p>
+</div>
+<div class="section" id="output-swing">
+<h3>Output swing<a class="headerlink" href="#output-swing" title="Permalink to this headline">¶</a></h3>
+<p>The output swing is the range that the output can approach. The testbench of the output swing can be shown in the following figure.</p>
+<p>To make this simpler, I make both R1 and R2 as 10K, so this schematic become an input follower. Whatever I have as the input the output will give up the same output. And I set the simulation at transfer function analysis. I tested a few set of input and found the output swing at around 0.1 to 1.1 which is larger than 0.3 to 0.9.  The following figures shows the simulation results. Among all these test cases, the VCM is 0.6.</p>
+</div>
+<div class="section" id="openloop-response">
+<h3>Openloop response<a class="headerlink" href="#openloop-response" title="Permalink to this headline">¶</a></h3>
+<p>In order to see the performance of the output signal compare to the input signal. I select tran analysis and do the simulation. The VCM is set to 0.6 V. And input have a Vpp of 0.2mV and frequency of 10Hz. The following figure shows the plot of output signal and input signal. The input signal looks like a single line that is because the input swing is too small.</p>
+<p>I also test the same setup with different VCM the output can be shown in the following Table.</p>
+</div>
+</div>
+<div class="section" id="performance-evaluation">
+<h2>Performance evaluation<a class="headerlink" href="#performance-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>This table shows all the design parameters and their DC operating points. ‘dc’ in the table means ‘don’t care’, don’t care is not saying I didn’t carefully design them, it means these value are not critical to the design.</p>
+<div class="section" id="openloop-gain">
+<h3>Openloop Gain<a class="headerlink" href="#openloop-gain" title="Permalink to this headline">¶</a></h3>
+<p>The following Table is drawn from the Bode Plot with different VCM.</p>
+<p>The upper figure is the unity gain Frequency, it is almost stable while VCM is 0.5V to 0.9V. The bottom figure is DC gain compare to the VCM.</p>
+</div>
+<div class="section" id="slew-rate">
+<h3>Slew Rate<a class="headerlink" href="#slew-rate" title="Permalink to this headline">¶</a></h3>
+<p>As it presented before, Slew rate is tested by dividing voltage change by time interval. The following table shows that rising slew rate is 19.768 V/us and falling slew rate is 21.234 V/us</p>
+</div>
+<div class="section" id="icmr">
+<h3>ICMR<a class="headerlink" href="#icmr" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id1">
+<h3>Output swing<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="power-consumption">
+<h3>Power Consumption<a class="headerlink" href="#power-consumption" title="Permalink to this headline">¶</a></h3>
+<p>Although there is no requirement on the power consumption. I still did a static power consumption check for my design. The following figure is the result.</p>
+<p>The static power consumption is 1.969 mW. According to my calculation, the power consumption is 0.456 mW. I think the additional power consumption are coming from the bias circuit, since I have added a lot more transistors to stabilize the ID5 to be 60 uA.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In the final project, I designed a two stages CMOS Opamp. The Opamp mainly has 3 parts, the first part is to generate a bias voltage for the coming two stages. This stage will stabilized the ID5 as 60 uA. The second stage is a differential amplifier which have a gain of around 30 dB. The third stage is a Common Source amplifier which have a gain of around 30 dB. My design has a ICMR of 0.5 to 0,9 V and output Swing as 0.1 to 1.1 V. All the project specifications are met except for ICMR is not from 0.3 to 0.9. That is because of the NMOS input stage. I tried to implement the complementary input stage with both NMOS and PMOS however it doesn’t really work as expected. Designing with MATLAB and EXCEL make life a lot easier since a lot of parameters need to be taken care of. All the projects including EXCEL sheet and MATLAB code and design file itself are included in the tar file.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>[1]     Design Procedure for Two-Stage CMOS Opamp With Flexible Noise-Power Balancing Scheme</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, BoyangWang
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

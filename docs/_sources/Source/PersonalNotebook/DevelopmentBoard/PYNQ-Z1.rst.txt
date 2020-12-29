@@ -1,0 +1,10 @@
+.. sidebar:: PYNQ-Z1
+
+   .. figure:: ../../Images/developmentboard/pynq.jpg
+      :alt: photo of mine
+      :align: center
+      :scale: 90 %
+
+************************************
+PYNQ-Z1 Notebook
+************************************

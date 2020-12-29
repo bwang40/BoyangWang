@@ -1,0 +1,34 @@
+..  MyResearchProject.rst
+    This file contains my main Research Projects
+    --Section1, Ultrasonic Related
+    --Section2, Embedde sytsem and FPGA related
+    --Section3, Artificial Intelegence related
+
+******************************
+My Research Projects
+******************************
+My research related projects.
+
+Ultrasonic Related
+==========================
+
+.. toctree::
+   :maxdepth: 3
+
+   Ultrasonic/UltrasonicPrj.rst
+
+Embedded system and FPGA related
+=====================================
+
+.. toctree::
+   :maxdepth: 3
+
+   EmbeddedFPGA/EmbeddedFPGA.rst
+
+Artificial Intelligence related
+=====================================
+
+.. toctree::
+   :maxdepth: 3
+
+   AIPrj/AIPrj.rst

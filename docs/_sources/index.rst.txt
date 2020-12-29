@@ -1,0 +1,73 @@
+.. BoyangProject documentation master file, created by
+   sphinx-quickstart on Wed Apr 24 07:31:10 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. Prerequisite. conda install -c conda-forge sphinxcontrib-bibtex 
+
+.. figure:: Source/Images/chunfeng.png
+    :alt: photo of mine
+    :align: right
+    :scale: 60 %
+
+**************************************************
+|logome| Boyang Wang's Notebooks
+**************************************************
+
+.. |logome| image:: Source/Images/logo/logo_burned.png
+   :width: 1em
+
+.. |IITlogo| image:: Source/Images/logo/iitlogo.png
+   :width: 1em
+
+
+
+My name is `Boyang Wang`_. I am currently a PhD. Candidate at |IITlogo| `Illinois Institute of Technology`_. I am a member in `ECASP Lab`_ of `ECE Department`_. My research interests are:
+
+    -   :guilabel:`Embedded and FPGA system design`
+    -   :guilabel:`Hardware and Software Co-design for Acceleration`
+    -   :guilabel:`Signal Processing`
+    -   :guilabel:`Ultrasonic NDT system and algorithms`
+    -   :guilabel:`Ultrasonic wave for Communication`
+    -   :guilabel:`Artificial Intelligence`
+
+As the domain name pointed out, this site is notebook of mine. It contains my notebooks and documentations so that I can easily access them when I need. Also, it keeps records of the projects I have done or participated from 2013 till now.  This site is mainly written and posted for the purpose of recording my activities and clearing my mind. Also, my resume_ is posted on this site as an advertisement for myself.
+
+There is another wordpress based website of mine hosted on the same server. It was generated two years ago and I have some proejects managed on this site. Welcome to my `WordPress Site`_
+
+
+About Me 
+====================
+
+.. toctree::
+    :maxdepth: 1
+
+    Source/Resume/MyResume.rst
+
+My Projects 
+====================
+
+.. toctree::
+   :maxdepth: 2
+
+   Source/ResearchProjects/MyResearchProjects.rst
+   Source/CoursePrj/CoursePrj.rst
+   Source/ProjectsWithOthers/ProjectWithOthers.rst
+   Source/HobbyProjects/MyHobbyProjects.rst
+
+My Notebooks
+====================
+
+.. toctree::
+   :maxdepth: 3
+
+   Source/PersonalNotebook/PersonalNotebooks.rst
+   Source/AboutThisSite/AboutThisSite.rst
+
+
+.. _`Boyang Wang`: https://notebookofmine.com
+.. _`Illinois Institute of Technology`: https://web.iit.edu/
+.. _`ECASP Lab`: http://ecasp.ece.iit.edu/
+.. _`ECE Department`: https://engineering.iit.edu/ece
+.. _`WordPress Site`: https://notebookofmine.com/wordpress/
+.. _`resume`: Source/Resume/MyResume.html

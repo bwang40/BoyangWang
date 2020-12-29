@@ -1,0 +1,115 @@
+.. sidebar:: A photo at StarveRock
+
+   .. figure:: ../Images/Myphoto.jpg
+      :alt: photo of mine
+      :align: center
+      :scale: 15 %
+
+
+*****************************************
+Boyang Wang - Résumé
+*****************************************
+PhD Candidate in Illinois Institute of Technology.
+
+
+
+Personal Details
+======================
+
+=======================  ==================================
+|githublogo| Github        https://github.com/bwang40
+|maillogo| Email           bwang40@hawk.iit.edu 
+|sitelogo| Website         https://notebookofmine.com/
+|phonelogo| Phone          +1(312)-714-8770     
+=======================  ==================================
+
+.. |githublogo| image:: ../Images/logo/Github-logo.png
+   :width: 1em
+.. |maillogo| image:: ../Images/logo/maillogo.jpg
+   :width: 1em
+.. |sitelogo| image:: ../Images/logo/logo_burned.png
+   :width: 1em
+.. |phonelogo| image:: ../Images/logo/phonelogo.png
+   :width: 1em
+
+
+
+Education
+========================
+
+================  ================  =============================  ========================================
+Time                Degree             Major                          School
+================  ================  =============================  ========================================
+(2015--Now)         PhD Candidate      Electrical Engineering         `Illinois Institute of Technology`_
+(2013--2015)        M.S.               Electrical Engineering         `Illinois Institute of Technology`_
+(2009--2013)        B.S.               Information Engineering        `Beijing Institute of Technology`_
+================  ================  =============================  ========================================
+
+
+Experience
+========================
+
+================  ======================  ===========================================================
+Time               Work                      Organization
+================  ======================  ===========================================================
+  (2012 Summer)    Internship                Beijing IC Design Park
+  (2014 Summer)    Volunteer                 2014 IEEE International Ultrasonic Symposium
+  (2015 - Now)     Teaching Assistant        Illinois Institute of Technology
+  (2014 - Now)     Research Assistant        | Embedded Computing and Signal Processing 
+                                             | Research Laboratory (`ECASP`_) 
+  (2017 - 2018)    Research Student          `Argonne National Laboratory`_
+================  ======================  ===========================================================
+
+Interests
+=========================
+   - Embedded and FPGA system design
+   - Hardware & Software co-deisgn for acceleration
+   - Signal Processing
+   - Software Defined Radio
+   - Artificial Intelligence
+
+
+Skill Sets
+===================
+   - Languages: Python_, MATLAB_, C, C++, ASM_, VHDL_, Verilog_
+   - Software: `Microsoft Office Toolsets`_, AutoCAD_, Fusion360_, LaTex_
+
+Hobbies
+=======================
+   - Jogging, Programming, Crafting
+
+Online Certifications
+===========================
+
+ - `Machine Learning`_
+ - `Neural Networks and Deep Learning`_
+ - `Graph Search, Shortest Paths, and Data Structures`_
+ - `Divide and Conquer, Sorting and Searching, and Randomized Algorithms`_
+
+Publications
+========================
+.. bibliography:: references.bib
+   :list: enumerated
+   :style: unsrt
+   :all:
+
+.. _Python: https://www.python.org/
+.. _MATLAB: https://www.mathworks.com/
+.. _ASM: https://en.wikipedia.org/wiki/Assembly_language
+.. _VHDL: https://en.wikipedia.org/wiki/VHDL
+.. _Verilog: https://en.wikipedia.org/wiki/Verilog
+.. _`Microsoft Office Toolsets`: https://products.office.com/
+.. _AutoCAD: https://www.autodesk.com/products/autocad/overview
+.. _Fusion360: https://www.autodesk.com/products/fusion-360
+.. _LaTex: https://www.latex-project.org/
+.. _`Illinois Institute of Technology`: https://web.iit.edu/
+.. _`Beijing Institute of Technology`: http://www.bit.edu.cn/
+.. _`ECASP`: http://ecasp.ece.iit.edu/
+.. _`Argonne National Laboratory`: `Argonne National Laboratory`
+
+.. Certification links
+
+.. _`Machine Learning`: https://www.coursera.org/account/accomplishments/verify/SP4HDZRNDBJS
+.. _`Neural Networks and Deep Learning`: https://www.coursera.org/account/accomplishments/verify/JEXGAHLPUA56
+.. _`Graph Search, Shortest Paths, and Data Structures`: https://www.coursera.org/account/accomplishments/verify/M9CGYZERX88A
+.. _`Divide and Conquer, Sorting and Searching, and Randomized Algorithms`: https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G

@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ECE429 Intro to VLSI &mdash; Boyang Wang&#39;s Notebook</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon_logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ECE441" href="ECE441.html" />
+    <link rel="prev" title="ECE529 Advanced VLSI Systems Design" href="ECE529.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/WebsiteLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Resume/MyResume.html">Boyang Wang - Résumé</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#personal-details">Personal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#education">Education</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#experience">Experience</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#interests">Interests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#skill-sets">Skill Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#hobbies">Hobbies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#online-certifications">Online Certifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Resume/MyResume.html#publications">Publications</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html">My Research Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#ultrasonic-related">Ultrasonic Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html">Ultrasonic Related Projects (My main focus Research in ECASP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-ndt-related-projects">Ultrasonic NDT Related Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/Ultrasonic/UltrasonicPrj.html#ultrasonic-communication-related-projects">Ultrasonic Communication Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#embedded-system-and-fpga-related">Embedded system and FPGA related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/EmbeddedFPGA/EmbeddedFPGA.html">Embedded System and FPGA Related Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/MyResearchProjects.html#artificial-intelligence-related">Artificial Intelligence related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html">Artificial Intelligence Related Projects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-interpretation-of-supervised-machine-learning">My interpretation of Supervised Machine Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#hardware-acceleration-of-machine-learning-algorithms">Hardware Acceleration of Machine Learning algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/AIPrj/AIPrj.html#my-baby-steps-of-machine-learning">My baby steps of Machine Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="CoursePrj.html">Course Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="CoursePrj.html#my-course-project-at-iit">My Course Project at IIT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ECE565.html">ECE 565 Nodule Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#methods-and-results">Methods and Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#discussion-and-conclusion">Discussion and Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE565.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE584.html">ECE584 DCT Implementation Optimization on VLSI level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#functional-validation-and-verification">Functional Validation and verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#matlab-ise-co-simulation">MATLAB ISE co-simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE584.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE529.html">ECE529 Advanced VLSI Systems Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#architecture-exploration">Architecture Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#function-validation-and-verification">Function Validation and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#bonus">Bonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#results">Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#conclusion-and-future-work">Conclusion and Future Work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE529.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ECE429 Intro to VLSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-and-simulation">implementation and Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE441.html">ECE441</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE587.html">ECE587 Hardware/Software Codesign</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#background-knowledge">Background Knowledge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#d-noc-architecture">2D NoC Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#system-evaluation">System Evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE587.html#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE481.html">ECE481</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE425.html">ECE425 Analysis and Design of Analog IC - Operational Amplifier Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#calculations">Calculations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#schematics-and-simulations">Schematics and Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#performance-evaluation">Performance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#conclusion">Conclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ECE425.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ECE742.html">ECE742</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ECE744.html">ECE744</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CS450.html">CS450</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CoursePrj.html#my-course-project-from-online">My Course Project from Online</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html">Project I have done with others</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#research-projects">Research Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ProjectsWithOthers/ProjectWithOthers.html#projects-under-my-instruction">Projects under my Instruction</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html">My Hobby Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#zynq-soc-related-projects">ZYNQ SoC Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#fpga-related-projects">FPGA Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#embedded-system-related-projects">Embedded System Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#image-signal-processing-related-projects">Image/Signal Processing Related Projects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#python-related-projects">Python Related Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html">CheckeeInfo data Crawl and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#disclaimer">Disclaimer:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/PythonPrj/CheckeeCrawl.html#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#website-management">Website Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Wordpress.html">WordPress Website of Mine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html">Sphinx Notebook of Mine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HobbyProjects/WebsiteCreating/Sphinx.html#some-issue-i-found-with-sphinx">Some Issue I found with Sphinx</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../HobbyProjects/MyHobbyProjects.html#crafting">Crafting</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html">My Online Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#studying">Studying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/MachineLearning.html">Machine Learning Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Algorithms.html">Algorithms Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/LeetCode.html">Fun from LeetCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/ZYNQ.html">ZYNQ Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/FPGA.html">FPGA Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/EmbeddedSys.html">Embedded Systems Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/OperatingSys.html">Operating System Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/Ultrasonic.html">Ultrasonic Study Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/Studying/openaigym.html">OpenAI gym Study</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#software-system-habits-notebooks">Software/System Habits Notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html"> <strong>Windows 10</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#installation-of-windows-10-a-few-notes">Installation of Windows 10 (a few Notes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#favored-softwares">Favored Softwares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#some-useful-tools-on-windows">Some Useful Tools on Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#windows-features">Windows Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WindowsHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/UbuntuHabits.html"> <strong>Ubuntu 18.04</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html"> <strong>Xilinx Vivado</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#windows-vivado-toolset">Windows Vivado Toolset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VivadoHabits.html#ubuntu-vivado-toolset">Ubuntu Vivado Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html"> <strong>VScode</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#useful-plugins-that-i-use">Useful Plugins That I use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#setup-environment-in-vscode-settings-json">Setup Environment in <span class="guilabel">.vscode/settings.json</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/VScodeHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html"> <strong>Anaconda</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/AnacondaHabits.html#installation-of-anaconda">Installation of Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html"> <strong>Jupyter</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-have-to-master">Libraries have to master</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/JupyterHabits.html#libraries-that-are-useful">Libraries that are useful</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html"> <strong>Sphinx</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-windows">On Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#third-party-software">Third Party software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#theme-selection">Theme Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/SphinxHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/WordpressHabits.html"> <strong>WordPress</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html"> <strong>Git</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#useful-third-party-git-tools">Useful Third Party Git Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/GitHabits.html#cheatsheet">CheatSheet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html"> <strong>LaTeX</strong> Notebook</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/LaTeXHabits.html#some-useful-tools-for-math-equation-generation">Some useful tools for MATH equation generation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/IphoneHabits.html"> <strong>Iphone</strong> Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/SW_OS_Notebooks/MATLABHabits.html"> <strong>MATLAB</strong> Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#development-boards">Development Boards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ZedBoard.html">ZedBoard Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/PYNQ-Z1.html">PYNQ-Z1 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/MZ7035.html">MZ7035 Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/ArduinoUNO.html">Arduino UNO Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/DevelopmentBoard/RaspberryPi.html">Raspberry Pi Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#some-ideas">Some Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#xilinx-digest">Xilinx Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html">My Digest of Xilinx Content</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-new-chip">Xilinx New Chip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/XilinxDigest/XilinxDigest.html#xilinx-github">Xilinx github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#mind-map">Mind Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/MindMap/Mindmap.html">Mind Map of Mine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../PersonalNotebook/PersonalNotebooks.html#things-to-be-done">Things to be done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html">Things to be done</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#learning">Learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PersonalNotebook/ToBeDone/ToBeDone.html#exploring">Exploring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AboutThisSite/AboutThisSite.html">About this site</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BoyangNotebook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="CoursePrj.html">Course Projects</a> &raquo;</li>
+        
+      <li>ECE429 Intro to VLSI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="ECE441.html" class="btn btn-neutral float-right" title="ECE441" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ECE529.html" class="btn btn-neutral float-left" title="ECE529 Advanced VLSI Systems Design" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="ece429-intro-to-vlsi">
+<h1><a class="toc-backref" href="#id17">ECE429 Intro to VLSI</a><a class="headerlink" href="#ece429-intro-to-vlsi" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://engineering.iit.edu/courses/ece429">ECE429</a> is a course at <span class="guilabel">IIT</span> called <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">VLSI</span> <span class="pre">Design</span></code>. I took it in Fall 2013, it was the second first semester of my M.S. degree. Back in time, I was my first few month starting to work with English. The writing and understanding of the course material are still very limited. However, I learned a lot from this course of Dr. Oruklu’s. This project was done by me and a classmate of mine as a group work.</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ece429-intro-to-vlsi" id="id17">ECE429 Intro to VLSI</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id18">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#background-knowledge" id="id19">Background Knowledge</a></p></li>
+<li><p><a class="reference internal" href="#implementation-and-simulation" id="id20">implementation and Simulation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#carry-ripple-adder" id="id21">Carry Ripple Adder</a></p></li>
+<li><p><a class="reference internal" href="#carry-skip-adder" id="id22">Carry Skip Adder</a></p></li>
+<li><p><a class="reference internal" href="#carry-select-adder" id="id23">Carry Select Adder</a></p></li>
+<li><p><a class="reference internal" href="#prefix-adder-koggle-stone" id="id24">Prefix Adder: Koggle Stone</a></p></li>
+<li><p><a class="reference internal" href="#bonus-multiplier" id="id25">bonus: multiplier</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conclusion" id="id26">Conclusion</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id18">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this project, we are going to design and implement 4 different kind of adders and an additional multiplier as a bonus. They are carry ripple adder, carry select adder, carry skip adder and prefix adder. These adders have different performances. Some of them are fast and some of them cost less hardware and some of them are easy to design. After designing these adders, I am going to see the differences between these adders by implement the hardware design based on the automatically synthesis tools.</p>
+<p>This project introduces VLSI design concepts including datapath circuit design, standard cell based design flow, and design validation and verification through construction of fast adder architectures in Verilog, to be synthesized using commercial EDA tools from Synopsys and Cadence Design Systems. The intent is to show, first, how to construct a nontrivial adder hardware; second, how to make design trade-offs, e.g. performance, cost, and design time, through architectural exploration; and third, how the EDA tools transform the design implementation from higher abstraction levels, e.g. Verilog, to lower abstraction levels, e.g. layout, through cell-based design flow, what the differences are among the implementations and how to verify their correctness at the different abstraction levels.</p>
+</div>
+<div class="section" id="background-knowledge">
+<h2><a class="toc-backref" href="#id19">Background Knowledge</a><a class="headerlink" href="#background-knowledge" title="Permalink to this headline">¶</a></h2>
+<p>In the previous lab, we have implemented the 4 bit carry ripple adder in lab 7 to lab 9. The adder we design in the lab are actually carry ripple adders. The following two equations are the basic of the design.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(S=A \oplus B \oplus C_{i n}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(C_{\text {out}}=(A \cdot B)+C_{i n^{*}}(A \oplus \mathrm{B})\)</span></strong></p><p>By using the Cout in the equation of the Sum, we can save the hardware during implementation.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(s=(A+B+C) C_{o u t}+A B C\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(C_{\text {out}}=A B+(A+B) C_{i n}\)</span></strong></p><p>There is a big problem in this implementation. That is the delay is linearly increasing with the size of the adder. So we are going to develop some new adders with less delay.</p>
+<p>After we have learned chapter 11, we know that when add two 1 bit numbers together, we can generate three additional signals. They are Generate, Propagate and Kill as it shown in the following Table.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 20%" />
+<col style="width: 22%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A</p></td>
+<td><p>B</p></td>
+<td><p>Cin</p></td>
+<td><p>Generate</p></td>
+<td><p>Propagate</p></td>
+<td><p>Kill</p></td>
+<td><p>Cout</p></td>
+<td><p>Sum</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>When the Generate and Kill signals are set to 1, it means that the carry out bit is no longer related to the inputs. If Generate is 1, then the carry out is always 1. If the Kill is 1, then the carry out is always 0. If the Propagate signal is 1, then the carry out signal is based on the input carry in, A and B. These three signals can be obtained by using the following equations.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{G}_{\mathrm{i} ; \mathrm{i}}=\mathrm{G}_{\mathrm{i} : \mathrm{k}}+\mathrm{P}_{\mathrm{i} : \mathrm{k}} * \mathrm{G}_{\mathrm{k}-1} : \mathrm{i}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{P}_{\mathrm{i} : \mathrm{j}}=\mathrm{P}_{\mathrm{i} : \mathrm{k}} * \mathrm{P}_{\mathrm{k}-1 : j}\)</span></strong></p><p>The base case can be represented as</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{G}_{\mathrm{ij}}=\mathrm{G}_{\mathrm{i}}=\mathrm{A}_{\mathrm{i}} * \mathrm{B}_{\mathrm{i}}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{P}_{\mathrm{ij}}=\mathrm{P}_{\mathrm{i}}=\mathrm{A}_{\mathrm{i}} \oplus \mathrm{B}_{\mathrm{i}}\)</span></strong></p><p>After the computation of PG logic, we still have to get the final Summation and the Cout. The logic are shown as the following equations.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{C}_{\mathrm{out}}=\mathrm{G}_{\mathrm{N}}+\mathrm{P}_{\mathrm{N}} \mathrm{G}_{\mathrm{N}-1.0}\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(\mathrm{S}_{\mathrm{i}}=\mathrm{P}_{\mathrm{i}} \oplus \mathrm{G}_{\mathrm{i}-1 : 0}\)</span></strong></p><p>Different adders that are based on PG logic have different performances which we will discuss it specifically later. However, adders that are based on PG logic have the same form as well.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_1.png" src="../../_images/ece429_1.png" />
+</div>
+<p>In the picture is the basic design of the adders based on the PG logic. At the first step, it computes the P and G by using the equations list before. Then the PG logic goes to a box. The box contains the group PG logic which will decide what kind of adder it is. This adder structure will be used in the prefix adder.</p>
+</div>
+<div class="section" id="implementation-and-simulation">
+<h2><a class="toc-backref" href="#id20">implementation and Simulation</a><a class="headerlink" href="#implementation-and-simulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="carry-ripple-adder">
+<h3><a class="toc-backref" href="#id21">Carry Ripple Adder</a><a class="headerlink" href="#carry-ripple-adder" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="design">
+<h4>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h4>
+<p>The first adder that we are going to implement is the most basic one, carry ripple adder. The carry ripple adder is constructed by some 1 bit full adders. Each 1 bit full adder sent their output to the next one. So the delay is kind of high due to the adders have to wait for the previous adder to generate the Cout. The 1 bit full adder is realized by the following equations</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(s=(A+B+C) C_{o u t}+A B C\)</span></strong></p><p class="centered">
+<strong><span class="math notranslate nohighlight">\(C_{o u t}=A B+(A+B) C_{i n}\)</span></strong></p><p>The carry ripple adder group PG network can be shown in the following picture.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ece429_2.png"><img alt="../../_images/ece429_2.png" src="../../_images/ece429_2.png" style="width: 303.79999999999995px; height: 291.9px;" /></a>
+</div>
+<p>Although the one we implement in the project is not based on the PG logic. But still, it can show us the delay of the carry ripple adder. In the picture is the 16 bit carry ripple adder. As we can see in the picture, each adder has to wait their previous adder to compute the summation. The critical path delay of the carry ripple adder is</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(t_{\text {ripple}}=\mathrm{t}_{\mathrm{pg}}+(\mathrm{N}-1) \quad \mathrm{t}_{\mathrm{AO}}+\mathrm{t}_{\mathrm{xor}}\)</span></strong></p></div>
+<div class="section" id="implementation">
+<h4>implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h4>
+<p>The implementation of the carry ripple adder is simple. Just create the 1 bit full adder module and then connect them to 4 bit full adder. Then connect two 4 bit full adders to build 8 bit full adder. The 32 bit carry ripple adder is then built up by four 8 bit carry ripple adder.</p>
+</div>
+<div class="section" id="simulation-and-result">
+<h4>Simulation and Result<a class="headerlink" href="#simulation-and-result" title="Permalink to this headline">¶</a></h4>
+<p>Then, we are going to simulate the carry ripple adder. There are two part of carry ripple adder, one is 8 bit carry ripple adder, one is 32 bit carry ripple adder.</p>
+<div class="section" id="bit-carry-ripple-adder">
+<h5>(1) 8 bit carry ripple adder<a class="headerlink" href="#bit-carry-ripple-adder" title="Permalink to this headline">¶</a></h5>
+<p>After compilation of the code, the simulation result of the behavioral level is shown in the simvision in the following picture.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_3.png" src="../../_images/ece429_3.png" />
+</div>
+</div>
+<div class="section" id="id1">
+<h5>(2) 32 bit carry ripple adder<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_4.png" src="../../_images/ece429_4.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="carry-skip-adder">
+<h3><a class="toc-backref" href="#id22">Carry Skip Adder</a><a class="headerlink" href="#carry-skip-adder" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Design<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../../_images/ece429_5.png"><img alt="../../_images/ece429_5.png" src="../../_images/ece429_5.png" style="width: 361.0px; height: 245.0px;" /></a>
+</div>
+<p>The carry skip adder design is based on the PG logic and the 4 bit carry ripple adder. The figure on the right shows the <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">bit</span> <span class="pre">carry</span> <span class="pre">skip</span> <span class="pre">adder</span></code>.</p>
+<p>The carry skip adder can decrease the delay by compute the logic Propagate first. As I have descripted before, when the propagate signal is 1, the carry out bit of the design will be related to the cin from the previous adder. So, carry skip adder use a multiplexer driven by p logic to choose which path to go. The Propagate signal can be obtained by the following equation of a 4 bit carry skip adder.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(P=[A[0] \oplus B[0]] \cdot[A[1] \oplus B[1]] \cdot[A[2] \oplus B[2]] \cdot[A[3] \oplus B[3]]\)</span></strong></p><p>The carry skip adder PG logic network can be shown in the following picture</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_6.png" src="../../_images/ece429_6.png" />
+</div>
+<p>The critical path delay is</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(t_{skip}=t_{pg}+2(n-1) t_{AO}+(k-1) t_{MUX}+t_{XOR}\)</span></strong></p><p>Obviously, the delay of the carry skip adder is much lower than carry ripple adder.</p>
+</div>
+<div class="section" id="id3">
+<h4>implementation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The implementation of the carry skip adder is to connect several 4 bit carry skip adders together to get a lager adder. For example, in the following picture, is the 14 bit carry skip adder by connecting four 4 bit carry skip adders.</p>
+<p>I am going to implement the 8 bit and 32 bit carry skip adder in the project. The procedure is no more than connecting more 4 bit carry skip adders.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_7.png" src="../../_images/ece429_7.png" />
+</div>
+<p>I am going to implement the 8 bit and 32 bit carry skip adder in the project. The procedure is no more than connecting more 4 bit carry skip adders.</p>
+</div>
+<div class="section" id="id4">
+<h4>Simulation and Result<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="bit-carry-skip-adder">
+<h5>(1) 8 bit carry skip adder<a class="headerlink" href="#bit-carry-skip-adder" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_8.png" src="../../_images/ece429_8.png" />
+</div>
+</div>
+<div class="section" id="id5">
+<h5>(2) 32 bit carry skip adder<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_9.png" src="../../_images/ece429_9.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="carry-select-adder">
+<h3><a class="toc-backref" href="#id23">Carry Select Adder</a><a class="headerlink" href="#carry-select-adder" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Design<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../../_images/ece429_10.png"><img alt="../../_images/ece429_10.png" src="../../_images/ece429_10.png" style="width: 246.0px; height: 273.0px;" /></a>
+</div>
+<p>The picture on the right shows the basic block of a carry select adder. It is a four bit carry select adder. The basic design of the carry select adder is adding the input with carry in is both 0 and 1. The main delay in the adders is the delay of propagating the carry bit. With carry select adder, we have already computed the answer of carry in bit is 1 and 0. All we have to do is to select which one to use. So we name it carry select adder.</p>
+<p>As we can see in the figure, the carry in is used to select which adder to use. In this way, we can save a lot of time by computing all the result first and using the carry in to select the correct one. The summation compute equation of the carry select adder is</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(S[i]=C_{i n} \cdot A[i]+\overline{C_{i n}} \cdot B[i]\)</span></strong></p><p>The critical path delay is</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(t_{\text {select}}=t_{p g}+[n+(k-2)] t_{A O}+t_{M U X}\)</span></strong></p></div>
+<div class="section" id="id7">
+<h4>implementation<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>By connecting four 4 bit carry select adders together, we can get 16 bit carry select adder as follow. The 8 bit and 32 bit carry select adder is no more than changing the number of the 4 bit adder.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_11.png" src="../../_images/ece429_11.png" />
+</div>
+</div>
+<div class="section" id="id8">
+<h4>Simulation and Result<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="bit-carry-select-adder">
+<h5>(1) 8 bit carry select adder<a class="headerlink" href="#bit-carry-select-adder" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_12.png" src="../../_images/ece429_12.png" />
+</div>
+</div>
+<div class="section" id="id9">
+<h5>(2) 32 bit carry select adder<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_13.png" src="../../_images/ece429_13.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prefix-adder-koggle-stone">
+<h3><a class="toc-backref" href="#id24">Prefix Adder: Koggle Stone</a><a class="headerlink" href="#prefix-adder-koggle-stone" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h4>Design<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>Here comes the trickiest one. The prefix adder which name is kogge stone. There are many ways to build the prefix adder that offer trade offs among the number of stages of logic, the number of logic gates, the maximum fanout on each stage and the amount of writing between stages. The kogge stone prefix adder that we are going to implement has the critical path delay of</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(t_{\text {prefix}}=t_{p g}+\left\lceil\log _{2} N\right\rceil t_{A O}+t_{X O R}\)</span></strong></p><p>This is a kind of very fast prefix adder. And the fanout of each stage is just 2. This comes at the cost of many long wires that must be routed between two stages. The prefix adder contains more PG logic which means it will cost more to build.</p>
+<p>The overall PG logic network is shown in the following picture.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ece429_14.png"><img alt="../../_images/ece429_14.png" src="../../_images/ece429_14.png" style="width: 495.0px; height: 268.5px;" /></a>
+</div>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../../_images/ece429_15.png"><img alt="../../_images/ece429_15.png" src="../../_images/ece429_15.png" style="width: 199.5px; height: 175.0px;" /></a>
+</div>
+<p>This is a 16 bit kogge stone prefix adder. There are basically two kind of blocks in the graphic. The black one is called black cell and it implements the function of:</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left\{\begin{array}{l}{G_{i : j}=G_{i : k}+P_{i : k} \cdot G_{k-1 : j}} \\ {P_{i : j}=P_{i : k} \cdot P_{k-1 : j}}\end{array}\right.\)</span></strong></p><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../../_images/ece429_16.png"><img alt="../../_images/ece429_16.png" src="../../_images/ece429_16.png" style="width: 189.5px; height: 174.5px;" /></a>
+</div>
+<p>It has 4 inputs and two output.
+The grey one is called grey cell and it implements the function of:</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(G_{i : j}=G_{i : k}+P_{i : k} \cdot G_{k-1 : j}\)</span></strong></p><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../../_images/ece429_17.png"><img alt="../../_images/ece429_17.png" src="../../_images/ece429_17.png" style="width: 188.65px; height: 166.65px;" /></a>
+</div>
+<p>The triangle part is the buffers.
+And the following one is the PG logic, which is used in the first step to generate the Propagate and Generate signals.</p>
+<p class="centered">
+<strong><span class="math notranslate nohighlight">\(\left\{\begin{array}{l}{G_{c i}=G_{i}=A_{i} \cdot B_{i}} \\ {P_{i i}=P_{i}=A_{i} \oplus B_{i}}\end{array}\right.\)</span></strong></p><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>By connecting these basic block in the way it shows in the adder PG network, we can get a kogge stone prefix adder.</p>
+</div>
+<div class="section" id="id11">
+<h4>implementation<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>Here in the following figure is a 8 bit kogge stone adder.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_18.png" src="../../_images/ece429_18.png" />
+</div>
+<p>This time, I cannot connect several low bits prefix adders to get the high bits prefix adder because that won’t show the advantages of the prefix adder.</p>
+</div>
+<div class="section" id="id12">
+<h4>Simulation and Result<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="bit-kogge-stone">
+<h5>(1) 8 bit Kogge stone<a class="headerlink" href="#bit-kogge-stone" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_19.png" src="../../_images/ece429_19.png" />
+</div>
+</div>
+<div class="section" id="id13">
+<h5>(2) 32 bit Kogge stone<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
+<p>After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_20.png" src="../../_images/ece429_20.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bonus-multiplier">
+<h3><a class="toc-backref" href="#id25">bonus: multiplier</a><a class="headerlink" href="#bonus-multiplier" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h4>Design<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>If we are going to implement the multiplier in hardware, the first thing we are going to do is to invest what happened when multiplied two binary numbers together. In the following picture, it convert the multiply process to many add and shift processes.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_21.png" src="../../_images/ece429_21.png" />
+</div>
+<p>It is easy to understand that when multiply two numbers together, the biggest result length will be the addition of the multiplicand and multiplier. Take the four bit multiplier as an example.</p>
+<p>When multiplying two 4 bit binary numbers together, we can get the maximum result of 1111*1111= 11100001 which is 8 bit. In the following picture, it shows the structure of the array multiplier of 4 bit.</p>
+<p>The multiplicand y is multiplied by the multiplier x.</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_22.png" src="../../_images/ece429_22.png" />
+</div>
+<p>There are two kinds of blocks in the picture, one is the CSA and another one is CPA. By connecting these two kinds of blocks together, we can get the multiplier.</p>
+</div>
+<div class="section" id="id15">
+<h4>implementation<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>The block CSA can be implemented by the Verilog code as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">csa</span> <span class="p">(</span><span class="n">si</span><span class="p">,</span><span class="n">ci</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">so</span><span class="p">,</span><span class="n">co</span><span class="p">);</span>
+    <span class="nb">input</span> <span class="n">si</span><span class="p">,</span><span class="n">ci</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
+    <span class="n">output</span> <span class="n">so</span><span class="p">,</span><span class="n">co</span><span class="p">;</span>
+    <span class="n">wire</span> <span class="n">prod</span><span class="p">;</span>
+    <span class="n">assign</span> <span class="n">prod</span><span class="o">=</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">assign</span> <span class="p">{</span><span class="n">co</span><span class="p">,</span><span class="n">so</span><span class="p">}</span><span class="o">=</span><span class="n">si</span><span class="o">+</span><span class="n">prod</span><span class="o">+</span><span class="n">ci</span><span class="p">;</span>
+<span class="n">endmodule</span>
+</pre></div>
+</div>
+<p>The block CPA can be implemented by the Verilog code as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">cpa</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">cin</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">co</span><span class="p">);</span>
+    <span class="nb">input</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">cin</span><span class="p">;</span>
+    <span class="n">output</span> <span class="n">s</span><span class="p">,</span><span class="n">co</span><span class="p">;</span>
+    <span class="n">assign</span> <span class="n">s</span><span class="o">=</span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="o">^</span><span class="n">cin</span><span class="p">;</span>
+    <span class="n">assign</span> <span class="n">co</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">cin</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">cin</span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+<span class="n">endmodule</span>
+</pre></div>
+</div>
+<p>In the top module, we are going to connecting these blocks to build a multiplier. The problem is there are 16*16 cra blocks in the 16 bit multiplier. So I am going to combine the row into a separate module. So that I can only use 16 row module in the top module. That can save me a lot of work.</p>
+</div>
+<div class="section" id="id16">
+<h4>Simulation and Result<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>16 bit multiplier
+After compilation, the result is shown in the simvision as follow</p>
+<div class="figure align-center">
+<img alt="../../_images/ece429_23.png" src="../../_images/ece429_23.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2><a class="toc-backref" href="#id26">Conclusion</a><a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In the project, I learned different implementation methods of adders in VLSI. This helped me get a better understand of the VLSI course.</p>
+<div class="admonition-statement admonition">
+<p class="admonition-title">Statement</p>
+<p>This is a course project, all the raw data are provided by <code class="docutils literal notranslate"><span class="pre">Dr.</span> <span class="pre">Erdal</span> <span class="pre">Oruklu</span></code> thought course <code class="docutils literal notranslate"><span class="pre">ECE429</span></code> at IIT. Please contact me if you find any problem.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, BoyangWang
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+..  ProjectWithOthers.rst
+    This file contains the index of the project I have done with other students.
+    --Section1, Course Project with others.
+    --Section2, Research Project with others
+    --Section3, Project that I am the TA
+    
+Project I have done with others
+====================================
+
+Research Projects
+---------------------
+
+.. toctree::
+   :maxdepth: 1
+
+Projects under my Instruction
+-------------------------------
+These are the projects under my instruction that are done by undergraduate or graduate students in `ECASP lab`_.
+
+.. toctree::
+   :maxdepth: 1
+
+   
+
+.. _`ECASP lab`: http://ecasp.ece.iit.edu/

@@ -1,0 +1,7 @@
+********************************************
+|iphonelogo| **Iphone** Notebook
+********************************************
+
+.. |iphonelogo| image:: ../../Images/applelogo.png
+   :width: 1em
+

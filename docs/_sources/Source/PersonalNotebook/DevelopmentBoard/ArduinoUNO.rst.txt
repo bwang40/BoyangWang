@@ -1,0 +1,10 @@
+.. sidebar:: Arduino UNO
+
+   .. figure:: ../../Images/developmentboard/arduino.png
+      :alt: photo of mine
+      :align: center
+      :scale: 40 %
+
+***************************
+Arduino UNO Notebook
+***************************

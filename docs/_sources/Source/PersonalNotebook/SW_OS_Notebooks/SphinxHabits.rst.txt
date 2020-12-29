@@ -1,0 +1,49 @@
+********************************************
+|sphinxlogo| **Sphinx** Notebook
+********************************************
+
+.. |sphinxlogo| image:: ../../Images/sphinxlogo.jpg
+   :width: 2em
+
+
+
+Sphinx is a open-source Python based documentation tool. It is make for creating documentations for python libraries. But I found It is very useful when creating my personal notebook online. In this notebook, I can keep record of the projects I have done and some useful information that I ll need when my computer is not available. It is also good for keep track of things. It is so easy to manage so that I ll try to keep update my Sphinx Project. This project will be pushed to my github privately. I ll also consider publishing the html content to the website to make it even easier for me to get access to.
+
+On Windows
+=======================
+On windows, the anaconda environment is better to be installed with Anaconda. Sphinx comes with Anaconda. However, I have to be careful when dealing with the terminal. Sphinx only available in Anaconda terminal. Since it is not installed system wide. **Sphinx will not be available in CMD terminal of Windows**
+
+
+On Ubuntu
+=======================
+Preferred to work with Anaconda for using Sphinx, it is a much cleaner environment to work with. **Anaconda is preferred for easy management**
+
+Third Party software
+=======================
+These software have to be installed after a clean install of sphinx. Run the following command in Anaconda Terminal
+::
+    
+    pip install sphinxcontrib-bibtex
+    pip install sphinx_rtd_theme
+    conda install -c conda-forge nbsphinx
+
+sphinxcontrib-bibtex
+--------------------------
+
+sphinx_rtd_theme
+--------------------------
+
+nbsphinx
+--------------------------
+nbsphinx is the support of jupyter notebook in sphinx documentations.
+
+
+Theme Selection
+=======================
+Among all the themes, my favorite theme is `sphinx_rtd_theme`_
+
+CheatSheet
+========================
+
+
+.. _`sphinx_rtd_theme`: https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
