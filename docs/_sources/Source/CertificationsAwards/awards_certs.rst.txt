@@ -1,0 +1,94 @@
+**************************************************
+Awards & Certifications
+**************************************************
+
+Awards
+====================
+
+Sigma Xi/IIT Student Award for Excellence in University Research
+------------------------------------------------------------------------------
+.. sidebar:: Sigma/Xi Student Award (2020)
+
+   .. figure:: ../Images/certifications/SIGMAXI2020.png
+      :align: center
+      :scale: 15 %
+
+"*Boyang is a young scholar with a proven record of high-quality research accomplishments. His research in the area of machine learning, signal analysis for ultrasonic imaging and communication systems, data compression and digital system-on-chip design has already been published in premier IEEE journals and many IEEE sponsored conference proceedings. His research work while pursuing his MS and Ph.D. degrees at Illinois Tech has resulted in a total of 31 publications: 7 journal publications (including 4 under preparation), 21 conference papers, an MS Thesis, and technical reports. His research work already has 80 citations. He is the recipient of several research awards including the prestigious 2019 IEEE Ultrasonics Best Student Paper Award. Boyang's pioneering work on developing communication protocols for ultrasonic signal transmission through solids created a reakthrough in this subject. Furthermore, Boyang has shown leadership skills as a researcher in the Embedded Computing and Signal Processing (ECASP) Research Laboratory by mentoring several graduate students with their research projects.*" 
+
+    * `Anouncement Page <https://today.iit.edu/sigma-xi-awards-announcement/>`_
+    * `Report on Illinois Tech <https://www.iit.edu/news/electrical-engineering-doctoral-student-receives-sigma-xiiit-research-award-excellence-university>`_
+
+Student Paper Competition Winner in the 2019 IEEE International Ultrasonics Symposium
+---------------------------------------------------------------------------------------------------
+.. sidebar:: Paper Competition Winner (2019)
+
+   .. figure:: ../Images/certifications/IUS2019.png
+      :align: center
+      :scale: 20 %
+
+In the 2019 IEEE International Ultrasonics Symposium, my paper entitled **A high performance ultrasonic system for flaw detection** won the Student Paper Competition award in section `Sensors, NDE & Industrial Applications`. In this paper, we designed and implemented a reconfigurable, high performance and low cost ultrasonic NDE platform based on Xilinx ZYNQ SoC. The system can generate high voltage pulses for exciting the ultrasonic transducers, receive the low voltage ultrasonic backscattered echoes, process the acquired data, and transmit and store the processed data to a host computer.
+
+    * `Anouncement Page <https://ieee-uffc.org/home-recent-news-slider/student-paper-competition-awards-2019-ieee-international-ultrasonics-symposium/>`_
+
+Excellence Award in Field Rank Students' Science And Technology Innovation Project
+------------------------------------------------------------------------------------------------------
+.. sidebar:: Excellence Award (2011)
+
+   .. figure:: ../Images/certifications/KEJI2010.png
+      :align: center
+      :scale: 20 %
+
+Our project entitled **Flapping Wing Machine with Four Wings** won the price of Excellence Award in Field Rank Students' Science And Technology Innovation Project. In this project, I am involved in designing the control circuit for the flapping wing machine to drive the steering gear and motor. Flying control algorithm is implemented in C on the MSP430 series microcomputer. I also assembled the flapping wing machine and soldered the circuit for the system.
+
+|
+
+First prize in Beijing college students' Physical Experimental Contest
+--------------------------------------------------------------------------------------------
+.. sidebar:: First prize (2010)
+
+   .. figure:: ../Images/certifications/WULI2010.jpg
+      :align: center
+      :scale: 15 %
+
+Our project entitled **Solutions to Simplify Supplying Energy of Microwave Signal** won the First Prize in Beijing college students' Physical Experimental Contest in 2010. In this project, I designed the digital control circuit using 80C51 microcomputer and analog amplifier circuit. Control logic for generating the microwave signal is implemented in C on 80C51 micro controller. Two-stage amplifier circuit is used in the project for driving the antenna. The control circuits and amplification circuits and designed and made from scratch.
+
+
+Certifications
+====================
+
+DeepLearning.AI TensorFlow Developer
+-------------------------------------------------
+    * Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning `Link <https://www.coursera.org/account/accomplishments/certificate/GBLWNH8EE5CV>`_
+    * Convolutional Neural Networks in TensorFlow `Link <https://www.coursera.org/account/accomplishments/certificate/V8DRB9UEBV27>`_
+    * Natural Language Processing in TensorFlow `Link <https://www.coursera.org/account/accomplishments/certificate/APS884LL3EL5>`_
+    * Sequences, Time Series and Prediction `Link <https://www.coursera.org/account/accomplishments/certificate/SL8AUEZGKC2S>`_
+
+.. image:: ../Images/certifications/TF_DEV.png
+  :width: 600
+  :alt: Alternative text
+
+Machine Learning
+----------------------------------------
+
+    * Machine Learning `Link <https://www.coursera.org/account/accomplishments/verify/SP4HDZRNDBJS>`_
+    * Neural Networks and Deep Learning `Link <https://www.coursera.org/account/accomplishments/verify/JEXGAHLPUA56>`_
+
+.. image:: ../Images/certifications/ML.png
+  :width: 600
+  :alt: Alternative text
+
+.. image:: ../Images/certifications/NN_DL.png
+  :width: 600
+  :alt: Alternative text
+
+
+
+Algorithms
+-------------------------------------------------
+
+    * Divide and Conquer, Sorting and Searching, and Randomized Algorithms `Link <https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G>`_
+    * Graph Search, Shortest Paths, and Data Structures `Link <https://www.coursera.org/account/accomplishments/verify/M9CGYZERX88A>`_
+
+.. image:: ../Images/certifications/ALG.png
+  :width: 600
+  :alt: Alternative text

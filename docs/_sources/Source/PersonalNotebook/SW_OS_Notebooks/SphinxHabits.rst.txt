@@ -2,7 +2,7 @@
 |sphinxlogo| **Sphinx** Notebook
 ********************************************
 
-.. |sphinxlogo| image:: ../../Images/sphinxlogo.jpg
+.. |sphinxlogo| image:: ../../Images/logo/sphinxlogo.jpg
    :width: 2em
 
 

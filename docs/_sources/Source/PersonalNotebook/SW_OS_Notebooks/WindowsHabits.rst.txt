@@ -1,6 +1,6 @@
 ..  WindowsHabits.rst
 
-.. |WIN10| image:: ../../Images/win10.png
+.. |WIN10| image:: ../../Images/logo/win10.png
    :width: 1em
 
 

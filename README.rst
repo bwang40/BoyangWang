@@ -77,33 +77,33 @@ Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
 
 Research Student `Argonne National Laboratory`_ (2017-2018)
 --------------------------------------------------------------------
-   * Developed a testbed platform using the ZYNQ SoC (System-on-Chip) FPGA by Xilinx which offers reconfigurability and high-performance computational capability, high-speed signal converters, power amplifiers for excitation of transducers, low noise receiving amplifiers and high-frequency ultrasonic transducers for transmitting and receiving information. 
+   * Developed a testbed platform using the ZYNQ APSoC (All Programmable System-on-Chip) which offers reconfigurability and high-performance computational capability, high-speed signal converters, power amplifiers for excitation of transducers, low noise receiving amplifiers and high-frequency ultrasonic transducers for transmitting and receiving information. 
    * Study the acoustic wave propagation in solid material, using guided wave for the optimal ultrasonic communication in apsect of robostness, speed, and transmission distance.
    * Using OFDM for compating the multipath effect in the ultrasonic channels, reducing the effect of the severe frequency selective fading and intersymbol interference in the communications.
 
 Projects
 ==============================
 
-Re-configurable Ultrasonic non-destructive testing (NDT) system based on all-programmable SoC （2015-2019）
+Re-configurable Ultrasonic NDT system based on ZYNQ APSoC (2015-2019)
 -----------------------------------------------------------------------------------------------------------------------
    * Designed an ultrasonic nondestructive testing system based on ZYNQ ap-SoC. The system is re-configurable, real-time, low power consumption, portable and easy to use.
    * The system can generate high voltage pulses for exciting the ultrasonic transducers, receive the low voltage ultrasonic backscattered echoes, process the acquired data, and transmit and store the processed data to a host computer.
    * Hardware acceleration for the algorithms on FPGA are implemented on ZYNQ ap-SoC for real-time signal processing.
    * Programming the ARM porcessor to control the system.
 
-Ultrasonic Signal Processing based on Artificial Intelligence （2016-2019）
+Ultrasonic Signal Processing based on Artificial Intelligence (2016-2019)
 ----------------------------------------------------------------------------------
    * Using TensorFlow for 
    * 利用神经网络实现高精度目标回波定位，及钢铁晶粒尺寸检测
 
-Ultrasonic Data Compression using Wavelet Packet Transformation Optimized by a Convolutional Autoencoder（2020）
+Ultrasonic Data Compression using Wavelet Packet Transformation Optimized by a Convolutional Autoencoder(2020)
 -----------------------------------------------------------------------------------------------------------------------
    * 利用自编码器及卷积自编码器完成高保真度、高压缩比的超声波信号压缩
    * 设计算法自动适配最优小波类型及分解路径用于基于小波包分解的超声波信号压缩
    * 基于最优小波包分解的压缩算法，将算法移植到TensorFlow并利用反向传播找到最优压缩品质
    * 该方法可以继承小波包分解压缩算法的结构及准确性并进一步优化保真度
 
-固态媒介中的超声波通讯 （2017-2020）
+固态媒介中的超声波通讯 (2017-2020)
 ------------------------------------
    * 详见阿贡国家实验室实习经历
 
@@ -111,28 +111,28 @@ Ultrasonic Data Compression using Wavelet Packet Transformation Optimized by a C
 Other Projects
 ============================
 
-Apply Neural network on IoT based Fall Detection System （2019-2020）
+Apply Neural network on IoT based Fall Detection System (2019-2020)
 -----------------------------------------------------------------------------
    * 协助完成基于嵌入式系统的可穿戴传感器网络系统设计以及实现
    * 完成原始数据的收集、预处理、及标注，用于训练神经网络
    * 利用机器学习算法实现高精度实时人类姿态检测
 
-基于单通道显微镜相机的3D细节扫描仪 （2019）
+基于单通道显微镜相机的3D细节扫描仪 (2019)
 ---------------------------------------------------
    * 设计并实现数控单通道显微镜相机扫描系统
    * 辅助设计图像拼接算法及基于立体视觉的3D重建算法
 
-FECG and MECG Characterization using Machine Learning Method （2018）
+FECG and MECG Characterization using Machine Learning Method (2018)
 --------------------------------------------------------------------------
-   * 通过仿真数据验证从单（双）通道孕妇腹膜心电图检测胎儿心率的可行性
+   * 通过仿真数据验证从单(双)通道孕妇腹膜心电图检测胎儿心率的可行性
    * 利用机器学习算法实现高精度胎儿心率检测
 
 Awards
 ============================
-   - （2020） `Sigma Xi/IIT Student Award`_ for Excellence in University Research
-   - （2019） `Student Paper Competition Winner`_ in the 2019 IEEE International Ultrasonics Symposium
-   - （2011） `Excellent Award`_ in College Students’ Science and Technology Innovation Project
-   - （2010） `First prize`_ in Beijing college students’ Physical Experimental Contest
+   - (2020) `Sigma Xi/IIT Student Award`_ for Excellence in University Research
+   - (2019) `Student Paper Competition Winner`_ in the 2019 IEEE International Ultrasonics Symposium
+   - (2011) `Excellent Award`_ in College Students’ Science and Technology Innovation Project
+   - (2010) `First prize`_ in Beijing college students’ Physical Experimental Contest
 
 .. _`Sigma Xi/IIT Student Award`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/SIGMAXI2020.png
 .. _`Student Paper Competition Winner`: https://github.com/bwang40/BoyangWang/blob/main/images/certificates/IUS2019.png

@@ -14,8 +14,6 @@ System environment installation
 
     conda install -c conda-forge pyvisa 
 
-
-
 Plan
 =========
 Originally, I was planning to build the python library for MSOX2024A. However, I found that the work is too much to be done for myself within a few days. I decided to go with some specific functionalities that are crucial for my experiments. I created an class in python called MSOX2024A and created a few methods to accomplish the task I need to do. Here listed a few important methods for the Oscilloscope Control and Signal Acquisition.

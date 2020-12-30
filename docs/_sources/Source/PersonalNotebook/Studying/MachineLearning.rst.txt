@@ -1,3 +1,0 @@
-Machine Learning Study Notebook
-====================================
-This notebook records a few things about machine learning.

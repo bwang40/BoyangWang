@@ -5,7 +5,7 @@
 |Xilinx| **Xilinx Vivado** Notebook
 *********************************************
 
-.. |Xilinx| image:: ../../Images/xilinxlogo.png
+.. |Xilinx| image:: ../../Images/logo/xilinxlogo.png
    :width: 1em
    
 

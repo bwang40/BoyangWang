@@ -3,9 +3,6 @@ Course Projects
 ****************************
 These are the course projects I have done.
 
-My Course Project at IIT
-============================
-
 .. toctree::
    :maxdepth: 1
 
@@ -13,13 +10,5 @@ My Course Project at IIT
    ECE584.rst
    ECE529.rst
    ECE429.rst
-   ECE441.rst
    ECE587.rst
-   ECE481.rst
    ECE425.rst
-   ECE742.rst
-   ECE744.rst
-   CS450.rst
-
-My Course Project from Online
-=================================

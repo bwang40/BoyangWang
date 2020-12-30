@@ -2,7 +2,7 @@
 |jupyterlogo| **Jupyter** Notebook
 *******************************************
 
-.. |jupyterlogo| image:: ../../Images/jupyterlogo.png
+.. |jupyterlogo| image:: ../../Images/logo/jupyterlogo.png
    :width: 1em
 
 

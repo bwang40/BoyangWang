@@ -4,7 +4,7 @@
 |vscodelogo| **VScode** Notebook
 ****************************************
 
-.. |vscodelogo| image:: ../../Images/vscodelogo.png
+.. |vscodelogo| image:: ../../Images/logo/vscodelogo.png
    :width: 1em
    
 

@@ -1,9 +1,0 @@
-..  UbuntuHabits.rst
-
-**********************************************
-|ubuntulogo| **Ubuntu 18.04** Notebook
-**********************************************
-
-.. |ubuntulogo| image:: ../../Images/ubuntulogo.png
-   :width: 1em
-

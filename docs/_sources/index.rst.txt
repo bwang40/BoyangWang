@@ -34,18 +34,22 @@ My Projects
 
    Source/ResearchProjects/MyResearchProjects.rst
    Source/CoursePrj/CoursePrj.rst
-   Source/ProjectsWithOthers/ProjectWithOthers.rst
    Source/HobbyProjects/MyHobbyProjects.rst
 
-My Notebooks
-====================
-
+Awards & Certifications
+==============================
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
-   Source/PersonalNotebook/PersonalNotebooks.rst
-   Source/AboutThisSite/AboutThisSite.rst
+   Source/CertificationsAwards/awards_certs.rst
 
+.. My Notebooks
+.. ====================
+
+.. .. toctree::
+..    :maxdepth: 3
+
+..    Source/PersonalNotebook/PersonalNotebooks.rst
 
 .. _`Boyang Wang`: https://notebookofmine.com
 .. _`Illinois Institute of Technology`: https://web.iit.edu/

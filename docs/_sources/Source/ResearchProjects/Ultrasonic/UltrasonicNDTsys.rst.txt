@@ -1,5 +1,8 @@
-************************************************
-Ultrasonic NDT system based on ZYNQ SoC
-************************************************
+**********************************************************************************
+Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC
+**********************************************************************************
 
 
+.. raw:: html
+
+    <iframe src="https://myhub.autodesk360.com/ue2b76abc/shares/public/SH919a0QTf3c32634dcf4815824187c512b1?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>

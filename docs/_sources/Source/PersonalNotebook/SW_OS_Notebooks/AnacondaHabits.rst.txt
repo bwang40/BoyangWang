@@ -3,7 +3,7 @@
 |anacondalogo| **Anaconda** Notebook
 **************************************************
 
-.. |anacondalogo| image:: ../../Images/anacondalogo.jpg
+.. |anacondalogo| image:: ../../Images/logo/anacondalogo.jpg
    :width: 2em
 
 Anaconda is a cross-platform python environment setup tool. It is very useful when managing the python environment in my computers. It has the following advantages:
