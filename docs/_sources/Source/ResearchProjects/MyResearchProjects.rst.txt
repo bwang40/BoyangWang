@@ -7,28 +7,18 @@
 ******************************
 My Research Projects
 ******************************
-My research related projects.
 
-Ultrasonic Related
-==========================
+Re-configurable Ultrasonic non-destructive testing system based on ZYNQ APSoC
+-----------------------------------------------------------------------------------------
 
-.. toctree::
-   :maxdepth: 3
+Information Transmission Through Solids Using Ultrasound
+-----------------------------------------------------------------------------------------
 
-   Ultrasonic/UltrasonicPrj.rst
+Statistical Signal Analyzing and Processing based on Artificial Intelligence
+------------------------------------------------------------------------------------------
 
-Embedded system and FPGA related
-=====================================
+Data Compression using wavelet packet transform optimized by Convolutional Autoencoder
+-------------------------------------------------------------------------------------------
 
-.. toctree::
-   :maxdepth: 3
-
-   EmbeddedFPGA/EmbeddedFPGA.rst
-
-Artificial Intelligence related
-=====================================
-
-.. toctree::
-   :maxdepth: 3
-
-   AIPrj/AIPrj.rst
+Wearable sensor network for human gesture detection based on Artificial Intelligence
+-------------------------------------------------------------------------------------------

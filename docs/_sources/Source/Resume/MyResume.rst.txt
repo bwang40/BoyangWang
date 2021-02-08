@@ -9,12 +9,20 @@
 Boyang Wang - Résumé
 *****************************************
 
-Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research `ECASP Laboratory`_ of `Illinois Institute of Technology`_. My research topic is focused on **Ultrasonic Signal Processing**, **Embedded System**, **Hardware & Software co-design**, and **Artificial Intelligence**. During my PhD studying, I have done projects such as **Ultrasonic NDT System Design and Signal Processing**, **Ultrasonic Communication through solid**, and **Artificial Intelligence for Ultrasonic Signal Processing**. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA.
+- Ph.D. in Electrical Engineering with 6+ years research and project experience.
+- Experienced in adapting signal processing and machine learning algorithms in system hardware and software design to solve real-world problems. 
+- Work on communication protocols for ultrasonic signal transmission was commended by Sigma Xi as *‘pioneering’* and *‘leading to a breakthrough in the subject.’* Received awards from Sigma Xi/IIT and the IEEE International Ultrasonics Symposium.
+- 29 publications including IEEE journal papers, sponsored conference papers, and technical reports.  
+- Mentored and instructed over 30 graduate students and research projects.
+- A real doer, fast learner, and communicative teammate, who is innately curious and adaptive to new knowledge and techniques.
+
+
+.. Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research `ECASP Laboratory`_ of `Illinois Institute of Technology`_. My research topic is focused on **Ultrasonic Signal Processing**, **Embedded System**, **Hardware & Software co-design**, and **Artificial Intelligence**. During my PhD studying, I have done projects such as **Ultrasonic NDT System Design and Signal Processing**, **Ultrasonic Communication through solid**, and **Artificial Intelligence for Ultrasonic Signal Processing**. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA.
 
 .. _`Illinois Institute of Technology`: https://web.iit.edu/
 .. _`ECASP Laboratory`: http://ecasp.ece.iit.edu/
 
-Personal Details
+PERSONAL DETAILS
 ======================
 
 ========================  =============================================
@@ -36,7 +44,7 @@ Personal Details
 .. |phonelogo| image:: ../Images/logo/phonelogo.png
    :width: 1em
 
-Education
+EDUCATION
 ========================
 
 ================  ================  =============================  ========================================
@@ -61,94 +69,81 @@ Time                Degree             Major                          School
 ..   (2017 - 2018)    Research Student          `Argonne National Laboratory`_
 .. ================  ======================  ===========================================================
 
-Interests
+RESEARCH INTERESTS
 =========================
-   - Embedded and FPGA system design
-   - Hardware & Software co-deisgn for acceleration
-   - Signal Processing
-   - Software Defined Radio
-   - Artificial Intelligence
+- Embedded and FPGA system design
+- Hardware & Software co-deisgn
+- Signal Processing
+- Communication Systems
+- Artificial Intelligence (AI)
 
-Skill Sets
+SKILLS
 ===================
-   - Languages: Python_, MATLAB_, C, C++, ASM_, VHDL_, Verilog_
-   - Software: `Microsoft Office Toolsets`_, AutoCAD_, Fusion360_, LaTex_
+- Languages: Python_, MATLAB_, C, C++, ASM_, VHDL_, Verilog_
+- Software: `Microsoft Office Toolsets`_, AutoCAD_, Fusion360_, LaTex_
 
-Experience
+EXPERIENCE
 ========================
 
-Research Assistant `Illinois Institute of Technology`_ (2015-2020)
+Research Assistant Illinois Institute of Technology (2015-2020)
 ----------------------------------------------------------------------------
-   * My research topic is focused on Ultrasonic Signal Processing, Embedded System, Hardware & Software co-design, and Artificial Intelligence. 
-   * I have instructed or directly involved in many students' projects.
-   * Help maintain the daily operation of the ECASP_ laboratory.
+- Worked on research topics including ultrasonic signal processing, embedded systems, hardware & software codesign, and artificial intelligence (AI).
+- Instructed and directly involved in 30+ student projects, including 5+ graduate thesis projects and four teams who developed prize-winning projects. To maximize efficiency and teamwork, I arranged plans, work schedules, and meetings and ensured students stayed motivated during their projects.
 
-Teaching Assistant `Illinois Institute of Technology`_ (2015-2020)
+
+Teaching Assistant Illinois Institute of Technology (2015-2020)
 -----------------------------------------------------------------------------
-   * RF Integrated Circuit (ECE525)
-   * Application Software Design (ECE448/528)
-   * Cyber Security (ECE443/518)
-   * Embedded System and FPGA design (ECE742)
-   * Microcomputer and Embedded Computing (ECE441 with expeiments)
-   * Computer Architecture (ECE485/585)
-   * Embedded Digital Systems for Time-Frequency Distributions (ECE744)
-   * Circuit Analysis II (ECE213 with expeiments)
-   * Engineering Electronics (ECE311 with expeiments)
+- Mastered all course materials and helped students with learning.
+- Evaluated assignments, project reports, and lab reports from students, liaising with professors on student progress.
+- Educated students on lab materials for experiments and helped debug circuits/programs. 
+- Modules: AI in Smart Grid, RF Integrated Circuits, Application Software Design, Cyber Security, Embedded System and FPGA Design, Microcomputer and Embedded Computing, Computer Architecture, Embedded Digital Systems for Time-Frequency Distributions, Circuit Analysis, Engineering Electronics.
 
 Research Student `Argonne National Laboratory`_ (2017-2018)
 --------------------------------------------------------------------
-   * Developed a testbed platform using the ZYNQ APSoC (All Programmable System-on-Chip) FPGA by Xilinx which offers reconfigurability and high-performance computational capability, high-speed signal converters, power amplifiers for excitation of transducers, low noise receiving amplifiers and high-frequency ultrasonic transducers for transmitting and receiving information. 
-   * Study the acoustic wave propagation in solid material, using guided wave for the optimal ultrasonic communication in apsect of robostness, speed, and transmission distance.
-   * Using OFDM for compating the multipath effect in the ultrasonic channels, reducing the effect of the severe frequency selective fading and intersymbol interference in the communications.
+- Led the development of a reconfigurable and high-performance ultrasonic communication testbed platform using the ZYNQ APSoC (All Programmable System-on-Chip). The system consists of multiple functional blocks including: central controller, high-speed signal converters, power amplifier for transmission, low noise amplifier for receiving, and backend PC for overall control.
+- Used machine learning algorithms to enhance communication robustness and performance by designing optimal deconvolutional channel equalizer.
 
-Projects
+RESEARCH PROJECTS
 ==============================
 
 Re-configurable Ultrasonic non-destructive testing system based on ZYNQ APSoC (2015-2019)
 -----------------------------------------------------------------------------------------------------------------------
-   * Designed an ultrasonic nondestructive testing system based on ZYNQ APSoC. The system is re-configurable, real-time, low power consumption, portable and easy to use.
-   * The system can generate high voltage pulses for exciting the ultrasonic transducers, receive the low voltage ultrasonic backscattered echoes, process the acquired data, and transmit and store the processed data to a host computer.
-   * Hardware acceleration for the algorithms on FPGA are implemented on ZYNQ APSoC for real-time signal processing.
-   * Programming the ARM porcessor to control the system.
+-	Designed an ultrasonic NDT signal acquisition and processing platform based on all programmable SoC (APSoC). With the FPGA on the APSoC, the system is fully reconfigurable, and allows for real-time signal processing. 
+-	The system can generate high voltage pulses for exciting ultrasonic transducers, receive low voltage ultrasonic backscattered echoes sampled at 250 MSPS, and process and transmit the acquired data to a host computer.
+-	Implemented hardware acceleration IP cores on FPGAs for real-time signal processing such as SSP and DWT with Xilinx design toolsets.
+-	Managed a high-speed data path on the FPGA to deserialize data from ADC, buffer and transmit data to the DDR memory with the help of a DMA. 
+-	Programmed the ARM A9 processor on ZYNQ APSoC for overall system control. Project was awarded Best Student Paper at the 2019 IEEE International Ultrasonics Symposium.
 
-Ultrasonic Signal Processing based on Artificial Intelligence (2016-2019)
-----------------------------------------------------------------------------------
-   * Using artificial intelligence algorithms for ultrasonic signal processing. 
-   * Using multilayer perceptron neural networks for grain size estimation and target echo detection. 
 
-Ultrasonic Data Compression using Wavelet Packet Transformation Optimized by a Convolutional Autoencoder (2020)
+Statistical Signal Analyzing and Processing based on Artificial Intelligence  (2016-2019)
+-------------------------------------------------------------------------------------------------
+-	Combined conventional signal processing algorithms and machine learning algorithms to optimize computation efficiency, ease of implementation, and algorithm accuracy. 
+-	Utilized artificial intelligence algorithms for ultrasonic signal processing, adapted multilayer perceptron neural networks for grain size estimation and target echo detection.
+-  Implemented multilayer perceptron neural network in TensorFlow to detect MECG and FECG signals from the abdominal ECG signals acquired using non-invasive sensors.
+
+Data Compression using wavelet packet transform optimized by Convolutional Autoencoder (2020)
 -----------------------------------------------------------------------------------------------------------------------
-   * Implemented an algorithm to find the wavelet kernel that provides maximum energy compaction and the optimal subband decomposition tree structure for a given ultrasonic signal.
-   * Designed Wavelet Packet Transform Convolutional Autoencoder compression algorithm based on the WPT compression tree structure and using machine learning for optimal kernel estimation.
-   * The proposed WPTCAE compression algorithm provides improved compression ratios while maintaining high signal fidelity
+-	Built a Convolutional Autoencoder using wavelet packet transform architecture and transfer learning from the optimal mother wavelet coefficients. 
+-	Models built with this method provided enhanced compression accuracy without affecting compression ratios. 
+-	The algorithm was the first of its kind and demonstrated excellent performance on computation efficiency and compression performances. 
 
-
-Ultrasonic Communication in Solid (2017-2020)
---------------------------------------------------------
-   * Refer my Research Student experience at `Argonne National Laboratory`_
-
-Other Projects
+OTHER PROEJCTS
 ============================
 
 Wearable sensor network for human gesture detection based on Artificial Intelligence (2019-2020)
 -----------------------------------------------------------------------------------------------------------
-   * Helped desgin and implemented an IoT based information collecting and analyzing system that combines multiple wearable and environmental sensors.
-   * Wearable sensors including accelerometers and a gyroscope were utilized to obtain real-time posture data with labels.
-   * Machine learning algorithms is adapted in this study for characterizing different human gestures.
+-  Created a wearable sensor network for human gesture detection based on AI. 
+-  Helped design and implement an IoT based information collection and analysis system that combined multiple wearable and environmental sensors. Used this to obtain real-time posture data with labels. 
+-  Designed and implemented sequential models for human gesture characterization.
 
 A single Camera 3D microscope detail scanner (2019)
 ------------------------------------------------------------------
-   * Designed and implemented microscope deatail scanner.
-   * Helped design the image stiching and 3D texture reconstruction based on stereo matching.
-
-FECG and MECG characterization from abdominal ECG using machine learning method (2018) 
----------------------------------------------------------------------------------------------------------
-   * Validate the feasibility of recognize FECG signals from abdominal ECG signals using synthetic dataset.
-   * Multilayer perceptron neural network is used to detect MECG and FECG signals from the abdominal ECG signals acquired using non-invasive sensors.
+- Designed and implemented microscope deatail scanner.
+- Helped design the image stiching and 3D texture reconstruction based on stereo matching.
 
 Hobbies
 =======================
-   - Jogging, Programming, Crafting
+- Jogging, Programming, Crafting
 
 Online Certifications
 ===========================
