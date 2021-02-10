@@ -1,0 +1,8 @@
+***********************************************
+Supervised Students' Projects
+***********************************************
+
+.. toctree::
+   :maxdepth: 1
+
+   DetailScanner.rst

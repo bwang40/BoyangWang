@@ -1,0 +1,152 @@
+***********************************************
+SidePrj: GRBL Python Library (2019)
+***********************************************
+
+This project serves as one of the components of my research project: `Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC`_. *GRBL is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. It will run on a vanilla Arduino (Duemillanove/Uno) as long as it sports an Atmega 328.* `[1]`_ Once the Arduino is configured with GRBL software, it will communicate with backend PC, waiting for commands to controll the CNC device and reporting real-time status. The necessity of implementing a python library for controlling GRBL devices comes from the fact that I need to unify the programming language and platform in order to automated the data collection, processing and visuallization. 
+
+.. _`[1]`: https://github.com/grbl/grbl
+
+Figure 1. shows the system block diagram. Two stepper motors in the system is moving the ultrasonic transducer along the x and y axis. Four position limit switches are connected to the GRBL controller board for damage prevention. 
+
+.. figure:: image/grbl_bd.png
+    :align: center
+
+    Figure 1. System Block Diagram.
+
+To prepare for the python environment, I would recommend Anaconda with an additional library called **pygcode**. One can install it using pip. The **pygcode** is not essential to the project, but it will save time when programming
+
+Implementation
+======================================
+
+I created a class for the grbl device::
+
+    class grbl():
+        def __init__(self, port="COM7", baudrate=115200):
+            #each rocket has (x,y) position; user or calling function has choice
+            #of passing in x and y values, or by default they are set at 0
+            self.connectstatus = False
+            self.port = port
+            self.serial_handle = None
+            self.baudrate = baudrate
+
+next, it is the basic connect, disconnect and reset, functions::
+
+    def Connect(self):
+        if self.connectstatus == False:
+            self.serial_handle = serial.Serial(self.port,self.baudrate)
+            self.serial_handle.write(str.encode('\r\n\r\n'))
+            time.sleep(1)
+            self.serial_handle.flushInput()
+            self.connectstatus = True
+            print("Connected to GRBL device")
+        else:
+            print("GRBL device already connected")
+        return self.serial_handle
+    
+    def Disconnect(self):
+        if self.connectstatus == True:
+            print("Now Moving back to origin")
+            self.BacktoOrigin()
+            self.WaitMoving()
+            print("Done")
+            self.serial_handle.close()
+            self.connectstatus = False
+            print("GRBL device disconnected")
+        else:
+            print("Device not Connected")
+        return True
+
+    def ResetGRBL(self): #This is only a software reset, cannot reset when limit switches are hitten.
+        self.serial_handle.flushInput()
+        self.serial_handle.write(str.encode("$RST=$\n"))
+        grbl_out = self.serial_handle.readline()
+        #print(grbl_out)
+        if grbl_out == b'[MSG:Restoring defaults]\r\n':
+            return True
+        else:
+            return False
+
+MoveTo and backtoorigin functions without blocking, without blocking means the program will continue while the motor is moving::
+
+    def MoveTo(self,x,y):
+        self.serial_handle.flushInput()
+        g = GCodeRapidMove(X=x,Y=y)
+        self.serial_handle.write(str.encode(str(g)+"\n"))
+        grbl_out = self.serial_handle.readline()
+        if grbl_out == b'ok\r\n':
+            return True
+        else:
+            return False
+
+    def BacktoOrigin(self):
+        self.MoveTo(0,0)
+
+
+MoveTo and backtoorigin functions with blocking, the function will wait until the motor is done moving::
+
+    def MoveTo_Block(self,x,y):
+        self.serial_handle.flushInput()
+        g = GCodeRapidMove(X=x,Y=y)
+        self.serial_handle.write(str.encode(str(g)+"\n"))
+        grbl_out = self.serial_handle.readline()
+        self.WaitMoving()
+        if grbl_out == b'ok\r\n':
+            return True
+        else:
+            return False 
+
+    def BacktoOrigin_Block(self):
+        self.MoveTo(0,0)
+        self.WaitMoving()
+
+    def WaitMoving(self):
+        runningstatus = "Run"
+        while(runningstatus != "Idle"):
+            time.sleep(.500)
+            runningstatus,xpos,ypos = self.StatusRequest()
+            #print(runningstatus,xpos,ypos)
+        return True
+        
+Status request is a very important function::
+
+    def StatusRequest(self):
+        self.serial_handle.flushInput()
+        self.serial_handle.write(str.encode("?\n"))
+        grbl_out = str(self.serial_handle.readline())
+        tmp = grbl_out.split("|")
+        #print(tmp)
+        runningstatus = tmp[0]
+        tmp2 = tmp[1].split(":")
+        tmp3 = tmp2[1].split(",")
+        xpos = float(tmp3[0])
+        ypos = float(tmp3[1])
+        return runningstatus[3:], xpos, ypos
+
+Finally, there are many registers in the grbl device containing the configurations. We can request and configure is on the fly::
+
+    # A register dictionary will be returned as the result
+    def RegisterRequest(self):
+        self.serial_handle.flushInput()
+        self.serial_handle.write(str.encode("$$\n"))
+        regout = {}
+        for i in range(34):
+            tmp = str(self.serial_handle.readline())
+            tmp2 = tmp.split("=")
+            tmp3 = int(tmp2[0].split("$")[-1])
+            tmp4 = float(tmp2[1].split("\\")[0])
+            result = [tmp3,tmp4]
+            regout[tmp3] = tmp4
+        #print(regout)
+        return regout
+    
+    def ChangeReg(self,regadd,regval):
+        self.serial_handle.flushInput()
+        string = "$"+ str(regadd) + "=" + str(regval) + "\n"
+        print(string)
+        self.serial_handle.write(str.encode(string))
+        grbl_out = self.serial_handle.readline()
+        if grbl_out == b'ok\r\n':
+            return True
+        else:
+            return False
+

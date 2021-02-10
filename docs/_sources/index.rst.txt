@@ -1,12 +1,10 @@
 .. BoyangProject documentation master file, created by
    sphinx-quickstart on Wed Apr 24 07:31:10 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 .. Prerequisite. conda install -c conda-forge sphinxcontrib-bibtex 
 
 **************************************************
-Boyang Wang's Notebooks
+Boyang Wang's Site
 **************************************************
 
 .. |logome| image:: Source/Images/logo/logo_burned.png
@@ -19,7 +17,7 @@ Ph.D. in Electrical Engineering with 6+ years of research experience in **embedd
 
 .. Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research `ECASP Laboratory`_ of |IITlogo| `Illinois Institute of Technology`_. My research topic is focused on **Ultrasonic Signal Processing**, **Embedded System**, **Hardware & Software co-design**, and **Artificial Intelligence**. During my PhD studying, I have done projects such as **Ultrasonic NDT System Design and Signal Processing**, **Ultrasonic Communication through solid**, and **Artificial Intelligence for Ultrasonic Signal Processing**. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA.
 
-About Me 
+RESUME
 ====================
 
 .. toctree::
@@ -28,30 +26,24 @@ About Me
     Source/Resume/MyResume.rst
     Source/Resume/简历.rst
 
-My Projects 
+PROJECTS 
 ====================
 
 .. toctree::
    :maxdepth: 2
 
-   Source/ResearchProjects/MyResearchProjects.rst
+   Source/ResearchProjects/ResearchPrj.rst
    Source/CoursePrj/CoursePrj.rst
-   Source/HobbyProjects/MyHobbyProjects.rst
-
-Awards & Certifications
+   Source/OtherProjects/OtherPrj.rst
+   Source/StudentPrj/StudentPrj.rst
+   
+AWARDS & CERTIFICATIONS
 ==============================
 .. toctree::
    :maxdepth: 1
 
-   Source/CertificationsAwards/awards_certs.rst
-
-.. My Notebooks
-.. ====================
-
-.. .. toctree::
-..    :maxdepth: 3
-
-..    Source/PersonalNotebook/PersonalNotebooks.rst
+   Source/CertificationsAwards/awards.rst
+   Source/CertificationsAwards/certifications.rst
 
 .. _`Boyang Wang`: https://notebookofmine.com
 .. _`Illinois Institute of Technology`: https://web.iit.edu/

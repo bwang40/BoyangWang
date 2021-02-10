@@ -1,0 +1,19 @@
+
+**********************************************************************
+ECE441 Microcomputers and Embedded Computing Systems (Spring2013)
+**********************************************************************
+
+.. figure:: images/ECE441_memorydesign.jpg
+   :align: center
+
+   Figure 1. Memory Design Circuit
+
+.. figure:: images/ECE441_io.jpg
+   :align: center
+
+   Figure 2. Digital I/O Design Circuit
+
+.. figure:: images/ECE441_PIA.jpg
+   :align: center
+
+   Figure 3. PIA Design Circuit

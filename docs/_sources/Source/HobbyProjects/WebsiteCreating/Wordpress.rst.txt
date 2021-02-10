@@ -1,9 +1,0 @@
-WordPress Website of Mine
-====================================
-
-My `WordPress Site`_ is hosted on BlueHost at `https://notebookofmine.com/wordpress/`_. It is the first website I have ever created for myself. It was generated at around 2017. I kept my resume, projects of mine, and some of my hobby projects on there. WordPress has a extremely user friendly interface to operate with. It has lots of useful tools to help manage your site. PHP based structure also allows lots of functions that static pages won't allow. It is a great software to maintain a personal website. I ll keep update this site in the future. 
-
-
-
-.. _`WordPress Site`: https://notebookofmine.com/wordpress/
-.. _`https://notebookofmine.com/wordpress/`: https://notebookofmine.com/wordpress/

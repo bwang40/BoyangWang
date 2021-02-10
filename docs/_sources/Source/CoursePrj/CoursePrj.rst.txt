@@ -1,14 +1,15 @@
 ****************************
 Course Projects
 ****************************
-These are the course projects I have done.
 
 .. toctree::
    :maxdepth: 1
 
+   ECE425.rst
    ECE565.rst
    ECE584.rst
    ECE529.rst
    ECE429.rst
    ECE587.rst
-   ECE425.rst
+   ECE441.rst
+   

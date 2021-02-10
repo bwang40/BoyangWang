@@ -1,2 +1,0 @@
-Ultrasonic Target Echo Detection using Neural Network
-===============================================================

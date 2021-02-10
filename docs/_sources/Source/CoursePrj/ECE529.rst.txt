@@ -1,6 +1,6 @@
-******************************************
-ECE529 Advanced VLSI Systems Design
-******************************************
+****************************************************
+ECE529 Advanced VLSI Systems Design (Spring2014)
+****************************************************
 ECE529_ is a course at :guilabel:`IIT` called Advanced VLSI Systems Design. This is an advanced course of ECE429
 
 .. contents:: Table of Contents

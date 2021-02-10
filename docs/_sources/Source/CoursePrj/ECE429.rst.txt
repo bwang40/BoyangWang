@@ -1,6 +1,6 @@
-***********************
-ECE429 Intro to VLSI
-***********************
+************************************
+ECE429 Intro to VLSI (Fall2013)
+************************************
 ECE429_ is a course at :guilabel:`IIT` called ``Introduction to VLSI Design``. I took it in Fall 2013, it was the second first semester of my M.S. degree. Back in time, I was my first few month starting to work with English. The writing and understanding of the course material are still very limited. However, I learned a lot from this course of Dr. Oruklu's. This project was done by me and a classmate of mine as a group work. 
 
 .. contents:: Table of Contents

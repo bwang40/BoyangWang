@@ -1,0 +1,141 @@
+**************************************************
+SidePrj: Control MSOX2024a with pyvisa (2019)
+**************************************************
+
+This project serves as one of the components of my research project: `Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC`_. MSOX series oscilloscopes from keysight allow multiple connection methods (Ethernet, USB, GPIB, etc.) with one universal interface called VISA. Thanks to the python library **Pyvisa**, we are able to connect to our oscilloscope on any platform, any operating systems with python. This is the most convenient and affordable solution I can find up to now.
+
+**Pyvisa** is a python package that allows us to control all kinds of measurement devices without bothered by different interfaces (such as USB, Ethernet, GPIB). I need it for acquiring data from the Ultrasonic NDT experimental platform. **MSOX2024A** is used in the testsetup. This is a keysight **InfiniiVision** oscilloscope with **200 MHz bandwidth** and up to **2 GSPS sample rate**. 
+
+.. _`Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC`: 
+
+System Environment Setup
+=======================================
+`KeySight IO Library Suilte 2019`_ is the official supported software for Keysight Devices on Windows operating systems. It contains all the necessary libraries to get your device working on Windows system. Which means you don't have to collected all pieces of software components to enable VISA interface.
+
+**Anaconda** is a very powerful and useful python environment on all platforms. It allows me to maintain a Python environment independent with my system python environment. It reduce the risk of messing up the system env especially when you are first to python. And with its powerful library collection, it makes development much easier. Pyvisa can be installed in Anaconda using the following code::
+
+    conda install -c conda-forge pyvisa 
+
+Implementation
+=================================
+Originally, I was planning to build the python library for MSOX2024A. However, I found that the work is too much for one person within a few days. I decided to go with some specific functionalities that are crucial for my experiments. I created an class in python called MSOX2024A and created a few methods to accomplish the task I need to do. Here listed a few important methods for the Oscilloscope Control and Signal Acquisition.
+
+In Pyvisa, all the devices are managed using the ``resource manager`` object. The following function will return a list of available devices VISA addresses::
+
+    def GetResoureList(self):
+        resource = str(self.rm.list_resources())
+        resource = resource.split("'")
+        result = []
+        for item in resource:
+            if len(item)>10:
+                result.append(item)
+        return result
+
+I created a ``msox2024a`` object for the oscilloscope device I have, the object is defined as follow::
+
+    class msox2024a():
+        def __init__(self, Resource_Manager, SCOPE_VISA_ADDRESS):
+            self.rm = Resource_Manager
+            self.osc_handle = None
+            self.connectstatus = False
+            self.visa_address = SCOPE_VISA_ADDRESS
+            self.NUMBER_ANALOG_CHS = 4
+            self.channelstatus = None
+            self.waveformstatus = None
+            self.triggerstatus = None
+            self.timebasestatus = None
+            
+            self.CHS_ON = None
+            self.ANALOGVERTPRES = None
+            self.NUMBER_OF_POINTS_TO_ACTUALLY_RETRIEVE = None
+            self.NUMBER_CHANNELS_ON = None
+            self.TOTAL_BYTES_TO_XFER = None
+            self.ACQ_TYPE = None
+
+Connect, Disconnect, reset, AutoScale are the most fundamental methods of the object ``msox2024a``::
+
+    def Connect(self):
+        if self.connectstatus == False:
+            try:
+                self.osc_handle = self.rm.open_resource(self.visa_address)
+            except Exception:
+                print ("Unable to connect to oscilloscope at " + str(self.visa_address))
+                sys.exit()
+                return False
+            print("Successfully Connected to Device")
+            self.osc_handle.timeout = 10000
+            self.osc_handle.clear()
+            self.connectstatus = True
+        else:
+            print("Device already connected")
+        return self.osc_handle
+
+    def Disconnect(self):
+        if self.connectstatus == True:
+            self.osc_handle.clear()
+            self.osc_handle.close()
+            self.osc_handle = None
+            self.connectstatus = False
+            print("Device Successfully Disconnected")
+            return True
+        else:
+            print("Device not Connected")
+            return False
+
+    def Reset(self):
+        self.osc_handle.write("*RST")
+
+    def AutoScale(self):
+        self.osc_handle.write(":AUToscale")
+
+The following functions reports the connection status::
+
+    def queryIDN(self):
+        IDN = str(self.osc_handle.query("*IDN?")).rstrip()
+        IDN = IDN.split(',')
+        return IDN
+    
+    def queryOPT(self):
+        OPT = str(self.osc_handle.query("*OPT?")).rstrip()
+        OPT = OPT.split(',')
+        result = []
+        for items in OPT:
+            if items[0] != "0":
+                result.append(items)
+        return result
+
+The following code query and config the channel configuration::
+
+    def queryChannelStatus(self):
+        option = ["BANDwidth","BWLimit","COUPling","DISPlay","IMPedance","INVert","LABel",
+                  "OFFSet","PROBe","PROTection","RANGe","SCALe","UNITs","VERNier"]
+        channelstatus = {}
+        for items in option:
+            tail = ":" + items + "?"
+            channelstatus[items] = []
+            for channels in range(1,self.NUMBER_ANALOG_CHS+1):
+                channelstatus[items].append(self.osc_handle.query(":CHANnel" + str(channels) + tail).rstrip())
+        self.channelstatus = channelstatus
+        return channelstatus
+    
+    def configChannel(self,channelstatus):
+        options = ["BANDwidth","BWLimit","COUPling","DISPlay","IMPedance","INVert","LABel",
+                  "OFFSet","PROBe","RANGe","SCALe","UNITs","VERNier"]
+        for items in options:
+            status = channelstatus[items]
+            for channels in range(4):
+                #print(":CHANnel" + str(channels+1)+":"+items + " " + status[channels])
+                self.osc_handle.write(":CHANnel" + str(channels+1)+":"+items + " " + status[channels])
+        return True
+    
+I am not going to list all functions for this project, the concept is very clear here, you only need to implement the functions according to the oscilloscope programmer's guide. During the communication, I do notice some miscellaneous error which is also reported in this thread_. This issue is resolved when I changed the connection mode to compatible mode.
+
+References
+=================
+    1. `Keysight InfiniiVision 2000 X-Series Oscilloscopes Programmer's Guide`_
+    2. `Pyvisa Documentation`_
+
+.. _`KeySight IO Library Suilte 2019`: https://www.keysight.com/main/software.jspx?ckey=2175637&lc=eng&cc=US&nid=-33330.977662&id=2175637&pageMode=CV
+.. _`Keysight InfiniiVision 2000 X-Series Oscilloscopes Programmer's Guide`: https://www.keysight.com/upload/cmc_upload/All/2000_series_prog_guide.pdf
+.. _`Pyvisa Documentation`: https://pyvisa.readthedocs.io/en/master/
+.. _thread: https://github.com/pyvisa/pyvisa/issues/376

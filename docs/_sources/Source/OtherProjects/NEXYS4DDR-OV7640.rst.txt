@@ -1,0 +1,89 @@
+************************************************************************
+WeekendPrj: Adapting OV7670 camera module with Nexys4 DDR board (2017)
+************************************************************************
+   
+Introduction 
+=======================
+This is a one weekend hobby project I have done in Spring 2017. Most the codes are referenced from online, I would not re-upload the code in my github. I ll only described what I have done in this project. (Note: This is the first github project I have ever created. The project itself is simple and straight forward, all I want is to get familiar with Github and reStructuredText. Hopefully this is helpful for you if you are new to FPGA.)
+
+I this project, I will interface a camera module OV7670 to the nexys4DDR board. The camera module is configured using I2C interface. The register configuration is preloaded in the FPGA logic. A simple BRAM on the FPGA is used to buffer the captured video data, the buffered data will then be sent to the VGA output and displayed on the monitor.
+
+If you want to duplicate this project on your own FPGA board, the source HDL code of this project is found from this `Github Repository <https://github.com/laurivosandi/hdl.git>`_. This code is packed in Vivado and modified a little bit to be able to run it on Nexys4DDR board (hint: the vga output format is a little bit different).
+
+Also, this `page <http://hamsterworks.co.nz/mediawiki/index.php/OV7670_camera>`_ offered a lot of useful information when I started.
+
+Camera Interface
+=======================
+
+.. sidebar:: Figure 1. OV7670 Camera Module
+
+   .. figure:: image/ov7670.PNG
+      :alt: photo of mine
+      :align: center
+      :scale: 50 %
+
+.. .. figure:: image/ov7670.PNG
+..    :align: center
+..    :scale: 50
+
+..    Figure 1. OV7670 Camera Module
+
++---+----+---+----+
+|PIN|SIG |PIN|SIG |
++===+====+===+====+
+|1  | D1 |2  | D0 | 
++---+----+---+----+
+|3  | D3 |4  | D2 | 
++---+----+---+----+
+|5  | D5 |6  | D4 | 
++---+----+---+----+
+|7  | D7 |8  | D6 | 
++---+----+---+----+
+|9  | PCK|10 | XCK| 
++---+----+---+----+
+|11 | VS |12 | HS | 
++---+----+---+----+
+|13 | SCL|14 | SDA| 
++---+----+---+----+
+|15 | 3V3|16 | GND| 
++---+----+---+----+
+
+
+Vivado IP-Integrator
+=======================
+.. figure:: image/IMG_4560.JPG
+    :align: center
+    
+    Figure 2. Block Diagram in Vivado IP Integrator.
+
+A diagram plotted in VISIO will give you a better understand about the diagram of the system design.
+
+.. figure:: image/ov7670_bd.png
+    :align: center
+
+    Figure 3. System Block Diagram.
+
+
+Result
+=======================
+
+.. figure:: image/IMG_4585.JPG
+    :align: center
+
+    Figure 4. Hardware Setup.
+
+.. figure:: image/IMG_4559.JPG
+    :align: center
+
+    Figure 5. Picture with color distortion.
+
+.. figure:: image/IMG_4586.JPG
+    :align: center
+
+    Figure 6. After Debugging, the color is fixed, but there are some noise in synchronization.
+
+.. figure:: image/IMG_4587.JPG
+    :align: center
+
+    Figure 7. Fixing the noise in the video.
+

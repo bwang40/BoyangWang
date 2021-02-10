@@ -1,6 +1,6 @@
-***************************************************************
-ECE584 DCT Implementation Optimization on VLSI level
-***************************************************************
+*******************************************************************
+ECE584 DCT Implementation Optimization on VLSI level (Spring2014)
+*******************************************************************
 ECE584_ is a course at :guilabel:`IIT` called ``VLSI Architecture for Signal Processing and Communication Systems``. It is one of the best course I have took at IIT. The course teaches how to design and optimize signal processing algorithms on Hardware. This is the final project of EC584 in the semester I took this course. In the project, we are asked to implement and optimize a Discrete Cosine Transform (DCT) in HDL language. Me and another classmate of mine are teaming up in this project.
 
 .. contents:: Table of Contents

@@ -1,6 +1,6 @@
-*****************************************************************
-ECE565 Nodule Detection based on Statistical Signal Analysis
-*****************************************************************
+**************************************************************************
+ECE565 Nodule Detection based on Statistical Signal Analysis (Spring2015)
+**************************************************************************
 This is a course project I have done by myself for course ECE565, ``Computer Vision and Image Processing``. The lab requirement asks us to develop a method to detect nodule candidates in a medical image of lungs using the algorithms that we have learned from the class. I put together a bunch of image preprocessing methods and acquire a few features from each nodule candidate. Then I manually selected an area in feature space using human experience and marked every candidate in this area as suspicious nodules. If I have enough data sets, I should able to train a simple SVM to characterize the nodules from the feature space I created. Furthermore, If I have more data, I will prefer to build a ``YOLO`` similar ``convolutional neural network`` to detect and locate the position of the nodule in a CT scan. 
 
 .. contents:: Table of Contents

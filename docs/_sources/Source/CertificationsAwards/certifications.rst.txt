@@ -1,0 +1,38 @@
+**************************************************
+Certifications
+**************************************************
+
+DeepLearning.AI TensorFlow Developer
+-------------------------------------------------
+    * Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning `Link1 <https://www.coursera.org/account/accomplishments/certificate/GBLWNH8EE5CV>`_
+    * Convolutional Neural Networks in TensorFlow `Link2 <https://www.coursera.org/account/accomplishments/certificate/V8DRB9UEBV27>`_
+    * Natural Language Processing in TensorFlow `Link3 <https://www.coursera.org/account/accomplishments/certificate/APS884LL3EL5>`_
+    * Sequences, Time Series and Prediction `Link4 <https://www.coursera.org/account/accomplishments/certificate/SL8AUEZGKC2S>`_
+
+.. image:: ../Images/certifications/TF_DEV.png
+  :width: 600
+  :alt: Alternative text
+
+Machine Learning
+----------------------------------------
+
+    * Machine Learning `Link5 <https://www.coursera.org/account/accomplishments/verify/SP4HDZRNDBJS>`_
+    * Neural Networks and Deep Learning `Link6 <https://www.coursera.org/account/accomplishments/verify/JEXGAHLPUA56>`_
+
+.. image:: ../Images/certifications/ML.png
+  :width: 600
+  :alt: Alternative text
+
+.. image:: ../Images/certifications/NN_DL.png
+  :width: 600
+  :alt: Alternative text
+
+Algorithms
+-------------------------------------------------
+
+    * Divide and Conquer, Sorting and Searching, and Randomized Algorithms `Link7 <https://www.coursera.org/account/accomplishments/verify/URG7HVW4UY5G>`_
+    * Graph Search, Shortest Paths, and Data Structures `Link8 <https://www.coursera.org/account/accomplishments/verify/M9CGYZERX88A>`_
+
+.. image:: ../Images/certifications/ALG.png
+  :width: 600
+  :alt: Alternative text
