@@ -1,3 +1,19 @@
 *******************************************************************************************
 Software Defined Ultrasonic Communication System based on ZYNQ SoC (2017-2020)
 *******************************************************************************************
+
+
+.. figure:: image/UltraCommPost.png
+   :align: center
+
+.. note::
+   Note: The page is a demonstration of the project basic layouts, details can be found in my papers.
+
+
+PUBLICATIONS
+========================
+.. bibliography:: ref_comm.bib
+   :list: enumerated
+   :style: unsrt
+   :all:
+   :cited:

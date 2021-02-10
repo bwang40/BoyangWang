@@ -5,4 +5,5 @@ Supervised Students' Projects
 .. toctree::
    :maxdepth: 1
 
+   FRNN.rst
    DetailScanner.rst

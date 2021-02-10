@@ -1,0 +1,9 @@
+********************************************************************************************************
+Ultrasonic Flaw Detection based on Temporal and Subband Signals Applied to Neural Network (2017-2018)
+********************************************************************************************************
+
+.. figure:: image/UltrasonicFlawDetectNN.png
+   :align: center
+
+.. note::
+   Note: The page is a demonstration of the project basic layouts, details can be found in my papers.

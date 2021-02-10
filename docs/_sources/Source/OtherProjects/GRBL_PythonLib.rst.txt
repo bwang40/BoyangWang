@@ -5,6 +5,7 @@ SidePrj: GRBL Python Library (2019)
 This project serves as one of the components of my research project: `Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC`_. *GRBL is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. It will run on a vanilla Arduino (Duemillanove/Uno) as long as it sports an Atmega 328.* `[1]`_ Once the Arduino is configured with GRBL software, it will communicate with backend PC, waiting for commands to controll the CNC device and reporting real-time status. The necessity of implementing a python library for controlling GRBL devices comes from the fact that I need to unify the programming language and platform in order to automated the data collection, processing and visuallization. 
 
 .. _`[1]`: https://github.com/grbl/grbl
+.. _`Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC`: https://bwang40.github.io/BoyangWang/Source/ResearchProjects/UltrasonicNDT.html
 
 Figure 1. shows the system block diagram. Two stepper motors in the system is moving the ultrasonic transducer along the x and y axis. Four position limit switches are connected to the GRBL controller board for damage prevention. 
 

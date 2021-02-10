@@ -147,9 +147,30 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ResearchProjects/ResearchPrj.html">Research Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/UltrasonicNDT.html">Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC (2015-2019)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/UltrasondComm.html">Software Defined Ultrasonic Communication System based on ZYNQ SoC (2017-2020)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/SignalProcessingAI.html">Statistical Signal Analyzing and Processing based on Artificial Intelligence (2016-2019)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/UltrasonicNDT.html">Ultrasonic NDT Signal Acquisition and Processing (USAP) System based on ZYNQ APSoC (2015-2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/UltrasonicNDT.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/UltrasonicNDT.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/UltrasonicNDT.html#example-result">Example Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/UltrasonicNDT.html#publications">PUBLICATIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/UltrasondComm.html">Software Defined Ultrasonic Communication System based on ZYNQ SoC (2017-2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/UltrasondComm.html#publications">PUBLICATIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ResearchProjects/SignalProcessingAI.html">Statistical Signal Analyzing and Processing based on Artificial Intelligence (2016-2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/flawnn.html">Ultrasonic Flaw Detection based on Temporal and Subband Signals Applied to Neural Network (2017-2018)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/grainsize.html">Multilayer Perceptron Neural Networks for Grain Size Estimation and Classification (2019)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/fecg.html">FECG and MECG charachterization using machine learning (2018)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/fecg.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/fecg.html#training-the-neural-network-with-tensorflow">Training the Neural Network with Tensorflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/fecg.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ResearchProjects/fecg.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ResearchProjects/SignalProcessingAI.html#publications">PUBLICATIONS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../CoursePrj/CoursePrj.html">Course Projects</a><ul>
@@ -303,7 +324,17 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../StudentPrj/StudentPrj.html">Supervised Students’ Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../StudentPrj/DetailScanner.html">A Single-Camera 3D Microscope Scanner with Image Stitching and Stereo Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../StudentPrj/FRNN.html">Faster R-CNN Applied to Ultrasonic Images for Breast Lesion Detection and Classification (2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/FRNN.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/FRNN.html#publication">publication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../StudentPrj/DetailScanner.html">A Single-Camera 3D Microscope Scanner with Image Stitching and Stereo Matching (2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/DetailScanner.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/DetailScanner.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/DetailScanner.html#publication">publication</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -421,7 +452,7 @@
 </style>
 <div class="section" id="sideprj-grbl-python-library-2019">
 <h1>SidePrj: GRBL Python Library (2019)<a class="headerlink" href="#sideprj-grbl-python-library-2019" title="Permalink to this headline">¶</a></h1>
-<p>This project serves as one of the components of my research project: <a href="#id3"><span class="problematic" id="id4">`Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC`_</span></a>. <em>GRBL is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. It will run on a vanilla Arduino (Duemillanove/Uno) as long as it sports an Atmega 328.</em> <a class="reference external" href="https://github.com/grbl/grbl">[1]</a> Once the Arduino is configured with GRBL software, it will communicate with backend PC, waiting for commands to controll the CNC device and reporting real-time status. The necessity of implementing a python library for controlling GRBL devices comes from the fact that I need to unify the programming language and platform in order to automated the data collection, processing and visuallization.</p>
+<p>This project serves as one of the components of my research project: <a class="reference external" href="https://bwang40.github.io/BoyangWang/Source/ResearchProjects/UltrasonicNDT.html">Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC</a>. <em>GRBL is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. It will run on a vanilla Arduino (Duemillanove/Uno) as long as it sports an Atmega 328.</em> <a class="reference external" href="https://github.com/grbl/grbl">[1]</a> Once the Arduino is configured with GRBL software, it will communicate with backend PC, waiting for commands to controll the CNC device and reporting real-time status. The necessity of implementing a python library for controlling GRBL devices comes from the fact that I need to unify the programming language and platform in order to automated the data collection, processing and visuallization.</p>
 <p>Figure 1. shows the system block diagram. Two stepper motors in the system is moving the ultrasonic transducer along the x and y axis. Four position limit switches are connected to the GRBL controller board for damage prevention.</p>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/grbl_bd.png" src="../../_images/grbl_bd.png" />

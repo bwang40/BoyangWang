@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC (2015-2019) &mdash; Boyang Wang&#39;s Notebook</title>
+  <title>Ultrasonic NDT Signal Acquisition and Processing (USAP) System based on ZYNQ APSoC (2015-2019) &mdash; Boyang Wang&#39;s Notebook</title>
   
 
   
@@ -147,9 +147,30 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ResearchPrj.html">Research Projects</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC (2015-2019)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UltrasondComm.html">Software Defined Ultrasonic Communication System based on ZYNQ SoC (2017-2020)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SignalProcessingAI.html">Statistical Signal Analyzing and Processing based on Artificial Intelligence (2016-2019)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ultrasonic NDT Signal Acquisition and Processing (USAP) System based on ZYNQ APSoC (2015-2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-implementation">System Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-result">Example Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publications">PUBLICATIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="UltrasondComm.html">Software Defined Ultrasonic Communication System based on ZYNQ SoC (2017-2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="UltrasondComm.html#publications">PUBLICATIONS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SignalProcessingAI.html">Statistical Signal Analyzing and Processing based on Artificial Intelligence (2016-2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flawnn.html">Ultrasonic Flaw Detection based on Temporal and Subband Signals Applied to Neural Network (2017-2018)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grainsize.html">Multilayer Perceptron Neural Networks for Grain Size Estimation and Classification (2019)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fecg.html">FECG and MECG charachterization using machine learning (2018)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fecg.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fecg.html#training-the-neural-network-with-tensorflow">Training the Neural Network with Tensorflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fecg.html#result">Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fecg.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SignalProcessingAI.html#publications">PUBLICATIONS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../CoursePrj/CoursePrj.html">Course Projects</a><ul>
@@ -260,7 +281,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../OtherProjects/OtherPrj.html">Other Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../OtherProjects/GRBL_PythonLib.html">GRBL Python Library (2019)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../OtherProjects/GRBL_PythonLib.html">SidePrj: GRBL Python Library (2019)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../OtherProjects/GRBL_PythonLib.html#implementation">Implementation</a></li>
 </ul>
 </li>
@@ -303,7 +324,17 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../StudentPrj/StudentPrj.html">Supervised Students’ Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../StudentPrj/DetailScanner.html">A Single-Camera 3D Microscope Scanner with Image Stitching and Stereo Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../StudentPrj/FRNN.html">Faster R-CNN Applied to Ultrasonic Images for Breast Lesion Detection and Classification (2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/FRNN.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/FRNN.html#publication">publication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../StudentPrj/DetailScanner.html">A Single-Camera 3D Microscope Scanner with Image Stitching and Stereo Matching (2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/DetailScanner.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/DetailScanner.html#system-implementation">System Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StudentPrj/DetailScanner.html#publication">publication</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -369,7 +400,7 @@
         
           <li><a href="ResearchPrj.html">Research Projects</a> &raquo;</li>
         
-      <li>Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC (2015-2019)</li>
+      <li>Ultrasonic NDT Signal Acquisition and Processing (USAP) System based on ZYNQ APSoC (2015-2019)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -419,9 +450,60 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="ultrasonic-ndt-signal-acquisition-and-processing-system-based-on-zynq-apsoc-2015-2019">
-<h1>Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC (2015-2019)<a class="headerlink" href="#ultrasonic-ndt-signal-acquisition-and-processing-system-based-on-zynq-apsoc-2015-2019" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ultrasonic-ndt-signal-acquisition-and-processing-usap-system-based-on-zynq-apsoc-2015-2019">
+<h1>Ultrasonic NDT Signal Acquisition and Processing (USAP) System based on ZYNQ APSoC (2015-2019)<a class="headerlink" href="#ultrasonic-ndt-signal-acquisition-and-processing-usap-system-based-on-zynq-apsoc-2015-2019" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ultrasonic nondestructive testing (NDT) is an effective and highly practical method to characterize thickness and check internal structure of the test subject with a high precision.</p></li>
+<li><p>In this study, we designed and implemented a reconfigurable, high performance and low cost ultrasonic NDE platform based on Xilinx ZYNQ all-programmable System-on-Chip (APSoC).</p></li>
+<li><p>This system can generate high frequency ultrasonic pulse and capture the backscattered echoes at the frequency of <strong>250 MSPS</strong>.</p></li>
+<li><p>Applications of ultrasonic flaw detection based on Multilayer Perceptron Neural Network (MLPNN) is introduced for this study. Time domain ultrasonic backscattered signal and its Split Spectrum Processing (SSP) 2D representation are used for training the MLPNN.</p></li>
+</ul>
+</div>
+<div class="section" id="system-implementation">
+<h2>System Implementation<a class="headerlink" href="#system-implementation" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/USAP_bd.PNG"><img alt="../../_images/USAP_bd.PNG" src="../../_images/USAP_bd.PNG" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">Figure. 1. USAP System Block Diagram.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/USAP_sysimplementation.PNG" src="../../_images/USAP_sysimplementation.PNG" />
+<p class="caption"><span class="caption-text">Figure. 2. USAP System Implementation.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/USAP_signalprocess.PNG" src="../../_images/USAP_signalprocess.PNG" />
+<p class="caption"><span class="caption-text">Figure. 3. Signal Processing on USAP system.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <iframe src="https://myhub.autodesk360.com/ue2b76abc/shares/public/SH919a0QTf3c32634dcf4815824187c512b1?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe></div>
+<div class="section" id="example-result">
+<h2>Example Result<a class="headerlink" href="#example-result" title="Permalink to this headline">¶</a></h2>
+<p>Figure 4. is the slice plane plot of the envelopes of the ultrasonic data. Before plotting, Hilbert filters are applied to the ultrasonic A-scans to extract envelops of the signals. This will remove the high frequency oscillations in the ultrasonic A-scans and make the amplitude variations more obvious in the plots.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/USAP_testresult.PNG"><img alt="../../_images/USAP_testresult.PNG" src="../../_images/USAP_testresult.PNG" style="width: 226.0px; height: 401.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure. 4. Slice Plane Plot of the Test Results.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: The page is a demonstration of the project basic layouts, details can be found in my papers.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="publications">
+<h2>PUBLICATIONS<a class="headerlink" href="#publications" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" id="bibtex-bibliography-Source/ResearchProjects/UltrasonicNDT-0" start="1">
+<li><p>Pramod Govindan, Boyang Wang, Pingping Wu, Ivan Palkov, Vidya Vasudevan, and Jafar Saniie. Reconfigurable and programmable system-on-chip hardware platform for real-time ultrasonic testing applications. In <em>2015 IEEE International Ultrasonics Symposium (IUS)</em>, 1–4. IEEE, 2015. <a class="reference external" href="https://doi.org/10.1109/ULTSYM.2015.0341">doi:10.1109/ULTSYM.2015.0341</a>.</p></li>
+<li><p>Pramod Govindan, Boyang Wang, Prashaanth Ravi, and Jafar Saniie. Hardware and software architectures for computationally efficient three-dimensional ultrasonic data compression. <em>IET Circuits, Devices &amp; Systems</em>, 10(1):54–61, 2016. <a class="reference external" href="https://doi.org/10.1049/iet-cds.2015.0083">doi:10.1049/iet-cds.2015.0083</a>.</p></li>
+<li><p>Boyang Wang, Pramod Govindan, and Jafar Saniie. Performance analysis of system-on-chip architectures for ultrasonic data compression. In <em>2016 IEEE International Ultrasonics Symposium (IUS)</em>, 1–4. IEEE, 2016. <a class="reference external" href="https://doi.org/10.1109/ULTSYM.2016.7728507">doi:10.1109/ULTSYM.2016.7728507</a>.</p></li>
+<li><p>Vidya Vasudevan, Boyang Wang, Pramod Govindan, and Jafar Saniie. Design and evaluation of reconfigurable ultrasonic testing system. In <em>2015 IEEE International Conference on Electro/Information Technology (EIT)</em>, 310–313. IEEE, 2015. <a class="reference external" href="https://doi.org/10.1109/EIT.2015.7293359">doi:10.1109/EIT.2015.7293359</a>.</p></li>
+<li><p>Boyang Wang, Pramod Govindan, Thomas Gonnot, and Jafar Saniie. Acceleration of ultrasonic data compression using opencl on gpu. In <em>2015 IEEE International Conference on Electro/Information Technology (EIT)</em>, 305–309. IEEE, 2015. <a class="reference external" href="https://doi.org/10.1109/EIT.2015.7293358">doi:10.1109/EIT.2015.7293358</a>.</p></li>
+<li><p>Boyang Wang. <em>Reconfigurable Ultrasonic Signal Processing System Solution Based on Zynq Platform</em>. PhD thesis, Illinois Institute of Technology, 2015.</p></li>
+<li><p>Boyang Wang and Jafar Saniie. A high performance ultrasonic system for flaw detection. In <em>2019 IEEE International Ultrasonics Symposium (IUS)</em>, 840–843. IEEE, 2019. <a class="reference external" href="https://doi.org/10.1109/ULTSYM.2019.8926280">doi:10.1109/ULTSYM.2019.8926280</a>.</p></li>
+</ol>
+</div>
+</div>
 
 
            </div>

@@ -1,8 +1,24 @@
-**********************************************************************************
-A Single-Camera 3D Microscope Scanner with Image Stitching and Stereo Matching
-**********************************************************************************
+********************************************************************************************************
+A Single-Camera 3D Microscope Scanner with Image Stitching and Stereo Matching (2019)
+********************************************************************************************************
 
 
+Introduction
+==========================
+Image stitching is a commonly used method to produce high resolution mosaic images of objects that would not be able to fit in a single image at a desired resolution. In this paper, we present a low-cost 3D microscope scanning system that expands on this procedure. Our system uses the relative position information calculated during the stitching process to compute local depth maps for each pair of adjacent images via stereo matching. These local depth maps are then merged into a single depth map of the entire scene. Additionally, the color and depth data are combined to generate a 3D point cloud of the scanned object. The experimental results show that the system has the capability to produce seamless mosaic images and precise depth maps with high efficiency.
+
+System Implementation
+==========================
 .. raw:: html
 
     <iframe src="https://myhub.autodesk360.com/ue2b76abc/shares/public/SHabee1QT1a327cf2b7a0f771dfd0b63834e?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+
+
+
+publication
+=====================
+.. bibliography:: ref/detailscanner.bib
+   :list: enumerated
+   :style: unsrt
+   :all:
+   :cited:

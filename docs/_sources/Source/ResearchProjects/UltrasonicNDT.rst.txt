@@ -1,8 +1,57 @@
-*********************************************************************************************
-Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC (2015-2019)
-*********************************************************************************************
+******************************************************************************************************
+Ultrasonic NDT Signal Acquisition and Processing (USAP) System based on ZYNQ APSoC (2015-2019)
+******************************************************************************************************
 
+Introduction
+===============================
+- Ultrasonic nondestructive testing (NDT) is an effective and highly practical method to characterize thickness and check internal structure of the test subject with a high precision.
+- In this study, we designed and implemented a reconfigurable, high performance and low cost ultrasonic NDE platform based on Xilinx ZYNQ all-programmable System-on-Chip (APSoC).
+- This system can generate high frequency ultrasonic pulse and capture the backscattered echoes at the frequency of **250 MSPS**.
+- Applications of ultrasonic flaw detection based on Multilayer Perceptron Neural Network (MLPNN) is introduced for this study. Time domain ultrasonic backscattered signal and its Split Spectrum Processing (SSP) 2D representation are used for training the MLPNN. 
+
+System Implementation
+===============================
+
+.. figure:: image/USAP_bd.PNG
+   :align: center
+   :width: 800
+
+   Figure. 1. USAP System Block Diagram.
+
+.. figure:: image/USAP_sysimplementation.PNG
+   :align: center
+
+   Figure. 2. USAP System Implementation.
+
+.. figure:: image/USAP_signalprocess.PNG
+   :align: center
+
+   Figure. 3. Signal Processing on USAP system.
 
 .. raw:: html
 
     <iframe src="https://myhub.autodesk360.com/ue2b76abc/shares/public/SH919a0QTf3c32634dcf4815824187c512b1?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+
+Example Result
+===================
+
+Figure 4. is the slice plane plot of the envelopes of the ultrasonic data. Before plotting, Hilbert filters are applied to the ultrasonic A-scans to extract envelops of the signals. This will remove the high frequency oscillations in the ultrasonic A-scans and make the amplitude variations more obvious in the plots. 
+
+.. figure:: image/USAP_testresult.PNG
+   :align: center
+   :scale: 50
+
+   Figure. 4. Slice Plane Plot of the Test Results. 
+
+.. note::
+   Note: The page is a demonstration of the project basic layouts, details can be found in my papers.
+
+|
+
+PUBLICATIONS
+========================
+.. bibliography:: ref_ndt.bib
+   :list: enumerated
+   :style: unsrt
+   :all:
+   :cited:

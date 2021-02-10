@@ -1,0 +1,9 @@
+***********************************************************************************************
+Multilayer Perceptron Neural Networks for Grain Size Estimation and Classification (2019)
+***********************************************************************************************
+
+.. figure:: image/GrainSizeEstNN.PNG
+   :align: center
+
+.. note::
+   Note: The page is a demonstration of the project basic layouts, details can be found in my papers.
