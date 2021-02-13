@@ -282,6 +282,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="OtherPrj.html">Other Projects</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">SidePrj: GRBL Python Library (2019)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a></li>
 </ul>
 </li>
@@ -340,10 +341,10 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../CertificationsAwards/awards.html">Awards</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#sigma-xi-iit-student-award-for-excellence-in-university-research">Sigma Xi/IIT Student Award for Excellence in University Research</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#student-paper-competition-winner-in-the-2019-ieee-international-ultrasonics-symposium">Student Paper Competition Winner in the 2019 IEEE International Ultrasonics Symposium</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#excellence-award-in-field-rank-students-science-and-technology-innovation-project">Excellence Award in Field Rank Students’ Science And Technology Innovation Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#first-prize-in-beijing-college-students-physical-experimental-contest">First prize in Beijing college students’ Physical Experimental Contest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#sigma-xi-iit-student-award-for-excellence-in-university-research-2020">Sigma Xi/IIT Student Award for Excellence in University Research (2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#student-paper-competition-winner-in-the-2019-ieee-international-ultrasonics-symposium-2019">Student Paper Competition Winner in the 2019 IEEE International Ultrasonics Symposium (2019)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#excellence-award-in-field-rank-students-science-and-technology-innovation-project-2011">Excellence Award in Field Rank Students’ Science And Technology Innovation Project (2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CertificationsAwards/awards.html#first-prize-in-beijing-college-students-physical-experimental-contest-2010">First prize in Beijing college students’ Physical Experimental Contest (2010)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../CertificationsAwards/certifications.html">Certifications</a><ul>
@@ -452,6 +453,8 @@
 </style>
 <div class="section" id="sideprj-grbl-python-library-2019">
 <h1>SidePrj: GRBL Python Library (2019)<a class="headerlink" href="#sideprj-grbl-python-library-2019" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This project serves as one of the components of my research project: <a class="reference external" href="https://bwang40.github.io/BoyangWang/Source/ResearchProjects/UltrasonicNDT.html">Ultrasonic NDT Signal Acquisition and Processing System based on ZYNQ APSoC</a>. <em>GRBL is a no-compromise, high performance, low cost alternative to parallel-port-based motion control for CNC milling. It will run on a vanilla Arduino (Duemillanove/Uno) as long as it sports an Atmega 328.</em> <a class="reference external" href="https://github.com/grbl/grbl">[1]</a> Once the Arduino is configured with GRBL software, it will communicate with backend PC, waiting for commands to controll the CNC device and reporting real-time status. The necessity of implementing a python library for controlling GRBL devices comes from the fact that I need to unify the programming language and platform in order to automated the data collection, processing and visuallization.</p>
 <p>Figure 1. shows the system block diagram. Two stepper motors in the system is moving the ultrasonic transducer along the x and y axis. Four position limit switches are connected to the GRBL controller board for damage prevention.</p>
 <div class="figure align-center" id="id2">
@@ -459,6 +462,7 @@
 <p class="caption"><span class="caption-text">Figure 1. System Block Diagram.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>To prepare for the python environment, I would recommend Anaconda with an additional library called <strong>pygcode</strong>. One can install it using pip. The <strong>pygcode</strong> is not essential to the project, but it will save time when programming</p>
+</div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>I created a class for the grbl device:</p>

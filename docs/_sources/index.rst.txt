@@ -13,7 +13,15 @@ Boyang Wang's Site
 .. |IITlogo| image:: Source/Images/logo/iitlogo.png
    :width: 1em
 
+.. .. sidebar:: LinkedIn Badge
+
+..    .. raw:: html
+
+..       <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+..       <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="wang-boyang"><a class="LI-simple-link" href='https://www.linkedin.com/in/wang-boyang?trk=profile-badge'>Boyang Wang</a></div>
+
 Ph.D. in Electrical Engineering with 6+ years of research experience in **embedded systems**, **digital hardware and software codesign**, **communication systems**, **signal processing**, and **machine learning**. Experienced in adapting signal processing and machine learning algorithms in system hardware and software design to solve real-world problems. Published 29 papers in the related area, awarded with multiple prizes including the 2020 Sigma Xi/IIT student award for excellence in university research. A real doer, fast learner, communicative teammate, who is innately curious and adaptive to new knowledge and techniques.
+
 
 .. Currently a PhD candidate working as research assistant in Embedded Computing and Signal Processing Research `ECASP Laboratory`_ of |IITlogo| `Illinois Institute of Technology`_. My research topic is focused on **Ultrasonic Signal Processing**, **Embedded System**, **Hardware & Software co-design**, and **Artificial Intelligence**. During my PhD studying, I have done projects such as **Ultrasonic NDT System Design and Signal Processing**, **Ultrasonic Communication through solid**, and **Artificial Intelligence for Ultrasonic Signal Processing**. I have instructed or directly involved in many students' projects. I am a proficient C/C++, Python, MATLAB, VHDL/Verilog, Assembly programmer. I am skillful in aspect of embedded system design, machine learning, digital signal processing, hardware acceleration on FPGA.
 

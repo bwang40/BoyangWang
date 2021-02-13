@@ -9,6 +9,11 @@ In this project, we are asked to design an Operational Amplifier with some speci
 
 I designed a two-stage CMOS Opamp (Operational Amplifier) with 65 ns Technology in this project. The schematic of the design can be shown in Figure 1.
 
+.. figure:: images/ECE425_1.png
+   :align: center
+
+   Figure 1. Two stage CMOS Opamp.
+
 Compare to conventional Opamp, this kind of schematic has a robust bias circuit (including M8 and M10 – M14), which will offer a very stable ID5 compare to a single resister. In the middle stage is a standard NMOS differential amplifier. The top M3 and M4 is a typical current mirror, and this current mirror will split ID5 and make sure M1 and M2 are in working mode. The WL ratio of M3 and M4 will mainly affect the input common-mode range. M1 and M2 are the main amplifier transistor at this level. Different M1 M2 will give us different Gain Bandwidth. M5 is the pull-down circuit, with the help of the bias circuit, it can offer a known ID5 to the differential amplifier. Stage 3, including M6 and M7 is an output buffer. M6 is working as a Common Source amplifier. Together with M1 and M2, it can give us around 60 DC gain. M9 and Cc is the compensation feedback component. Different M9 and Cc will give us different Phase margin and bandwidth. The design procedure of all these components will be included in detail in the following section.
 
 While I was designing the amplifier, I found many limitations of Opamp. And also, I found some efficient design methods by working with MATLAB and Microsoft EXCEL.
@@ -16,6 +21,11 @@ While I was designing the amplifier, I found many limitations of Opamp. And also
 Calculations
 ===================
 In order to calculate the frequency and gain response, one need small-signal equivalent circuit. Figure 2 shows the small signal equivalent circuit of the CMOS Opamp in Figure 1. 
+
+.. figure:: images/ECE425_2.png
+   :align: center
+
+   Figure 2. Small signal equivalent circuit.
 
 By listing the KCL and KVL of the small signal equivalent circuit, we can know the transfer function of the circuit. 
 
@@ -99,6 +109,9 @@ So that we know that WL ratio of M3 and M4 are
 .. centered:: :math:`V_{t 1 \min }=0.307 V`
 
 Vt3max and Vt1min are obtained by DC simulation in the testbench as follow.
+
+.. figure:: images/ECE425_3.png
+   :align: center
  
 To design M5, we need to derive it from ICMR(-). 
 
@@ -126,6 +139,8 @@ As for M10-M14 and Rb these are to give a proper Vbias to have a 60 uA ID5. Thes
 
 Till now we have the parameters of all the components in the circuit calculated. These parameters can be shown in Table 1.
 
+.. figure:: images/ECE425_T1.png
+   :align: center
 
 All the calculation is done by using MATLAB. I wrote a script in Matlab to finish the calculation. The matlab code can be shown in the following context::
 
@@ -196,20 +211,42 @@ Schematic Setup
 ---------------------
 Figure 3 shows the schematic of the CMOS Opamp design. This schematic is while I was doing the system setup.
 
+.. figure:: images/ECE425_4.png
+   :align: center
+
+   Figure 3. Schematic of two stage Opamp.
+
 After finishing the design, I pack the amplifier and form a symbol view of the Opamp. The design schematic and symbol can be shown in Figure 4.
+
+.. figure:: images/ECE425_5.png
+   :align: center
+
+   Figure 3. Opamp Schematic and Symbol View.
 
 Bode Plot (DC gain & Unity Gain Frequency & Gain Margin)	
 ---------------------------------------------------------------
 In figure 1, it also shows the DC operating points of all the components, these values will also be included in on single table in the performance evaluation section. ICMR is from 0.5 to 0.9, So by using AC analysis scanning from 10 Hz to 10 GHz, I can obtain the bode plot of the system by direct plot it in the result tab. I scheme the bode plot of open loop amplifier with load capacitance of 10 pF. The result can be shown in figure 5.
 
+.. figure:: images/ECE425_6.png
+   :align: center
+
+.. figure:: images/ECE425_6_1.png
+   :align: center
+
+   Figure 4. Bode Plot of the Openloop Circuit (10Hz - 10 GHz).
 
 From the Bode plot we can easily know the unity Gain frequency and openloop DC gain. All the information are summarized in Table 2.
 
+.. figure:: images/ECE425_T2.png
+   :align: center
 
 Gain margin can also be derived from the Bode plot. Gain margin is defined as the amount of gain increase or decrease required to make the loop gain unity at the frequency Wgm where the phase angle is –180° (modulo 360°). To make is simpler, it is the gain of the circuit while phase is equal to 180 deg. Gain margin is calculated using the following formula. It can be drawn from Bode plot in the following figure.
 
 .. centered:: :math:`Gain margin$=1-\operatorname{Gain} @ 180^{\circ}$ phase shift`
- 
+
+.. figure:: images/ECE425_7.png
+   :align: center
+
 As it is shown in the figure, the Gain margin is -17.2970dB which is larger than 2, so it meet the requirement.
 
 Phase Margin Test
@@ -218,12 +255,35 @@ Phase margin is defined as the phase shift at the frequency that gain equal to 1
  
 As shown in figure 5, the phase margin is around 60 deg. 
 
+.. figure:: images/ECE425_8.png
+   :align: center
+
+   Figure 5. Phase Margin obtaining.
+
 
 Slew Rate Test
 ---------------------
 Slew Rate describe the voltage changing speed of the output. This directly affect the operating speed of the Opamp. The method of testing the Slew rate is to divide voltage changing rate by time. I decide to test the slew rate from %25 output to %75 output voltage. The testbench can be shown in Figure 7 and the slew rate for both rising edge and falling edge can be shown in Figure 8. The input voltage of the amplifier is a rectangular wave, this is to make the testing procedure easier.
 
+.. figure:: images/ECE425_9.png
+   :align: center
+
+   Figure 6. Slew Rate Testing Method.
+
+.. figure:: images/ECE425_10.png
+   :align: center
+
+   Figure 7. Slew Rate Testbench.
+
+.. figure:: images/ECE425_11.png
+   :align: center
+
+   Figure 8. Rising edge and Falling edge.
+
 Deriving from the testing, slew rate is calculated in Table 3. To make it easier, I use Excel to do the calculation. The Excel chart is also included in the design submission. 
+
+.. figure:: images/ECE425_T3.png
+   :align: center
 
 According to the table, the rising slew rate is 19.768 V/us and the falling slew rate is 21.234 V/us. So the slew rate basically meet the requirement.
 
@@ -232,10 +292,20 @@ Input offset Voltage
 ----------------------
 The input offset voltage of the amplifier is a parameter defining the differential DC voltage required between the inputs of an amplifier. It shows if the circuit is well balanced or not. The testbench can be shown in figure.
 
+.. figure:: images/ECE425_12.png
+   :align: center
+
+   Figure 9.  Input offset voltage Testbench.
 
 In order to test the mismatch of the output voltage and input voltage, I scan the input voltage value from 0V to 1.2 V. The output and input voltage are shown in the following figure
 
+.. figure:: images/ECE425_13.png
+   :align: center
+
 To make a better comparison, I use output voltage to minus input voltage and I get the result as it is shown in the following figure.
+
+.. figure:: images/ECE425_14.png
+   :align: center
  
 This figure can perfectly show the input offset voltage of the circuit. From 0 V, the output should also be 0 V. When the VCM goes to around 0.4V, the transistors start to be in saturation mode and gradually build the balance. When VCM = 0.5, the amplifier is in the working mode and till 0.9V, the input offset voltage is still less than 1 mV which is very nice.
 
@@ -243,36 +313,73 @@ This figure can perfectly show the input offset voltage of the circuit. From 0 V
 Input Common Mode Range
 ------------------------------
 Input Common Mode Range (ICMR) is the voltage that can be applied to both input port to make the circuit in the correct working mode. With a proper input voltage, all the transistors should be in saturation mode. The following figure shows the test bench of ICMR.
+
+.. figure:: images/ECE425_15.png
+   :align: center
  
 Vin can’t be connected to ground as it is shown in the lab manual, that is because we have only one single power supply in the circuit. 
 In order to test the VCM range, I scan the input voltage from 0V to 1.8 V. I am getting the output voltage as it is shown in the following figure
+
+.. figure:: images/ECE425_16.png
+   :align: center
  
 The input voltage VCM is a scan from 0 V to 1.8V. To view the result better, I did a subtraction to the input voltage and the output voltage by using calculator in the tool tab, the result can be shown in the following figure
+
+.. figure:: images/ECE425_17.png
+   :align: center
  
 It can be clearly seen that the voltage become stable at 0.5V and keep flat until 0.9V. I didn’t use the complementary input technology, so form 0.3 to 0.5 is not the proper VCM.
 
 Output swing
 -------------------
 The output swing is the range that the output can approach. The testbench of the output swing can be shown in the following figure.
+
+.. figure:: images/ECE425_18.png
+   :align: center
  
 To make this simpler, I make both R1 and R2 as 10K, so this schematic become an input follower. Whatever I have as the input the output will give up the same output. And I set the simulation at transfer function analysis. I tested a few set of input and found the output swing at around 0.1 to 1.1 which is larger than 0.3 to 0.9.  The following figures shows the simulation results. Among all these test cases, the VCM is 0.6.
+
+.. figure:: images/ECE425_19.png
+   :align: center
+   :width: 500
+
+.. figure:: images/ECE425_20.png
+   :align: center
+   :width: 500
+
+
 
 
 Openloop response
 -----------------------
 In order to see the performance of the output signal compare to the input signal. I select tran analysis and do the simulation. The VCM is set to 0.6 V. And input have a Vpp of 0.2mV and frequency of 10Hz. The following figure shows the plot of output signal and input signal. The input signal looks like a single line that is because the input swing is too small.
+
+.. figure:: images/ECE425_21.png
+   :align: center
+   :width: 500
  
 I also test the same setup with different VCM the output can be shown in the following Table.
+
+.. figure:: images/ECE425_T4.png
+   :align: center
 
 
 Performance evaluation
 ===========================
 This table shows all the design parameters and their DC operating points. ‘dc’ in the table means ‘don’t care’, don’t care is not saying I didn’t carefully design them, it means these value are not critical to the design.
 
+.. figure:: images/ECE425_T5.png
+   :align: center
 
 Openloop Gain
 -----------------
 The following Table is drawn from the Bode Plot with different VCM. 
+
+.. figure:: images/ECE425_T6.png
+   :align: center
+
+.. figure:: images/ECE425_22.png
+   :align: center
 
 The upper figure is the unity gain Frequency, it is almost stable while VCM is 0.5V to 0.9V. The bottom figure is DC gain compare to the VCM.
 
@@ -281,20 +388,30 @@ Slew Rate
 -------------
 As it presented before, Slew rate is tested by dividing voltage change by time interval. The following table shows that rising slew rate is 19.768 V/us and falling slew rate is 21.234 V/us
 
+.. figure:: images/ECE425_T7.png
+   :align: center
+
+
 ICMR
 ---------
 
+.. figure:: images/ECE425_T8.png
+   :align: center
 
 Output swing
 ----------------
 
+.. figure:: images/ECE425_T9.png
+   :align: center
+
 Power Consumption
 -----------------------
 Although there is no requirement on the power consumption. I still did a static power consumption check for my design. The following figure is the result.
+
+.. figure:: images/ECE425_T9.png
+   :align: center
  
 The static power consumption is 1.969 mW. According to my calculation, the power consumption is 0.456 mW. I think the additional power consumption are coming from the bias circuit, since I have added a lot more transistors to stabilize the ID5 to be 60 uA.
-
-
 
 Conclusion
 =================

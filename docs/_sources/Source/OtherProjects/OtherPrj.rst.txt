@@ -11,6 +11,7 @@ Other Projects
    
    GRBL_PythonLib.rst
    PyvisaOSC_control.rst
+   SSP.rst
    CheckeeCrawl.rst
    NEXYS4DDR-OV7640.rst
    RGBPannel.rst
