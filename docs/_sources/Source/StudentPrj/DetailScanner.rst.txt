@@ -13,6 +13,20 @@ System Implementation
 
     <iframe src="https://myhub.autodesk360.com/ue2b76abc/shares/public/SHabee1QT1a327cf2b7a0f771dfd0b63834e?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
 
+|
+
+Results
+==========================
+
+.. figure:: image/detailscanraw.PNG
+   :align: center
+
+   Figure. 1. Images collected from the scanner.
+
+.. figure:: image/detailscanresult.PNG
+   :align: center
+
+   Figure. 1. 3D reconstruction results.
 
 
 publication

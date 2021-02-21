@@ -6,7 +6,23 @@ Introduction
 ==========================
 According to the global cancer data report of the International Agency for Research on Cancer, breast cancer already becomes a common and widespread disease around the world and is also the leading cause of death from cancer in women. Compared with mammograms and magnetic resonance imaging, breast ultrasound imaging is a universal and inexpensive test method for breast lesion screening without additional risk from radiation. However, most radiologists still need support and assistance from the computer-aided diagnosis systems for the detection and classification of breast cancer in ultrasonic images by improving the differentiation between malignant and benign lesions. In this paper, we propose a lesion detection and classification algorithm for breast cancer using Faster Region Convolutional Neural Networks (Faster R-CNN) applied to ultrasonic images. The proposed algorithm is capable of locating breast lesions with a bounding box and characterizing the detected lesion as malignant or benign. An open-access series of ultrasonic data of breast lesions is used for training and testing the Faster R-CNN, and the examination result shows that the algorithm is capable of precisely locate and characterize the breast lesion with the accuracy of more than 95%.
 
+Results
+========================
 
+.. figure:: image/rawdata.PNG
+   :align: center
+
+   Figure. 1. OASBUD raw data.
+
+.. figure:: image/boundbox.PNG
+   :align: center
+
+   Figure. 2. Bounding box generated around the candidate.
+
+.. figure:: image/detectresult.PNG
+   :align: center
+
+   Figure. 3. Detection results with confidence level.
 
 publication
 =====================
