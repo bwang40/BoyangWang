@@ -7,3 +7,5 @@ Supervised Students' Projects
 
    FRNN.rst
    DetailScanner.rst
+   zynqvideoproc.rst
+   zynq_audio.rst

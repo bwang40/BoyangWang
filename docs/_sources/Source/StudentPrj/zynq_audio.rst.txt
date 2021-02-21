@@ -1,0 +1,14 @@
+****************************************************************************************
+Audio Signal Subband Decomposition and Reconstruction using ZYNQ APSoC (2018)
+****************************************************************************************
+
+This project wins the `2018 ECE Day Poster Competition Awards`_
+
+.. _`2018 ECE Day Poster Competition Awards`: http://ecasp.ece.iit.edu/files/ECE%20Day%20News%20Letter.pdf
+
+
+Poster
+==============
+
+.. figure:: image/zynq_audioproc.png
+   :align: center

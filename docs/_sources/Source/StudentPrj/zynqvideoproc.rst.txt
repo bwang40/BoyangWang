@@ -1,0 +1,22 @@
+
+********************************************************************************************************
+ZYNQ APSoC based real-time HDMI Video Processing (2019)
+********************************************************************************************************
+
+This is a project done by two students who participate the summer camp with ECASP lab in 2019. The project is the **first place winner** at **2019 Summer Elevate Poster Competition** hosted by IIT Armour College of Engineering.
+
+A demonstration video is available at `Link`_.
+
+.. _`Link`: http://ecasp.ece.iit.edu/video/summer2019/china_fpga_2019.mp4
+
+Poster1
+===================
+
+.. figure:: image/p1.png
+   :align: center
+
+Poster2
+====================
+
+.. figure:: image/p2.png
+   :align: center
