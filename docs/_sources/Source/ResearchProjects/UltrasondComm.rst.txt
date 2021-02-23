@@ -6,6 +6,32 @@ Software Defined Ultrasonic Communication System based on ZYNQ SoC (2017-2020)
 .. figure:: image/UltraCommPost.png
    :align: center
 
+The DDC and DUC implementation on ZYNQ SoC is referenced from this `GitHub repository`_.
+
+.. _`GitHub repository`: https://github.com/pavel-demin/red-pitaya-notes
+
+The following figures shows details of this project.
+
+.. figure:: image/SYS.png
+   :align: center
+
+   Figure 1. DUC and DDC on FPGA Block Diagram.
+
+.. figure:: image/TRX.png
+   :align: center
+
+   Figure 2. Tranceiver Block Diagram.
+
+.. figure:: image/TX.png
+   :align: center
+
+   Figure 3. DUC on Transmitter
+
+.. figure:: image/RX.png
+   :align: center
+
+   Figure 4. DDC on Reiceiver
+
 .. note::
    Note: The page is a demonstration of the project basic layouts, details can be found in my papers.
 
