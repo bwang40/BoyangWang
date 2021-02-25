@@ -42,6 +42,41 @@ Figure 4. is the slice plane plot of the envelopes of the ultrasonic data. Befor
    :scale: 50
 
    Figure. 4. Slice Plane Plot of the Test Results. 
+   
+For demonstration, I applied 2D NDT scanning to six different steel blocks (labeled by Sample 0 to Sample 5) to collect backscattered signals. Each 2D NDT scanning result collected contains :math:`200 \times 200` A-scans along the x-axis and y-axis, covering a :math:`2 \times 2 cm^{2}` area of the test specimens. Rendering the 3D ultrasonic data in different methods can reveal different aspects of information in the test specimen. 
+We will provide four different volumetric data visualization methods for demonstration, including slice plane plot, volume rendering, max intensity project, and isosurface plot. 
+
+Figure 5 shows the slice plane plots of the envelopes of collected datasets. Each slice plane plot contains three parts, including the XY plane plot, XZ plane plot, and XY plane plot. These plotted planes are selected from the middle of the volumetric data, as it is shown in Figure 5. The slice plane plot provides intuitive views of B-scans and C-scans of the volumetric data.
+
+.. figure:: image/2_15.PNG
+   :align: center
+
+   Figure. 5. Slice Plane Plots of the Ultrasonic Volumetric Data Envelopes.
+
+Figure 6 is the maximum intensity projection (MIP) plots of the collected ultrasonic datasets. MIP is a method for volumetric data visualization that projects the voxels with the highest intensity to the 2D visualization planes. As shown in Figure 6, MIP successfully enhances the high-intensity echoes in the ultrasonic dataset. It helps the researchers to locate the potential abnormal echoes in the dataset.
+
+.. figure:: image/2_16.PNG
+   :align: center
+
+   Figure. 6. MAX Intensity Projection of the Ultrasonic Volumetric Data.
+
+Figure 7 shows the volume rendering plots of the envelopes of collected datasets.
+An alphamap is necessary for the volume rendering plots to define the opacity of the voxels according to the intensity. The volume rendering plots in Figure 7 utilize the linear alphamap. 
+
+.. figure:: image/2_17.PNG
+   :align: center
+
+   Figure. 7. Volume Rendering.
+
+Figure 8 shows the isosurface plots of the envelopes of collected ultrasonic datasets.
+Different from other volumetric data visualization methods, the isosurface of the 3D dataset can be acquired by plotting the boundaries of the voxels with the same intensity.
+This constant value of intensity can be specified by the researchers according to the dataset to be displayed. Isosurface plots in Figure 8 can successfully reveal the textures of the collected data in a 3D space.
+
+.. figure:: image/2_18.PNG
+   :align: center
+
+   Figure. 8. Isosurface Plots of the Ultrasonic Volumetric Data Envelopes.
+
 
 .. note::
    Note: The page is a demonstration of the project basic layouts, details can be found in my papers.

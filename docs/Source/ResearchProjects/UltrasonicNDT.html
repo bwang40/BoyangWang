@@ -506,6 +506,31 @@
 <a class="reference internal image-reference" href="../../_images/USAP_testresult.PNG"><img alt="../../_images/USAP_testresult.PNG" src="../../_images/USAP_testresult.PNG" style="width: 226.0px; height: 401.5px;" /></a>
 <p class="caption"><span class="caption-text">Figure. 4. Slice Plane Plot of the Test Results.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
+<p>For demonstration, I applied 2D NDT scanning to six different steel blocks (labeled by Sample 0 to Sample 5) to collect backscattered signals. Each 2D NDT scanning result collected contains <span class="math notranslate nohighlight">\(200 \times 200\)</span> A-scans along the x-axis and y-axis, covering a <span class="math notranslate nohighlight">\(2 \times 2 cm^{2}\)</span> area of the test specimens. Rendering the 3D ultrasonic data in different methods can reveal different aspects of information in the test specimen.
+We will provide four different volumetric data visualization methods for demonstration, including slice plane plot, volume rendering, max intensity project, and isosurface plot.</p>
+<p>Figure 5 shows the slice plane plots of the envelopes of collected datasets. Each slice plane plot contains three parts, including the XY plane plot, XZ plane plot, and XY plane plot. These plotted planes are selected from the middle of the volumetric data, as it is shown in Figure 5. The slice plane plot provides intuitive views of B-scans and C-scans of the volumetric data.</p>
+<div class="figure align-center" id="id5">
+<img alt="../../_images/2_15.PNG" src="../../_images/2_15.PNG" />
+<p class="caption"><span class="caption-text">Figure. 5. Slice Plane Plots of the Ultrasonic Volumetric Data Envelopes.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Figure 6 is the maximum intensity projection (MIP) plots of the collected ultrasonic datasets. MIP is a method for volumetric data visualization that projects the voxels with the highest intensity to the 2D visualization planes. As shown in Figure 6, MIP successfully enhances the high-intensity echoes in the ultrasonic dataset. It helps the researchers to locate the potential abnormal echoes in the dataset.</p>
+<div class="figure align-center" id="id6">
+<img alt="../../_images/2_16.PNG" src="../../_images/2_16.PNG" />
+<p class="caption"><span class="caption-text">Figure. 6. MAX Intensity Projection of the Ultrasonic Volumetric Data.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Figure 7 shows the volume rendering plots of the envelopes of collected datasets.
+An alphamap is necessary for the volume rendering plots to define the opacity of the voxels according to the intensity. The volume rendering plots in Figure 7 utilize the linear alphamap.</p>
+<div class="figure align-center" id="id7">
+<img alt="../../_images/2_17.PNG" src="../../_images/2_17.PNG" />
+<p class="caption"><span class="caption-text">Figure. 7. Volume Rendering.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>Figure 8 shows the isosurface plots of the envelopes of collected ultrasonic datasets.
+Different from other volumetric data visualization methods, the isosurface of the 3D dataset can be acquired by plotting the boundaries of the voxels with the same intensity.
+This constant value of intensity can be specified by the researchers according to the dataset to be displayed. Isosurface plots in Figure 8 can successfully reveal the textures of the collected data in a 3D space.</p>
+<div class="figure align-center" id="id8">
+<img alt="../../_images/2_18.PNG" src="../../_images/2_18.PNG" />
+<p class="caption"><span class="caption-text">Figure. 8. Isosurface Plots of the Ultrasonic Volumetric Data Envelopes.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note: The page is a demonstration of the project basic layouts, details can be found in my papers.</p>
