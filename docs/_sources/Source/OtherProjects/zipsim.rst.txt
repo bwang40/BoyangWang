@@ -1,0 +1,79 @@
+.. ZipSim Report documentation master file, created by
+   sphinx-quickstart on Sat Mar 27 16:09:00 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+
+Zip Sim Code Challenge Report
+===================================
+
+Introduction
+-----------------
+This Code Challenge is from ZipLine, the purpose is to write an "auto-pilot" program to fly a zipline vehicle and successfully deliver as many packages as possible while avoiding crashing. 
+The code is share through GoogleDrive at: https://drive.google.com/file/d/1Aoxa3kLSratTSdtsOjs6LtbQ5LNkRlFA/view?usp=sharing
+
+
+Implementation
+-----------------
+
+When I first read the code challenge description, I had two plans for implementing the auto pilot algorithm. These two methods are **machine learning based auto-pilot** and **analytical auto-pilot algorithms**. 
+
+For machine learning method, I am planning to pass all telemetry data into reinforcement learning algorithm and let the training finish the rest of the algorithm. **After carefully reading the project description, I found that this idea is not valid.** According to the requirents, the only information our auto-pilot algorithm getting is telemetry_packet, which includes vehicle location, wind vector, time stamp, and lidar information. We are not getting delivered message and crash message to evaluate the score of the test flight. 
+
+The second method is the analytical method. This algorithm generally include ``telemetry pakcet parser``, ``command packet maker``, ``lidar infomation explaner``, ``tree/pad logger``, ``smart auto-pilot algorithm``, and ``PID controller``.
+
+Figure 1 shows the overall system diagram. The vehicle will pass telemetry pakcet to the auto-pilot algorihtm and the auto-pilot algorithm will return command packet to control the speed of the vehicle on the Y-axis. Here I leave a backdoor for humans to intervene the pilot process in case of the emergency situations. The manual control will also benefit the debugging process. 
+
+.. _sys_bd:
+
+.. figure:: image/ZipSimBD.png
+   :align: center
+   :width: 400
+
+   Figure 1. Overall System Diagram.
+
+Figure 2 shows the auto-pilot algorithm block diagram. 
+
+.. _autopilotbd:
+
+.. figure:: image/AutoPilotBD.png
+   :align: center
+   :width: 800
+
+   Figure 2. Auto Pilot Algorithm Block Diagram.
+
+Figure 3 shows the block diagram of the PID controller for the vehicle position control.
+   
+.. _pid_bd:
+
+.. figure:: image/PID_Control.png
+   :align: center
+   :width: 800
+
+   Figure 3. PID Controller Diagram.
+
+Figure 4 shows how trees can be found with lidar. After compuates the tree offsets compared with the vehicle location, we can compute the absolute positions of the trees. The trees will be logged until we pass it. Once it enters the range of alert, we will mark it on the 1D map grid.
+
+.. _lidar_range:
+
+.. figure:: image/lidar_range.png
+   :align: center
+   :width: 300
+
+   Figure 4. Lidar Converage.
+
+
+Results
+------------
+
+Figure 5 shows that the algorith can precisely detect the trees and pads according to the diameters, and mark them on the 1D map in my system.
+
+.. _result_sim:
+
+.. figure:: image/SimulationResult.png
+   :align: center
+   :width: 800
+
+   Figure 5. Simulation Result.
+
+Simulation result shows that among 1000 flights, the number of ZIPAA vilolation is 7 times, the delivery rate is 58.49%, and the crash rate is 22.7%. I think this can be improved if I fine ajust the parameters. Due to the time limit, I will leave it as it is for now. The crashes are mostly caused by trees blocked by trees, by changing the margins of the flight, we can reduce the crash rate.

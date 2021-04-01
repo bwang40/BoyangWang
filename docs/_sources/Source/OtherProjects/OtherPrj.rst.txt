@@ -9,6 +9,7 @@ Other Projects
 .. toctree::
    :maxdepth: 1
    
+   zipsim.rst
    GRBL_PythonLib.rst
    PyvisaOSC_control.rst
    SSP.rst
