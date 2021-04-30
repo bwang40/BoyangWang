@@ -4,12 +4,12 @@
    contain the root `toctree` directive.
 
 
-Zip Sim Code Challenge Report
-===================================
+Drone Auto-Drive Code Challenge Report
+==========================================
 
 Introduction
 -----------------
-This Code Challenge is from ZipLine, the purpose is to write an "auto-pilot" program to fly a zipline vehicle and successfully deliver as many packages as possible while avoiding crashing. 
+This an online Code Challenge, the purpose is to write an "auto-pilot" program to fly a drone vehicle and successfully deliver as many packages as possible while avoiding crashing. 
 The code challenge is licensed not to be distributed, so I am only going to describe my approach here.
 
 Implementation
